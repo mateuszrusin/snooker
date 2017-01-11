@@ -1,3 +1,18 @@
-<h1>
-  {{title}}
-</h1>
+<div style="text-align: center">
+    <span *ngFor="let ball of balls">
+        <svg class="balls">
+            <circle cx="50" cy="50" r="40" attr.fill="{{ball.color}}" (click)="onSelect(ball)" />
+        </svg>
+        <br *ngIf="ball.points == 1">
+    </span>
+    <br /><br />
+    <h3>Break: {{break.total}}</h3>
+    <h3>Bil: {{break.order.length}}</h3>
+    <span *ngFor="let ball of break.order">
+        <svg height="10" width="10">
+            <circle cx="5" cy="5" r="5" attr.fill="{{ball.color}}" />
+        </svg>
+    </span>
+    <br /><br />
+    <button (click)="reset()">RESET</button>
+</div>
