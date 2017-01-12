@@ -1,3 +1,5 @@
+import { Ball } from './ball';
+
 export const BALLS: Ball[] = [
     { points: 1, color: 'red' },
     { points: 2, color: 'yellow' },

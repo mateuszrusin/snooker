@@ -1,6 +1,23 @@
-<div style="text-align: center">
+<div class="center">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <h1 class="center">{{player1.name}}</h1>
+                <h3><span *ngIf="activePlayer == player1">*</span> {{player1.points}}</h3>
+            </div>
+            <div class="col-2">
+                <h1 class="center">(19)</h1>
+                <h3>{{player1.frames}} : {{player2.frames}}</h3>
+            </div>
+            <div class="col-5">
+                <h1 class="center">{{player2.name}}</h1>
+                <h3>{{player2.points}}<span *ngIf="activePlayer == player2">*</span></h3>
+            </div>
+        </div>
+    </div>
+
     <span *ngFor="let ball of balls">
-        <svg class="balls">
+        <svg class="ball">
             <circle cx="50" cy="50" r="40" attr.fill="{{ball.color}}" (click)="onSelect(ball)" />
         </svg>
         <br *ngIf="ball.points == 1">
@@ -9,10 +26,12 @@
     <h3>Break: {{break.total}}</h3>
     <h3>Bil: {{break.order.length}}</h3>
     <span *ngFor="let ball of break.order">
-        <svg height="10" width="10">
+        <svg class="mini">
             <circle cx="5" cy="5" r="5" attr.fill="{{ball.color}}" />
         </svg>
     </span>
     <br /><br />
-    <button (click)="reset()">RESET</button>
+    <button (click)="enter()">ENTER</button>
+    <button (click)="foul()">FOUL</button>
+    <button (click)="frame()">FRAME</button>
 </div>
