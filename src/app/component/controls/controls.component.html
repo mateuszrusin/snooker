@@ -1,0 +1,12 @@
+<div class="col-12">
+    <span *ngFor="let ball of balls">
+        <svg class="ball">
+          <circle cx="50" cy="50" r="40" attr.fill="{{ball.color}}" (click)="select(ball)" />
+        </svg>
+        <br *ngIf="ball.points == 1">
+    </span>
+  <br /><br />
+  <button (click)="enter()">ENTER</button>
+  <button (click)="foul()">FOUL</button>
+  <button (click)="frame()">FRAME</button>
+</div>

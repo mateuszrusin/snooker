@@ -1,0 +1,12 @@
+<div class="col-5">
+    <h1 class="center">{{player1.name}}</h1>
+    <h3><span *ngIf="activePlayerService.activePlayer == player1">*</span> {{player1.points}}</h3>
+</div>
+<div class="col-2">
+    <h1 class="center">(19)</h1>
+    <h3>{{player1.frames}} : {{player2.frames}}</h3>
+</div>
+<div class="col-5">
+    <h1 class="center">{{player2.name}}</h1>
+    <h3>{{player2.points}}<span *ngIf="activePlayerService.activePlayer == player2">*</span></h3>
+</div>

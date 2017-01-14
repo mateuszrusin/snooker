@@ -1,4 +1,4 @@
-import { Ball } from './ball';
+import {Ball} from "./../type/ball";
 
 export const BALLS: Ball[] = [
     { points: 1, color: 'red' },

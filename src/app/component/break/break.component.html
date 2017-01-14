@@ -1,0 +1,11 @@
+<div class="col-12">
+    <h3>Break: {{breakService.break.total}}</h3>
+    <h3>Bil: {{breakService.break.order.length}}</h3>
+    <div class="break">
+        <span *ngFor="let ball of breakService.break.order">
+            <svg class="mini">
+                <circle cx="5" cy="5" r="5" attr.fill="{{ball.color}}"/>
+            </svg>
+        </span>
+    </div>
+</div>
