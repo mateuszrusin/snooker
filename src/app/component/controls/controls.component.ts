@@ -1,8 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {Ball} from "../../type/ball";
-import {BALLS} from "../../data/balls";
 import {ActivePlayerService} from "./../../service/active-player/active-player.service.ts";
 import {BreakService} from "../../service/break/break.service";
+import {BallsService} from "../../service/balls/balls.service";
+import {PlayersService} from "../../service/players/players.service";
+import {Player} from "../../type/player";
 
 @Component({
     selector: 'app-controls',
@@ -10,18 +12,22 @@ import {BreakService} from "../../service/break/break.service";
     styleUrls: ['./controls.component.css']
 })
 export class ControlsComponent implements OnInit {
-    balls = BALLS;
+    balls: Ball[];
 
     activePlayerService: ActivePlayerService;
     breakService: BreakService;
+    ballsService: BallsService;
+    playersService: PlayersService;
 
-    constructor(activePlayerService:ActivePlayerService, breakService:BreakService) {
+    constructor(activePlayerService:ActivePlayerService, breakService:BreakService, ballsService: BallsService, playersService: PlayersService) {
         this.activePlayerService = activePlayerService;
         this.breakService = breakService;
+        this.ballsService = ballsService;
+        this.playersService = playersService;
     }
 
     ngOnInit():void {
-
+        this.balls = this.ballsService.getBalls();
     }
 
     select(ball:Ball):void {
@@ -35,15 +41,16 @@ export class ControlsComponent implements OnInit {
     }
 
     frame():void {
-        // var winner = this.chooseFrameWinner();
-        //
-        // if (winner) {
-        //     winner.frames++;
-        //     this.startFrame();
-        // } else {
-        //     alert("Draw, need to re-spot black :D")
-        //     this.resetBreak();
-        // }
+        var winner:Player = this.playersService.getFrameWinner();
+
+        if (winner) {
+            this.playersService.updateFrameWinner(winner);
+            this.playersService.startNewFrame();
+        } else {
+            alert("Draw, need to re-spot black :D");
+        }
+
+        this.breakService.resetBreak();
     }
 
     foul():void {
@@ -54,22 +61,4 @@ export class ControlsComponent implements OnInit {
     showFoulPrompt():number {
         return parseInt(prompt('Foul: '));
     }
-
-    chooseFrameWinner():any {
-        // switch (true) {
-        //     case this.player1.points > this.player2.points:
-        //         return this.player1;
-        //     case this.player1.points < this.player2.points:
-        //         return this.player2;
-        //     default:
-        //         return null;
-        // }
-    }
-
-    startFrame():void {
-        // this.player1.points = 0;
-        // this.player2.points = 0;
-        // this.resetBreak();
-    }
-
 }
