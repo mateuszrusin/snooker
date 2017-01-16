@@ -52,13 +52,4 @@ export class ControlsComponent implements OnInit {
 
         this.breakService.resetBreak();
     }
-
-    foul():void {
-        this.enter();
-        this.activePlayerService.addPoints(this.showFoulPrompt());
-    }
-
-    showFoulPrompt():number {
-        return parseInt(prompt('Foul: '));
-    }
 }

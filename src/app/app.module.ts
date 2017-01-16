@@ -10,25 +10,32 @@ import {PlayersService} from "./service/players/players.service";
 import {ActivePlayerService} from "./service/active-player/active-player.service";
 import {BreakService} from "./service/break/break.service";
 import {BallsService} from "./service/balls/balls.service";
+import { FoulComponent } from './component/foul/foul.component';
+import {SplitButtonModule, ButtonModule} from "primeng/primeng";
+import {AppRoutingModule} from "./app.routes";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PlayersComponent,
-    BreakComponent,
-    ControlsComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [
-      PlayersService,
-      ActivePlayerService,
-      BreakService,
-      BallsService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PlayersComponent,
+        BreakComponent,
+        ControlsComponent,
+        FoulComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        SplitButtonModule,
+        ButtonModule
+    ],
+    providers: [
+        PlayersService,
+        ActivePlayerService,
+        BreakService,
+        BallsService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
