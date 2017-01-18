@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {MenuItem} from "primeng/primeng";
-import {ActivePlayerService} from "../../service/active-player/active-player.service";
-import {BreakService} from "../../service/break/break.service";
+import {Break} from "../../service/break/break.service";
+import {PlayersService} from "../../service/players/players.service";
 
 @Component({
     selector: 'app-control-foul',
@@ -12,12 +12,12 @@ export class FoulComponent implements OnInit {
 
     items: MenuItem[];
 
-    activePlayerService: ActivePlayerService;
-    breakService: BreakService;
+    private players: PlayersService;
+    private break: Break;
 
-    constructor(activePlayerService: ActivePlayerService, breakService: BreakService) {
-        this.activePlayerService = activePlayerService;
-        this.breakService = breakService;
+    constructor(playersService: PlayersService, breakService: Break) {
+        this.players = playersService;
+        this.break = breakService;
     }
 
     ngOnInit() {
@@ -30,9 +30,9 @@ export class FoulComponent implements OnInit {
     }
 
     foul(points: number): void {
-        this.activePlayerService.togglePlayer();
-        this.activePlayerService.addPoints(points);
-        this.breakService.resetBreak();
+        this.players.toggle();
+        this.players.addPoints(points);
+        this.break.reset();
 
         return;
     }

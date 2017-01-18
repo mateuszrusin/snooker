@@ -1,0 +1,12 @@
+{
+  "players": {
+    "player1": {
+      "name": "Bronisław Maliszewski",
+      "start": true
+    },
+    "player2": {
+      "name": "Mieczysław Wiśniewski",
+      "start": false
+    }
+  }
+}

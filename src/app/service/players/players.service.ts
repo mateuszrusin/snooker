@@ -1,27 +1,31 @@
-import {Injectable} from "@angular/core";
+import {Injectable, OnInit} from "@angular/core";
 import {Player} from "../../type/player";
+import {ConfigService} from "../config/config.service";
 
 @Injectable()
 export class PlayersService {
 
-    player1: Player = {
-        name: 'Jan Maj',
-        points: 0,
-        frames: 0
+    private config: any;
+
+    player1: Player;
+    player2: Player;
+
+    constructor(configService: ConfigService) {
+        this.config = configService.get('players');
+
+        //playerFactory?
+        this.player1 = this.create(this.config.player1);
+        this.player2 = this.create(this.config.player2);
     }
 
-    player2: Player = {
-        name: 'Adam Nowak',
-        points: 0,
-        frames: 0
+    toggle(): void {
+        this.player1.active = !this.player1.active;
+        this.player2.active = !this.player2.active;
     }
 
-    getFirstPlayer(): Player {
-        return this.player1;
-    }
 
-    getSecondPlayer(): Player {
-        return this.player2;
+    addPoints(points: number): void {
+        this.active().points += points;
     }
 
     getFrameWinner(): Player {
@@ -42,5 +46,18 @@ export class PlayersService {
     startNewFrame(): void {
         this.player1.points = 0;
         this.player2.points = 0;
+    }
+
+    private create(data): Player {
+        return {
+            name: data.name,
+            points: 0,
+            frames: 0,
+            active: data.start
+        }
+    }
+
+    private active(): Player {
+        return this.player1.active ? this.player1 : this.player2;
     }
 }

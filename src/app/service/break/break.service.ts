@@ -1,21 +1,19 @@
-import { Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Ball} from "../../type/ball";
-import {Break} from "../../type/break";
 
 @Injectable()
-export class BreakService {
+export class Break {
 
-    break: Break;
+    order: Ball[] = [];
+    total: number = 0;
 
-    resetBreak(): void {
-        this.break = {
-            total: 0,
-            order: []
-        }
+    reset(): void {
+        this.total = 0;
+        this.order = [];
     }
 
-    updateBreak(ball: Ball): void {
-        this.break.order.push(ball);
-        this.break.total += ball.points;
+    update(ball: Ball): void {
+        this.order.push(ball);
+        this.total += ball.points;
     }
 }
