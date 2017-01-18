@@ -4,6 +4,8 @@ import {Break} from "../../service/break/break.service";
 import {BallsService} from "../../service/balls/balls.service";
 import {PlayersService} from "../../service/players/players.service";
 import {Player} from "../../type/player";
+import {MenuItem} from "primeng/primeng";
+import {StateService} from "../../service/state/state.service";
 
 @Component({
     selector: 'app-controls',
@@ -12,40 +14,37 @@ import {Player} from "../../type/player";
 })
 export class ControlsComponent implements OnInit {
     balls: Ball[];
+    fouls: MenuItem[];
+    
+    private state: StateService;
 
-    private break: Break;
-    private players: PlayersService;
-
-    constructor(breakService:Break, ballsService: BallsService, playersService: PlayersService) {
+    constructor(ballsService: BallsService, stateService: StateService) {
         this.balls = ballsService.getBalls();
-        this.break = breakService;
-        this.players = playersService;
+        this.state = stateService;
     }
 
     ngOnInit() {
-
+        this.fouls = [
+            {label: '4', icon: 'fa-hand-paper-o', command: () => { this.foul(4) }},
+            {label: '5', icon: 'fa-hand-paper-o', command: () => { this.foul(5) }},
+            {label: '6', icon: 'fa-hand-paper-o', command: () => { this.foul(6) }},
+            {label: '7', icon: 'fa-hand-paper-o', command: () => { this.foul(7) }},
+        ];
     }
 
     select(ball:Ball):void {
-        this.break.update(ball);
-        this.players.addPoints(ball.points);
+        this.state.select(ball);
     }
 
     enter():void {
-        this.players.toggle();
-        this.break.reset();
+        this.state.enter();
+    }
+
+    foul(points: number): void {
+        this.state.foul(points);
     }
 
     frame():void {
-        var winner: Player = this.players.getFrameWinner();
-
-        if (winner) {
-            this.players.updateFrameWinner(winner);
-            this.players.startNewFrame();
-        } else {
-            alert("Draw, need to re-spot black :D");
-        }
-
-        this.break.reset();
+        this.state.frame();
     }
 }

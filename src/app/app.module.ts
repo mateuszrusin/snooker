@@ -9,12 +9,12 @@ import {ControlsComponent} from "./component/controls/controls.component";
 import {PlayersService} from "./service/players/players.service";
 import {Break} from "./service/break/break.service";
 import {BallsService} from "./service/balls/balls.service";
-import {FoulComponent} from "./component/foul/foul.component";
 import {SplitButtonModule, ButtonModule} from "primeng/primeng";
 import {AppRoutingModule} from "./app.routes";
 import {ConfigService} from "./service/config/config.service";
 import {ResultComponent} from "./component/result/result.component";
 import { PreviewComponent } from './component/preview/preview.component';
+import {StateService} from "./service/state/state.service";
 
 @NgModule({
     declarations: [
@@ -22,7 +22,6 @@ import { PreviewComponent } from './component/preview/preview.component';
         PlayersComponent,
         BreakComponent,
         ControlsComponent,
-        FoulComponent,
         ResultComponent,
         PreviewComponent
     ],
@@ -38,7 +37,8 @@ import { PreviewComponent } from './component/preview/preview.component';
         PlayersService,
         Break,
         BallsService,
-        ConfigService
+        ConfigService,
+        StateService
     ],
     bootstrap: [AppComponent]
 })

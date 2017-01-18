@@ -4,7 +4,7 @@ import {ControlsComponent} from "./component/controls/controls.component";
 import {PreviewComponent} from "./component/preview/preview.component";
 import {ResultComponent} from "./component/result/result.component";
 
-const appRoutes: Routes = [
+const ROUTES: Routes = [
     { path: 'control', component: ControlsComponent },
     { path: 'result', component: ResultComponent },
     { path: '', component: PreviewComponent }
@@ -12,7 +12,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(ROUTES)
     ],
     exports: [
         RouterModule

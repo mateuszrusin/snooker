@@ -15,6 +15,6 @@ export class PlayersComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.players.toggle();
+        
     }
 }

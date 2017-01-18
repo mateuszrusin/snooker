@@ -10,7 +10,7 @@
                     </span>
                 <br /><br />
                 <button pButton type="button" (click)="enter()" label="Enter"></button>
-                <app-control-foul></app-control-foul>
+                <p-splitButton [model]="fouls" (onClick)="foul(4)" label="Foul (4)"></p-splitButton>
                 <button pButton type="button" (click)="frame()" label="Frame"></button>
             </div>
         </div>
