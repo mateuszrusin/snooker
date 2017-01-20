@@ -4,6 +4,7 @@ import {PlayersService} from "../players/players.service";
 import {Ball} from "../../type/ball";
 import {Player} from "../../type/player";
 import {State} from "../../type/state";
+import * as SimplePeer from 'simple-peer';
 
 @Injectable()
 export class StateService implements OnInit {
@@ -16,10 +17,10 @@ export class StateService implements OnInit {
     constructor(breakService: Break, playersService: PlayersService) {
         this.break = breakService;
         this.players = playersService;
+
     }
     
     ngOnInit() {
-    
     }
 
     select(ball: Ball):void {
@@ -32,6 +33,10 @@ export class StateService implements OnInit {
         this.players.toggle();
         this.break.reset();
         this.save();
+
+        const peer = new SimplePeer();
+        console.log(peer);
+
     }
 
     foul(points: number): void {
