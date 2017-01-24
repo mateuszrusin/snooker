@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
+import * as SimplePeer from "simple-peer";
 
 @Component({
   selector: 'app-result',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

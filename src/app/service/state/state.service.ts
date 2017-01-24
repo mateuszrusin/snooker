@@ -17,37 +17,36 @@ export class StateService implements OnInit {
     constructor(breakService: Break, playersService: PlayersService) {
         this.break = breakService;
         this.players = playersService;
-
     }
     
     ngOnInit() {
     }
 
     select(ball: Ball):void {
+        this.save();
         this.break.update(ball);
         this.players.addPoints(ball.points);
-        this.save();
     }
 
-    enter():void {
+    enter(): void {
+        this.save();
         this.players.toggle();
         this.break.reset();
-        this.save();
 
-        const peer = new SimplePeer();
-        console.log(peer);
-
+        // const peer = new SimplePeer();
+        // console.log(peer);
     }
 
     foul(points: number): void {
+        this.save();
         this.players.toggle();
         this.players.addPoints(points);
         this.break.reset();
-        this.save();
     }
 
-    frame():void {
-        var winner: Player = this.players.getFrameWinner();
+    frame(): void {
+        this.save();
+        const winner: Player = this.players.getFrameWinner();
 
         if (winner) {
             this.players.updateFrameWinner(winner);
@@ -57,7 +56,21 @@ export class StateService implements OnInit {
         }
 
         this.break.reset();
-        this.save();
+    }
+
+    back(): void {
+        const state = this.states.pop();
+
+        this.players.player1.points = state.player1.points;
+        this.players.player1.frames = state.player1.frames;
+        this.players.player1.active = state.player1.active;
+
+        this.players.player2.points = state.player2.points;
+        this.players.player2.frames = state.player2.frames;
+        this.players.player2.active = state.player2.active;
+
+        this.break.total = state.break.total;
+        this.break.order = state.break.order.slice();
     }
 
     private save(): void {
@@ -77,7 +90,5 @@ export class StateService implements OnInit {
                 order: this.break.order.slice()
             }
         });
-
-        console.log(this.states);
     }
 }

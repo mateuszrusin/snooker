@@ -8,13 +8,16 @@ import {Break} from "../../service/break/break.service";
 })
 export class BreakComponent implements OnInit {
 
-    break: Break;
-
+    private break: Break;
+    
     constructor(breakService: Break) {
         this.break = breakService;
     }
 
     ngOnInit() {
         this.break.reset();
+
+
+
     }
 }

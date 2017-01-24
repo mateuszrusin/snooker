@@ -1,9 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Ball} from "../../type/ball";
-import {Break} from "../../service/break/break.service";
 import {BallsService} from "../../service/balls/balls.service";
-import {PlayersService} from "../../service/players/players.service";
-import {Player} from "../../type/player";
 import {MenuItem} from "primeng/primeng";
 import {StateService} from "../../service/state/state.service";
 
@@ -15,6 +12,8 @@ import {StateService} from "../../service/state/state.service";
 export class ControlsComponent implements OnInit {
     balls: Ball[];
     fouls: MenuItem[];
+
+    private peer;
     
     private state: StateService;
 
@@ -46,5 +45,9 @@ export class ControlsComponent implements OnInit {
 
     frame():void {
         this.state.frame();
+    }
+
+    back():void {
+        this.state.back();
     }
 }
