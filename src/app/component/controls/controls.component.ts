@@ -14,6 +14,7 @@ export class ControlsComponent implements OnInit {
     fouls: MenuItem[];
 
     private peer;
+    private conn;
     
     private state: StateService;
 
@@ -29,10 +30,22 @@ export class ControlsComponent implements OnInit {
             {label: '6', icon: 'fa-hand-paper-o', command: () => { this.foul(6) }},
             {label: '7', icon: 'fa-hand-paper-o', command: () => { this.foul(7) }},
         ];
+
+        this.peer = new Peer('CONTROL', {key: 'd4njqqkyflz69a4i'});
+
+        this.peer.on('open', function(id) {
+
+        });
     }
 
     select(ball:Ball):void {
         this.state.select(ball);
+
+        var conn = this.peer.connect('RESULT');
+
+        conn.on('open', function() {
+            conn.send(ball);
+        });
     }
 
     enter():void {
