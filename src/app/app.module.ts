@@ -15,6 +15,7 @@ import {ConfigService} from "./service/config/config.service";
 import {ResultComponent} from "./component/result/result.component";
 import { PreviewComponent } from './component/preview/preview.component';
 import {StateService} from "./service/state/state.service";
+import {Result} from "./service/result/result.service";
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import {StateService} from "./service/state/state.service";
         Break,
         BallsService,
         ConfigService,
-        StateService
+        StateService,
+        Result
     ],
     bootstrap: [AppComponent]
 })

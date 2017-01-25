@@ -14,13 +14,9 @@ export class ControlsComponent implements OnInit {
     fouls: MenuItem[];
 
     private peer;
-    private conn;
-    
-    private state: StateService;
 
-    constructor(ballsService: BallsService, stateService: StateService) {
+    constructor(ballsService: BallsService, private state: StateService) {
         this.balls = ballsService.getBalls();
-        this.state = stateService;
     }
 
     ngOnInit() {
@@ -34,14 +30,14 @@ export class ControlsComponent implements OnInit {
         this.peer = new Peer('CONTROL', {key: 'd4njqqkyflz69a4i'});
 
         this.peer.on('open', function(id) {
-
+            console.log(id);
         });
     }
 
     select(ball:Ball):void {
         this.state.select(ball);
 
-        var conn = this.peer.connect('RESULT');
+        let conn = this.peer.connect('RESULT');
 
         conn.on('open', function() {
             conn.send(ball);

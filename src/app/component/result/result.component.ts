@@ -1,4 +1,5 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, NgZone} from "@angular/core";
+import {Result} from "../../service/result/result.service";
 
 @Component({
     selector: 'app-result',
@@ -7,21 +8,10 @@ import {Component, OnInit} from "@angular/core";
 })
 export class ResultComponent implements OnInit {
 
-    private peer;
-
-    constructor() { }
-
-    ngOnInit() {
-        this.peer = new Peer('RESULT', {key: 'd4njqqkyflz69a4i'});
-
-        this.peer.on('connection', function(conn) {
-            conn.on('open', function() {
-                // Receive messages
-                conn.on('data', function(data) {
-                    console.log('Received', data);
-                });
-            });
-        });
+    constructor(private result: Result) {
     }
 
+    ngOnInit() {
+
+    }
 }
