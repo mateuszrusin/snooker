@@ -1,5 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {PlayersService} from "../../service/players/players.service";
+import {State} from "../../type/state";
 
 @Component({
     selector: 'app-players',
@@ -8,11 +9,9 @@ import {PlayersService} from "../../service/players/players.service";
 })
 export class PlayersComponent implements OnInit {
 
-    players: PlayersService;
+    @Input() state: State;
 
-    constructor(playersService:PlayersService) {
-        this.players = playersService;
-    }
+    constructor(private game: PlayersService) {}
 
     ngOnInit() {
         

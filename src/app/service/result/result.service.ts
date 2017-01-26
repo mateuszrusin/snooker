@@ -1,14 +1,30 @@
 import {Injectable, NgZone} from "@angular/core";
+import {State} from "../../type/state";
 
 @Injectable()
 export class Result {
 
-    data: any = { points: 123};
+    private state: State = {
+        player1: {
+            points: 0,
+            frames: 0,
+            active: true
+        },
+        player2: {
+            points: 0,
+            frames: 0,
+            active: false
+        },
+        break: {
+            total: 0,
+            order: []
+        }
+    }
 
     private peer;
 
     constructor(private ngZone: NgZone) {
-        this.peer = new Peer('RESULT', {key: 'd4njqqkyflz69a4i'});
+        this.peer = new Peer('RESULT', {key: '0yh3zdxin2zc9pb9'});
 
         this.peer.on('connection', this.connection);
     }
@@ -22,9 +38,8 @@ export class Result {
 
     receive = (data) => {
         this.ngZone.run(() => {
-            console.log(this.data);
-            this.data = data;
-            console.log(this.data);
+            console.log(data);
+            this.state = data;
         })
     }
 }

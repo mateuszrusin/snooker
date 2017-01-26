@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {Break} from "../../service/break/break.service";
 
 @Component({
@@ -8,16 +8,13 @@ import {Break} from "../../service/break/break.service";
 })
 export class BreakComponent implements OnInit {
 
-    private break: Break;
+    @Input() break: Break;
     
     constructor(breakService: Break) {
-        this.break = breakService;
+        //this.break = breakService;
     }
 
     ngOnInit() {
-        this.break.reset();
-
-
-
+        //this.break.reset();
     }
 }

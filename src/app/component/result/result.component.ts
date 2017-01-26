@@ -8,8 +8,7 @@ import {Result} from "../../service/result/result.service";
 })
 export class ResultComponent implements OnInit {
 
-    constructor(private result: Result) {
-    }
+    constructor(private result: Result) {}
 
     ngOnInit() {
 
