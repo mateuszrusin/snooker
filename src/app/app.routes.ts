@@ -5,8 +5,8 @@ import {PreviewComponent} from "./component/preview/preview.component";
 import {ResultComponent} from "./component/result/result.component";
 
 const ROUTES: Routes = [
-    { path: 'control', component: ControlsComponent },
-    { path: 'result', component: ResultComponent },
+    { path: 'control/:id', component: ControlsComponent },
+    { path: 'result/:id', component: ResultComponent },
     { path: '', component: PreviewComponent }
 ];
 

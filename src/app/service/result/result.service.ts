@@ -23,22 +23,20 @@ export class Result {
 
     private peer;
 
-    constructor(private ngZone: NgZone) {
-        this.peer = new Peer('RESULT', {key: 'd4njqqkyflz69a4i'});
+    constructor(private ngZone: NgZone) {}
 
+    start(id: any): void {
+        this.peer = new Peer('RESULT_' + id, {key: 'd4njqqkyflz69a4i'});
         this.peer.on('connection', this.connection);
     }
 
     connection = (conn) => {
-        conn.on('open', function() {
-
-        });
+        conn.on('open', function() {});
         conn.on('data', this.receive);
     };
 
     receive = (data) => {
         this.ngZone.run(() => {
-            console.log(data);
             this.state = data;
         })
     }

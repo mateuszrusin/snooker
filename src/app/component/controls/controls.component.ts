@@ -3,6 +3,7 @@ import {Ball} from "../../type/ball";
 import {BallsService} from "../../service/balls/balls.service";
 import {MenuItem} from "primeng/primeng";
 import {StateService} from "../../service/state/state.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'app-controls',
@@ -13,8 +14,11 @@ export class ControlsComponent implements OnInit {
     balls: Ball[];
     fouls: MenuItem[];
 
-    constructor(ballsService: BallsService, private state: StateService) {
+    constructor(ballsService: BallsService, private state: StateService, route: ActivatedRoute) {
         this.balls = ballsService.getBalls();
+        route.params.subscribe(params => {
+            this.state.start(params['id']);
+        });
     }
 
     ngOnInit() {

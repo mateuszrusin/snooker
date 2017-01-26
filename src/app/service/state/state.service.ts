@@ -10,16 +10,20 @@ import {Frame} from "../frame/frame.service";
 export class StateService  {
 
     private peer: any;
+    private dest: string;
     private break: Break;
-
     private states: State[] = [];
 
     constructor(breakService: Break, private players: Players, private frame: Frame) {
         this.break = breakService;
-        this.peer = new Peer('CONTROL', {key: 'd4njqqkyflz69a4i'});
     }
 
-    select(ball: Ball):void {
+    start(id: any): void {
+        this.peer = new Peer('CONTROL_' + id, {key: 'd4njqqkyflz69a4i'});
+        this.dest = 'RESULT_' + id;
+    }
+
+    select(ball: Ball): void {
         this.break.update(ball);
         this.players.points(ball.points);
         this.save();
@@ -80,9 +84,9 @@ export class StateService  {
 
     private send(): void {
         let state = this.current();
-        let conn = this.peer.connect('RESULT');
+        let conn = this.peer.connect(this.dest);
 
-        conn.on('open', function() {
+        conn.on('open', () => {
             conn.send(state);
         });
     }
