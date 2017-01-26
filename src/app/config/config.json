@@ -1,12 +1,16 @@
 {
-  "players": {
-    "player1": {
-      "name": "Bronisław Maliszewski",
-      "start": true
+    "game": {
+        "frames": 19,
+        "referee": "Brendan Moore"
     },
-    "player2": {
-      "name": "Mieczysław Wiśniewski",
-      "start": false
+    "players": {
+        "player1": {
+            "name": "Adam Płócieniak",
+            "active": true
+        },
+        "player2": {
+            "name": "Paweł Rusakiewicz",
+            "active": false
+        }
     }
-  }
 }

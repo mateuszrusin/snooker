@@ -1,21 +1,18 @@
-import {Injectable, OnInit} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Player} from "../../type/player";
-import {ConfigService} from "../config/config.service";
+import {Config} from "../config/config.service";
 
 @Injectable()
-export class PlayersService {
-
-    private config: any;
+export class Players {
 
     player1: Player;
     player2: Player;
 
-    constructor(configService: ConfigService) {
-        this.config = configService.get('players');
+    constructor(config: Config) {
+        const players = config.get('players');
 
-        //playerFactory?
-        this.player1 = this.create(this.config.player1);
-        this.player2 = this.create(this.config.player2);
+        this.player1 = this.create(players.player1.active);
+        this.player2 = this.create(players.player2.active);
     }
 
     toggle(): void {
@@ -24,36 +21,15 @@ export class PlayersService {
     }
 
 
-    addPoints(points: number): void {
+    points(points: number): void {
         this.active().points += points;
     }
 
-    getFrameWinner(): Player {
-        switch (true) {
-            case this.player1.points > this.player2.points:
-                return this.player1;
-            case this.player1.points < this.player2.points:
-                return this.player2;
-            default:
-                return null;
-        }
-    }
-
-    updateFrameWinner(player:Player): void {
-        player.frames++
-    }
-
-    startNewFrame(): void {
-        this.player1.points = 0;
-        this.player2.points = 0;
-    }
-
-    private create(data): Player {
+    private create(active: boolean): Player {
         return {
-            name: data.name,
             points: 0,
             frames: 0,
-            active: data.start
+            active: active
         }
     }
 

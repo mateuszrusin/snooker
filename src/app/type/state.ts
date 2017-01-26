@@ -1,8 +1,8 @@
 import {Break} from "./break";
-import {StoredPlayer} from "./storedPlayer";
+import {Player} from "./player";
 
 export interface State {
-    player1: StoredPlayer;
-    player2: StoredPlayer;
+    player1: Player;
+    player2: Player;
     break: Break;
 }

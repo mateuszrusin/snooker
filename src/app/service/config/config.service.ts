@@ -1,32 +1,51 @@
-import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
-import { Observable }     from 'rxjs/Observable';
+import {Injectable} from "@angular/core";
+import {Http} from "@angular/http";
+import {Observable} from "rxjs/Rx";
 
 @Injectable()
-export class ConfigService {
+export class Config {
 
-    private config: Object;
+    private readonly file: string = 'app/config/config.json';
+
+    private config: Object = null;
 
     constructor(private http:Http) {}
 
-    get(key: any) {
-        return this.getConfig()[key];
+    public get(key: any) {
+        return this.config[key];
     }
 
-    getConfig() {
-        // return this.http.get('./app/config/config.json').map(this.extractData);
-        return {
-            "players": {
-                "player1": {
-                    "name": "Bronisław Maliszewski",
-                    "start": true
-                },
-                "player2": {
-                    "name": "Mieczysław Wiśniewski",
-                    "start": false
+    public load() {
+        return new Promise((resolve, reject) => {
+            this.http.get(this.file).map( res => res.json() ).catch((error: any):any => {
+                console.error('Configuration file "'+this.file+'" could not be read');
+                resolve(true);
+                return Observable.throw(error.json().error || 'Server error');
+            }).subscribe( () => {
+                let request:any = null;
+                request = this.http.get(this.file);
+
+                if (request) {
+                    request
+                        .map( res => res.json() )
+                        .catch((error: any) => {
+                            console.error('Error reading ' + this.file + ' configuration file');
+                            resolve(error);
+                            return Observable.throw(error.json().error || 'Server error');
+                        })
+                        .subscribe((responseData) => {
+                            this.config = responseData;
+                            resolve(responseData); // (true);
+                            return responseData;
+                        });
+                } else {
+                    console.error('Config file "'+this.file+'" is not valid');
+                    resolve(true);
                 }
-            }
-        }
+            });
+
+        });
     }
+
 
 }

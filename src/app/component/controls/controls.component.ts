@@ -39,7 +39,7 @@ export class ControlsComponent implements OnInit {
     }
 
     frame():void {
-        this.state.frame();
+        this.state.win();
     }
 
     back():void {

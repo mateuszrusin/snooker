@@ -1,4 +1,4 @@
-import {Component, OnInit, NgZone} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Result} from "../../service/result/result.service";
 
 @Component({
