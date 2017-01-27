@@ -1,12 +1,36 @@
-<div class="col-5">
-    <h1 class="center">{{players.player1.name}}</h1>
-    <h3><span *ngIf="state.player1.active">*</span> {{state.player1.points}}</h3>
+<div class="row">
+    <div class="col-5">
+        <img [src]="players.player1.photo" class="photo" />
+    </div>
+    <div class="col-2">
+
+    </div>
+    <div class="col-5">
+        <img [src]="players.player2.photo" class="photo" />
+    </div>
 </div>
-<div class="col-2">
-    <h1 class="center">({{game.frames}})</h1>
-    <h3>{{state.player1.frames}} : {{state.player2.frames}}</h3>
+<div class="row">
+    <div class="col-5">
+        <h1 class="center">{{players.player1.name}}</h1>
+    </div>
+    <div class="col-2">
+        <h6 *ngIf="game.referee">
+            <img [src]="game.referee.photo" class="referee" />
+            <br />{{game.referee.name}}
+        </h6>
+    </div>
+    <div class="col-5">
+        <h1 class="center">{{players.player2.name}}</h1>
+    </div>
 </div>
-<div class="col-5">
-    <h1 class="center">{{players.player2.name}}</h1>
-    <h3>{{state.player2.points}}<span *ngIf="state.player2.active">*</span></h3>
+<div class="row">
+    <div class="col-5">
+        <h3><span *ngIf="state.player1.active">*</span> {{state.player1.points}}</h3>
+    </div>
+    <div class="col-2">
+        <h3>{{state.player1.frames}} <span class="frames">({{game.frames}})</span> {{state.player2.frames}}</h3>
+    </div>
+    <div class="col-5">
+        <h3>{{state.player2.points}}<span *ngIf="state.player2.active">*</span></h3>
+    </div>
 </div>

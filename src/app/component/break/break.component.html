@@ -1,6 +1,5 @@
-<div class="col-12">
+<div *ngIf="break.total" class="col-12">
     <h3>Break: {{break.total}}</h3>
-    <h3>Bil: {{break.order.length}}</h3>
     <div class="break">
         <span *ngFor="let ball of break.order">
             <svg class="mini">

@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {Ball} from "../../type/ball";
 import {BallsService} from "../../service/balls/balls.service";
 import {MenuItem} from "primeng/primeng";
@@ -8,7 +8,8 @@ import {ActivatedRoute} from "@angular/router";
 @Component({
     selector: 'app-controls',
     templateUrl: './controls.component.html',
-    styleUrls: ['./controls.component.css']
+    styleUrls: ['./controls.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class ControlsComponent implements OnInit {
     balls: Ball[];
@@ -31,22 +32,27 @@ export class ControlsComponent implements OnInit {
     }
 
     select(ball:Ball):void {
+        navigator.vibrate(50);
         this.state.select(ball);
     }
 
     enter():void {
+        navigator.vibrate(75);
         this.state.enter();
     }
 
     foul(points: number): void {
+        navigator.vibrate(75);
         this.state.foul(points);
     }
 
     frame():void {
+        navigator.vibrate(500);
         this.state.win();
     }
 
     back():void {
+        navigator.vibrate(200);
         this.state.back();
     }
 }

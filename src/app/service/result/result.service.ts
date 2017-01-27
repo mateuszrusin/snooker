@@ -26,7 +26,7 @@ export class Result {
     constructor(private ngZone: NgZone) {}
 
     start(id: any): void {
-        this.peer = new Peer('RESULT_' + id, {key: 'd4njqqkyflz69a4i'});
+        this.peer = new Peer('RESULT_' + id, {key: '0yh3zdxin2zc9pb9'});
         this.peer.on('connection', this.connection);
     }
 
