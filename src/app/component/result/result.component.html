@@ -1,10 +1,8 @@
-<div class="center">
-  <div class="container">
-    <div class="row">
-      <app-game [state]="result.state"></app-game>
+<div class="ui-grid ui-grid-responsive ui-grid-pad center">
+    <div class="ui-grid-row">
+        <app-game [state]="result.state"></app-game>
     </div>
-    <div class="row">
-      <app-break [break]="result.state.break"></app-break>
+    <div class="ui-grid-row">
+        <app-break [break]="result.state.break"></app-break>
     </div>
-  </div>
 </div>

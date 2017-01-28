@@ -17,12 +17,13 @@ import {StateService} from "./service/state/state.service";
 import {Result} from "./service/result/result.service";
 import {GameComponent} from "./component/game/game.component";
 import {Frame} from "./service/frame/frame.service";
+import {InplaceModule} from "primeng/components/inplace/inplace";
 
 export function loader(config: Config) {
     return function() {
         return config.load();
-    };
-};
+    }
+}
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ export function loader(config: Config) {
         HttpModule,
         AppRoutingModule,
         SplitButtonModule,
-        ButtonModule
+        ButtonModule,
+        InplaceModule
     ],
     providers: [
         Config,
