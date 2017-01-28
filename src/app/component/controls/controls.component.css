@@ -3,19 +3,36 @@
     height: 50px;
     margin: 10px;
 }
+
 .ui-splitbutton {
     height: 50px;
 }
+
 .ui-buttonset .ui-button {
     width: 127px;
     margin-left: 10px;
 }
+
 .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
     margin-left: 0;
     margin-right: 10px;
 }
+
+.ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: 1px solid #dddddd;
+    background: #f6f6f6;
+    font-weight: bold;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover {
+    border: 1px solid #dddddd;
+    background: #dddddd;
+    font-weight: bold;
+}
+
 .ball {
     width: 100px;
     height: 100px;
     cursor: pointer;
 }
+

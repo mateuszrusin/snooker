@@ -12,7 +12,9 @@ export class Config {
     constructor(private http:Http) {}
 
     public get(key: any) {
-        return this.config[key];
+        return key.split(".").reduce((obj, prop) => {
+            return obj && obj[prop];
+        }, this.config);
     }
 
     public load() {
@@ -46,6 +48,4 @@ export class Config {
 
         });
     }
-
-
 }

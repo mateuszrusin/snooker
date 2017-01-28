@@ -5,6 +5,7 @@ import {Ball} from "../../type/ball";
 import {Player} from "../../type/player";
 import {State} from "../../type/state";
 import {Frame} from "../frame/frame.service";
+import {Config} from "../config/config.service";
 
 @Injectable()
 export class StateService  {
@@ -14,12 +15,12 @@ export class StateService  {
     private break: Break;
     private states: State[] = [];
 
-    constructor(breakService: Break, private players: Players, private frame: Frame) {
+    constructor(breakService: Break, private players: Players, private frame: Frame, private config: Config) {
         this.break = breakService;
     }
 
     start(id: any): void {
-        this.peer = new Peer('CONTROL_' + id, {key: 'peerjs', debug: true, host: '10.157.50.177', port: 9000, path: '/'});
+        this.peer = new Peer('CONTROL_' + id, this.config.get('env.peer'));
         this.dest = 'RESULT_' + id;
     }
 
@@ -63,12 +64,16 @@ export class StateService  {
     back(): void {
         this.states.pop();
 
-        this.players.player1 = this.current().player1;
-        this.players.player2 = this.current().player2;
+        const current = this.current();
 
-        this.break.total = this.current().break.total;
-        this.break.order = this.current().break.order.slice();
-        this.send();
+        if (current) {
+            this.players.player1 = current.player1;
+            this.players.player2 = current.player2;
+
+            this.break.total = current.break.total;
+            this.break.order = current.break.order.slice();
+            this.send();
+        }
     }
 
     private save(): void {

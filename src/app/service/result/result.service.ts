@@ -1,5 +1,6 @@
 import {Injectable, NgZone} from "@angular/core";
 import {State} from "../../type/state";
+import {Config} from "../config/config.service";
 
 @Injectable()
 export class Result {
@@ -23,10 +24,10 @@ export class Result {
 
     private peer;
 
-    constructor(private ngZone: NgZone) {}
+    constructor(private ngZone: NgZone, private config: Config) {}
 
     start(id: any): void {
-        this.peer = new Peer('RESULT_' + id, {key: 'peerjs', debug: true, host: '10.157.50.177', port: 9000, path: '/'});
+        this.peer = new Peer('RESULT_' + id, this.config.get('env.peer'));
         this.peer.on('connection', this.connection);
     }
 

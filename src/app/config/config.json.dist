@@ -1,0 +1,29 @@
+{
+    "env": {
+        "peer": {
+            "debug": true,
+            "host": "127.0.0.1",
+            "port": 9000,
+            "path": "/"
+        }
+    },
+    "game": {
+        "frames": 19,
+        "referee": {
+            "name": "Referee Name",
+            "photo": "assets/player.jpg"
+        }
+    },
+    "players": {
+        "player1": {
+            "name": "Player One",
+            "photo": "assets/player.jpg",
+            "active": true
+        },
+        "player2": {
+            "name": "Pplayer Two",
+            "photo": "assets/player.jpg",
+            "active": false
+        }
+    }
+}
