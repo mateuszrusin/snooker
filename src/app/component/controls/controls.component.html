@@ -1,15 +1,33 @@
 <div class="ui-grid ui-grid-responsive ui-grid-pad center">
     <div class="ui-grid-row">
-        <div class="ui-grid-col-12">
-                <span *ngFor="let ball of balls">
-                    <svg class="ball">
-                        <circle cx="50" cy="50" r="40" attr.fill="{{ball.color}}" (click)="select(ball)" />
-                    </svg>
-                    <br *ngIf="ball.points == 1">
-                </span>
-            <br /><br />
+        <div class="ui-grid-col-12 center">
+            <div class="ball red" (click)="select(balls[0])">
+                <p>1</p>
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12 center">
+            <div *ngFor="let ball of balls | slice:1:4" class="ball {{ball.color}}" (click)="select(ball)">
+                <p>{{ball.points}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12 center">
+            <div *ngFor="let ball of balls | slice:4:7" class="ball {{ball.color}}" (click)="select(ball)">
+                <p>{{ball.points}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12 center">
             <button pButton type="button" (click)="enter()" label="Enter"></button>
             <p-splitButton [model]="fouls" (onClick)="foul(4)" label="Foul (4)"></p-splitButton>
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-12 center">
             <button pButton type="button" (click)="frame()" label="Frame"></button>
             <button pButton type="button" (click)="back()" label="Back"></button>
         </div>

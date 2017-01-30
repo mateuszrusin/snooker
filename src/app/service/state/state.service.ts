@@ -88,15 +88,14 @@ export class StateService  {
     }
 
     private send(): void {
-        let state = this.current();
         let conn = this.peer.connect(this.dest);
 
         conn.on('open', () => {
-            conn.send(state);
+            conn.send(this.current());
         });
     }
 
     private current(): State {
-        return this.states[this.states.length-1];
+        return this.states[this.states.length-1]; // TODO: or reset state?
     }
 }
