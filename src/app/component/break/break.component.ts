@@ -11,7 +11,7 @@ export class BreakComponent implements OnInit {
     @Input() break: Break;
     
     constructor(breakService: Break) {
-        //this.break = breakService;
+        this.break = breakService;
     }
 
     ngOnInit() {

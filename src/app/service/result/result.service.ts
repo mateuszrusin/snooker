@@ -1,44 +1,63 @@
-import {Injectable, NgZone} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {State} from "../../type/state";
-import {Config} from "../config/config.service";
 
 @Injectable()
 export class Result {
 
-    private state: State = {
-        player1: {
+    player1: State = {
+        points: 0,
+        frames: 0,
+        active: true
+    }
+    player2: State = {
+        points: 0,
+        frames: 0,
+        active: false
+    }
+
+    points(points: number): void {
+        this.active().points += points;
+    }
+
+    frame(): void {
+        this.active().frames++;
+    }
+
+    winner(): State {
+        switch (true) {
+            case this.player1.points > this.player2.points:
+                return this.player1;
+            case this.player1.points < this.player2.points:
+                return this.player2;
+            default:
+                return null;
+        }
+    }
+
+    reset(): void {
+        this.player1.points = 0;
+        this.player2.points = 0;
+    }
+
+    toggle(): void {
+        this.player1.active = !this.player1.active;
+        this.player2.active = !this.player2.active;
+    }
+
+    clear(): void {
+        this.player1 = {
             points: 0,
             frames: 0,
             active: true
-        },
-        player2: {
+        }
+        this.player2 = {
             points: 0,
             frames: 0,
             active: false
-        },
-        break: {
-            total: 0,
-            order: []
         }
-    };
-
-    private peer;
-
-    constructor(private ngZone: NgZone, private config: Config) {}
-
-    start(id: any): void {
-        this.peer = new Peer('RESULT_' + id, this.config.get('env.peer'));
-        this.peer.on('connection', this.connection);
     }
 
-    connection = (conn) => {
-        conn.on('open', function() {});
-        conn.on('data', this.receive);
-    };
-
-    receive = (data) => {
-        this.ngZone.run(() => {
-            this.state = data;
-        })
+    private active(): State {
+        return this.player1.active ? this.player1 : this.player2;
     }
 }

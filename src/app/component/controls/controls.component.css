@@ -1,33 +1,29 @@
-.ui-button {
+.buttons .ui-button {
     width: 150px;
     height: 50px;
     margin: 10px;
 }
 
-.ui-splitbutton {
+.buttons .ui-splitbutton {
     height: 50px;
 }
 
-.ui-buttonset .ui-button {
+.buttons .ui-buttonset .ui-button {
     width: 127px;
-    margin-left: 10px;
+    margin: 10px 0 10px 10px;
 }
 
-.ui-splitbutton .ui-button.ui-splitbutton-menubutton {
-    margin-left: 0;
-    margin-right: 10px;
+.buttons .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    width: 23px;
+    margin: 0 10px 10px 0;
 }
 
-.ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
-    border: 1px solid #dddddd;
-    background: #f6f6f6;
-    font-weight: bold;
+.ui-inplace .ui-inplace-content input {
+
 }
 
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover {
-    border: 1px solid #dddddd;
-    background: #dddddd;
-    font-weight: bold;
+.ui-inplace .ui-inplace-content button {
+
 }
 
 .ball {

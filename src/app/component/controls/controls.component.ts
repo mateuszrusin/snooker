@@ -2,8 +2,8 @@ import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {Ball} from "../../type/ball";
 import {BallsService} from "../../service/balls/balls.service";
 import {MenuItem} from "primeng/primeng";
-import {StateService} from "../../service/state/state.service";
 import {ActivatedRoute} from "@angular/router";
+import {GameService} from "../../service/game/game.service";
 
 @Component({
     selector: 'app-controls',
@@ -15,11 +15,8 @@ export class ControlsComponent implements OnInit {
     balls: Ball[];
     fouls: MenuItem[];
 
-    constructor(ballsService: BallsService, private state: StateService, route: ActivatedRoute) {
+    constructor(ballsService: BallsService, private game: GameService, route: ActivatedRoute) {
         this.balls = ballsService.getBalls();
-        route.params.subscribe(params => {
-            this.state.start(params['id']);
-        });
     }
 
     ngOnInit() {
@@ -33,26 +30,26 @@ export class ControlsComponent implements OnInit {
 
     select(ball:Ball):void {
         navigator.vibrate(50);
-        this.state.select(ball);
+        this.game.select(ball);
     }
 
     enter():void {
         navigator.vibrate(75);
-        this.state.enter();
+        this.game.enter();
     }
 
     foul(points: number): void {
         navigator.vibrate(75);
-        this.state.foul(points);
+        this.game.foul(points);
     }
 
     frame():void {
         navigator.vibrate(500);
-        this.state.win();
+        this.game.win();
     }
 
     back():void {
         navigator.vibrate(200);
-        this.state.back();
+        this.game.back();
     }
 }

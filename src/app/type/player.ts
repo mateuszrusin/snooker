@@ -1,5 +1,4 @@
 export interface Player {
-    points: number;
-    frames: number;
-    active: boolean;
+    name: string;
+    photo: string;
 }

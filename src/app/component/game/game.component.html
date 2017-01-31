@@ -1,85 +1,12 @@
-<div class="ui-grid-row">
-    <div class="ui-grid-col-5">
-        <img [src]="players.player1.photo" class="photo"/>
+<div class="ui-grid ui-grid-responsive ui-grid-pad center">
+    <app-header class="ui-grid-row"></app-header>
+    <app-player [state]="result.player1" [player]="config.player1" class="ui-grid-row center"></app-player>
+    <div class="ui-grid-row">
+        <app-referee class="ui-grid-col-8 right"></app-referee>
+        <app-frame class="ui-grid-col-2"></app-frame>
+        <app-break class="ui-grid-col-2"></app-break>
     </div>
-    <div class="ui-grid-col-2">
-
-    </div>
-    <div class="ui-grid-col-5">
-        <img [src]="players.player2.photo" class="photo"/>
-    </div>
-</div>
-<div class="ui-grid-row">
-    <div class="ui-grid-col-5">
-        <p-inplace closable="true">
-            <h1 pInplaceDisplay class="center">
-                {{players.player1.name}}
-            </h1>
-            <span pInplaceContent>
-                <input pInputText type="text" [(ngModel)]="players.player1.name">
-            </span>
-        </p-inplace>
-    </div>
-    <div class="ui-grid-col-2">
-        <h6 *ngIf="game.referee">
-            <img [src]="game.referee.photo" class="referee"/>
-            <br/>{{game.referee.name}}
-        </h6>
-    </div>
-    <div class="ui-grid-col-5">
-        <p-inplace closable="true">
-            <h1 pInplaceDisplay class="center">
-                {{players.player2.name}}
-            </h1>
-            <span pInplaceContent>
-                <input pInputText type="text" [(ngModel)]="players.player2.name">
-            </span>
-        </p-inplace>
-    </div>
-</div>
-<div class="ui-grid-row">
-    <div class="ui-grid-col-5">
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4 right">
-                <div *ngIf="state.player1.active" class="circle center"></div>
-            </div>
-            <div class="ui-grid-col-4">
-                {{state.player1.points}}
-            </div>
-            <div class="ui-grid-col-4">
-            </div>
-        </div>
-    </div>
-    <div class="ui-grid-col-2">
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4 right">
-                {{state.player1.frames}}
-            </div>
-            <div class="ui-grid-col-4">
-                <p-inplace closable="true">
-                    <span pInplaceDisplay class="frames" class="center">
-                        ({{game.frames}})
-                    </span>
-                    <span pInplaceContent>
-                        <input pInputText type="text" [(ngModel)]="game.frames">
-                    </span>
-                </p-inplace>
-            </div>
-            <div class="ui-grid-col-4 left">
-                {{state.player2.frames}}
-            </div>
-        </div>
-    </div>
-    <div class="ui-grid-col-5">
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-4">
-            </div>
-            <div class="ui-grid-col-4">
-                {{state.player2.points}}
-            </div>
-            <div class="ui-grid-col-4 left">
-                <div *ngIf="state.player2.active" class="circle center"></div>
-            </div>
-        </div>
-    </div>
+    <app-player [state]="result.player2" [player]="config.player2" class="ui-grid-row center"></app-player>
+    <app-header class="ui-grid-row"></app-header>
+    <app-controls></app-controls>
 </div>
