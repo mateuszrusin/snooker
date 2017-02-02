@@ -6,19 +6,17 @@ import {AppComponent} from "./component/app/app.component";
 import {BreakComponent} from "./component/break/break.component";
 import {ControlsComponent} from "./component/controls/controls.component";
 import {Break} from "./service/break/break.service";
-import {BallsService} from "./service/balls/balls.service";
 import {SplitButtonModule, ButtonModule} from "primeng/primeng";
 import {AppRoutingModule} from "./app.routes";
 import {Config} from "./service/config/config.service";
 import {Result} from "./service/result/result.service";
 import {GameComponent} from "./component/game/game.component";
-import {Frame} from "./service/frame/frame.service";
 import {InplaceModule} from "primeng/components/inplace/inplace";
 import {PlayerComponent} from "./component/player/player.component";
 import {HeaderComponent} from "./component/header/header.component";
 import {FrameComponent} from "./component/frame/frame.component";
 import {RefereeComponent} from "./component/referee/referee.component";
-import {GameService} from "./service/game/game.service";
+import {Game} from "./service/game/game.service";
 
 export function loader(config: Config) {
     return function() {
@@ -50,10 +48,8 @@ export function loader(config: Config) {
         Config,
         { provide: APP_INITIALIZER, useFactory: loader , deps: [Config], multi: true },
         Break,
-        BallsService,
-        GameService,
+        Game,
         Result,
-        Frame
     ],
     bootstrap: [AppComponent]
 })

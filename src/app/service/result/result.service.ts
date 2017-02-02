@@ -20,18 +20,12 @@ export class Result {
     }
 
     frame(): void {
-        this.active().frames++;
-    }
+        const winner = this.winner();
 
-    winner(): State {
-        switch (true) {
-            case this.player1.points > this.player2.points:
-                return this.player1;
-            case this.player1.points < this.player2.points:
-                return this.player2;
-            default:
-                return null;
+        if (winner) {
+            winner.frames++;
         }
+        this.reset();
     }
 
     reset(): void {
@@ -59,5 +53,16 @@ export class Result {
 
     private active(): State {
         return this.player1.active ? this.player1 : this.player2;
+    }
+
+    private winner(): State {
+        switch (true) {
+            case this.player1.points > this.player2.points:
+                return this.player1;
+            case this.player1.points < this.player2.points:
+                return this.player2;
+            default:
+                return null;
+        }
     }
 }

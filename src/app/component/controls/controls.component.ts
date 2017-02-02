@@ -1,9 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {Ball} from "../../type/ball";
-import {BallsService} from "../../service/balls/balls.service";
+import {BALLS} from "../../data/balls";
 import {MenuItem} from "primeng/primeng";
-import {ActivatedRoute} from "@angular/router";
-import {GameService} from "../../service/game/game.service";
+import {Game} from "../../service/game/game.service";
 
 @Component({
     selector: 'app-controls',
@@ -12,28 +11,23 @@ import {GameService} from "../../service/game/game.service";
     encapsulation: ViewEncapsulation.None
 })
 export class ControlsComponent implements OnInit {
-    balls: Ball[];
-    fouls: MenuItem[];
+    balls: Ball[] = BALLS;
+    fouls: MenuItem[] = [];
 
-    constructor(ballsService: BallsService, private game: GameService, route: ActivatedRoute) {
-        this.balls = ballsService.getBalls();
-    }
+    constructor(private game: Game) {}
 
     ngOnInit() {
-        this.fouls = [
-            {label: '4', icon: 'fa-hand-paper-o', command: () => { this.foul(4) }},
-            {label: '5', icon: 'fa-hand-paper-o', command: () => { this.foul(5) }},
-            {label: '6', icon: 'fa-hand-paper-o', command: () => { this.foul(6) }},
-            {label: '7', icon: 'fa-hand-paper-o', command: () => { this.foul(7) }},
-        ];
+        for (let i=4; i<=7; i++) {
+            this.fouls.push(this.createFoulItem(i))
+        }
     }
 
-    select(ball:Ball):void {
+    select(ball:Ball): void {
         navigator.vibrate(50);
         this.game.select(ball);
     }
 
-    enter():void {
+    enter(): void {
         navigator.vibrate(75);
         this.game.enter();
     }
@@ -43,13 +37,26 @@ export class ControlsComponent implements OnInit {
         this.game.foul(points);
     }
 
-    frame():void {
+    frame(): void {
         navigator.vibrate(500);
-        this.game.win();
+        this.game.frame();
     }
 
-    back():void {
+    back(): void {
         navigator.vibrate(200);
         this.game.back();
+    }
+
+    clear(): void {
+        navigator.vibrate(1000);
+        this.game.clear();
+    }
+
+    private createFoulItem(points: number): MenuItem {
+        return {
+            label: points.toString(),
+            icon: 'fa-hand-paper-o',
+            command: () => { this.foul(points) }
+        }
     }
 }
