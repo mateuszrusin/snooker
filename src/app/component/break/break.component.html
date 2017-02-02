@@ -1,10 +1,10 @@
-<div *ngIf="break.total" class="ui-grid-col-12 center">
-    <h3>Break: {{break.total}}</h3>
-    <div class="break">
-        <span *ngFor="let ball of break.order">
-            <svg class="mini">
-                <circle cx="5" cy="5" r="5" attr.fill="{{ball.color}}"/>
-            </svg>
-        </span>
+<div *ngIf="break.total" class="ui-grid-row break">
+    <div class="ui-grid-col-12 middle">
+        <span class="total">{{break.total}}</span>
+    </div>
+</div>
+<div *ngIf="break.total" class="ui-grid-row order">
+    <div class="ui-grid-col-12 middle">
+        <span *ngFor="let ball of break.order" class="ball {{ball.color}}"></span>
     </div>
 </div>

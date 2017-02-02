@@ -2,16 +2,30 @@
     padding: 0 10px;
 }
 .photo {
-    width: 25%;
+    width: 50%;
 }
 .referee {
 
 }
 .circle {
-    width: 30px;
-    height: 30px;
+    width: 2vw;
+    height: 2vw;
     background: red;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+
+.name {
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.frames {
+    font-size: 8vw;
+}
+
+.points {
+    font-size: 10vw;
+    font-weight: bold;
 }

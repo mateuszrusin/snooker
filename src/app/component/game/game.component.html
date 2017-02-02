@@ -1,12 +1,12 @@
-<div class="ui-grid ui-grid-responsive ui-grid-pad center">
-    <app-header class="ui-grid-row"></app-header>
-    <app-player [state]="result.player1" [player]="config.player1" class="ui-grid-row center"></app-player>
-    <div class="ui-grid-row">
-        <app-referee class="ui-grid-col-8 right"></app-referee>
-        <app-frame class="ui-grid-col-2"></app-frame>
+<div class="ui-grid ui-grid-responsive ui-grid-pad container">
+    <app-header></app-header>
+    <app-player [state]="result.player1" [player]="config.player1"></app-player>
+    <div class="ui-grid-row break">
+        <app-referee class="ui-grid-col-8 right middle"></app-referee>
+        <app-frame class="ui-grid-col-2 middle"></app-frame>
         <app-break class="ui-grid-col-2"></app-break>
     </div>
-    <app-player [state]="result.player2" [player]="config.player2" class="ui-grid-row center"></app-player>
-    <app-header class="ui-grid-row"></app-header>
+    <app-player [state]="result.player2" [player]="config.player2"></app-player>
+    <app-header></app-header>
     <app-controls></app-controls>
 </div>

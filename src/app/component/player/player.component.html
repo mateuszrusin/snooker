@@ -1,22 +1,28 @@
-<div class="ui-grid-col-2 middle">
-    <img [src]="player.photo" class="photo"/>
-</div>
-<div class="ui-grid-col-4 middle">
-    <p-inplace closable="true">
-        <span pInplaceDisplay class="center">
-            {{player.name}}
+<div class="ui-grid-row player">
+    <div class="ui-grid-col-2 middle">
+        <img [src]="player.photo" class="photo"/>
+    </div>
+    <div class="ui-grid-col-5 middle">
+        <p-inplace closable="true">
+            <span pInplaceDisplay class="center name">
+                {{player.name}}
+            </span>
+            <span pInplaceContent>
+                <input pInputText type="text" [(ngModel)]="player.name" class="ui-state-default ui-corner-all">
+            </span>
+        </p-inplace>
+    </div>
+    <div class="ui-grid-col-1 middle">
+        <div *ngIf="state.active" class="circle center"></div>
+    </div>
+    <div class="ui-grid-col-2 middle">
+        <span class="frames">
+            {{state.frames}}
         </span>
-        <span pInplaceContent>
-            <input pInputText type="text" [(ngModel)]="player.name" class="ui-state-default ui-corner-all">
+    </div>
+    <div class="ui-grid-col-2 middle">
+        <span class="points">
+            {{state.points}}
         </span>
-    </p-inplace>
-</div>
-<div class="ui-grid-col-2 middle">
-    <div *ngIf="state.active" class="circle center"></div>
-</div>
-<div class="ui-grid-col-2 middle">
-    {{state.frames}}
-</div>
-<div class="ui-grid-col-2 middle">
-    {{state.points}}
+    </div>
 </div>
