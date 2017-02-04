@@ -3,6 +3,7 @@ import {Ball} from "../../type/ball";
 import {BALLS} from "../../data/balls";
 import {MenuItem} from "primeng/primeng";
 import {Game} from "../../service/game/game.service";
+import {TranslateService} from "ng2-translate";
 
 @Component({
     selector: 'app-controls',
@@ -14,7 +15,7 @@ export class ControlsComponent implements OnInit {
     balls: Ball[] = BALLS;
     fouls: MenuItem[] = [];
 
-    constructor(private game: Game) {}
+    constructor(private game: Game, private translate: TranslateService) {}
 
     ngOnInit() {
         for (let i=4; i<=7; i++) {

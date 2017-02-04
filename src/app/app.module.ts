@@ -1,7 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
-import {NgModule, APP_INITIALIZER} from "@angular/core";
+import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
 import {AppComponent} from "./component/app/app.component";
 import {BreakComponent} from "./component/break/break.component";
 import {ControlsComponent} from "./component/controls/controls.component";
@@ -17,12 +16,7 @@ import {HeaderComponent} from "./component/header/header.component";
 import {FrameComponent} from "./component/frame/frame.component";
 import {RefereeComponent} from "./component/referee/referee.component";
 import {Game} from "./service/game/game.service";
-
-export function loader(config: Config) {
-    return function() {
-        return config.load();
-    }
-}
+import {AppTranslateModule} from "./app.translate";
 
 @NgModule({
     declarations: [
@@ -38,18 +32,17 @@ export function loader(config: Config) {
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule,
         AppRoutingModule,
+        AppTranslateModule,
         SplitButtonModule,
         ButtonModule,
         InplaceModule
     ],
     providers: [
         Config,
-        { provide: APP_INITIALIZER, useFactory: loader , deps: [Config], multi: true },
         Break,
         Game,
-        Result,
+        Result
     ],
     bootstrap: [AppComponent]
 })
