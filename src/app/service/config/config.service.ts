@@ -5,7 +5,7 @@ import {Observable} from "rxjs/Rx";
 @Injectable()
 export class Config {
 
-    private readonly file: string = 'app/config/config.json';
+    private readonly file: string = 'config.json';
 
     private config: Object = null;
 

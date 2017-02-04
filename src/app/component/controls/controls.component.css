@@ -1,25 +1,43 @@
 .buttons .ui-button {
-    width: 8vw;
-    height: 3vw;
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    display: block;
+}
+.buttons .button {
+    width: 95%;
+    height: 8vw;
+    margin: 5%;
+}
+
+.buttons .enter  {
+    height: 8vw;
+}
+
+.buttons .enter .ui-button {
+    height: 100%;
     margin: 0;
 }
 
 .buttons .ui-splitbutton {
-    height: 3vw;
+    height: 100%;
+    width: 100%;
 }
 
 .buttons .ui-buttonset .ui-button {
-    width: 7vw;
+    width: 80%;
     margin: 0;
+    display: inline-block;
 }
 
 .buttons .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
-    width: 2vw;
+    width: 20%;
     margin: 0;
+    display: inline-block;
 }
 
 .buttons .ui-button .ui-button-text {
-    font-size: 3vh;
+    font-size: 1em;
     white-space: nowrap;
 }
 
@@ -36,12 +54,12 @@
     align-items: center;
     justify-content: center;
     margin: 1vw;
-    width: 5vw;
-    height: 5vw;
+    width: 8vw;
+    height: 8vw;
     cursor: pointer;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
+    -moz-border-radius: 500px;
+    -webkit-border-radius: 500px;
+    border-radius: 500px;
 }
 
 .red {

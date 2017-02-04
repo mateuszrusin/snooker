@@ -35,4 +35,4 @@ testem.log
 Thumbs.db
 /server.js
 /start.sh
-/src/app/config/config.json
+/src/config.json
