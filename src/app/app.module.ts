@@ -17,6 +17,8 @@ import {FrameComponent} from "./component/frame/frame.component";
 import {RefereeComponent} from "./component/referee/referee.component";
 import {Game} from "./service/game/game.service";
 import {AppTranslateModule} from "./app.translate";
+import {TieredMenuModule} from "primeng/components/tieredmenu/tieredmenu";
+import {SpinnerModule} from "primeng/components/spinner/spinner";
 
 @NgModule({
     declarations: [
@@ -36,7 +38,9 @@ import {AppTranslateModule} from "./app.translate";
         AppTranslateModule,
         SplitButtonModule,
         ButtonModule,
-        InplaceModule
+        InplaceModule,
+        TieredMenuModule,
+        SpinnerModule
     ],
     providers: [
         Config,

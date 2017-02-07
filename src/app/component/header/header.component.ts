@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TranslateService} from "ng2-translate";
-import {MenuItem} from "primeng/components/common/api";
+import {TranslateService, TranslationChangeEvent} from "ng2-translate";
 import {LANG} from "../../data/lang";
+import {MenuItem} from 'primeng/primeng';
 
 @Component({
     selector: 'app-header',
@@ -11,9 +11,15 @@ import {LANG} from "../../data/lang";
 export class HeaderComponent implements OnInit {
 
     langs: MenuItem[] = [];
+    items: MenuItem[] = [];
 
     constructor(private translate: TranslateService) {
         translate.setDefaultLang('en');
+
+        translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
+            this.menu();
+        })
+
         translate.use('en');
     }
 
@@ -21,5 +27,15 @@ export class HeaderComponent implements OnInit {
         Object.keys(LANG).forEach((key) => {
             this.langs.push({label: key.toUpperCase(), command: () => this.translate.use(key)});
         });
+    }
+
+    private menu(): void {
+        this.items = [
+            {
+                label: this.translate.instant('language'),
+                icon: 'fa-commenting',
+                items: this.langs
+            }
+        ]
     }
 }

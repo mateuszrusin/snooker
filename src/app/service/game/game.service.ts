@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Break} from "../break/break.service";
 import {Ball} from "../../type/ball";
-import {State} from "../../type/state";
 import {Config} from "../config/config.service";
 import {Result} from "../result/result.service";
 import {Snapshot} from "../../type/snapshot";
@@ -29,10 +28,8 @@ export class Game  {
     }
 
     foul(points: number): void {
-        this.save();
-        this.result.toggle();
+        this.enter();
         this.result.points(points);
-        this.break.reset();
     }
 
     frame(): void {

@@ -7,13 +7,13 @@
     <div class="ui-grid-col-1 buttons center">
         <div class="button">
             <button pButton type="button" (click)="clear()" label="{{ 'clear' | translate }}"></button>
-            <button pButton type="button" (click)="frame()" label="Frame"></button>
+            <button pButton type="button" (click)="frame()" label="{{ 'frame' | translate }}"></button>
         </div>
     </div>
     <div class="ui-grid-col-1 buttons center">
         <div class="button">
-            <button pButton type="button" (click)="back()" label="Back"></button>
-            <p-splitButton [model]="fouls" (onClick)="foul(4)" label="Foul (4)"></p-splitButton>
+            <button pButton type="button" (click)="back()" label="{{ 'back' | translate }}"></button>
+            <p-splitButton [model]="fouls" (onClick)="foul(4)" label="{{ 'foul' | translate }} (4)"></p-splitButton>
         </div>
     </div>
     <div class="ui-grid-col-1 buttons center">
