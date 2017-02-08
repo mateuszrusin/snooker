@@ -6,11 +6,13 @@ import {Config} from "../../service/config/config.service";
     templateUrl: './referee.component.html',
     styleUrls: ['./referee.component.css']
 })
-export class RefereeComponent {
+export class RefereeComponent  {
 
-    private referee: string
+    private referee: any;
 
     constructor(config: Config) {
         this.referee = config.get('game.referee');
     }
+
+
 }

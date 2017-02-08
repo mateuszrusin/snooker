@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService, TranslationChangeEvent} from "ng2-translate";
-import {LANG} from "../../data/lang";
 import {MenuItem} from 'primeng/primeng';
 
 @Component({
@@ -18,13 +17,13 @@ export class HeaderComponent implements OnInit {
 
         translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
             this.menu();
-        })
+        });
 
-        translate.use('en');
+        translate.use(translate.getBrowserLang());
     }
 
     ngOnInit() {
-        Object.keys(LANG).forEach((key) => {
+        this.translate.getLangs().forEach((key) => {
             this.langs.push({label: key.toUpperCase(), command: () => this.translate.use(key)});
         });
     }

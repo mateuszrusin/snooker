@@ -1,0 +1,9 @@
+<p-inplace #inplace class="edit middle {{class}}">
+    <span pInplaceDisplay>
+        {{value}}
+    </span>
+    <span pInplaceContent class="center middle">
+        <input pInputText type="text" [(ngModel)]="value" class="ui-state-default ui-corner-all">
+        <button type="button" icon="fa-check" pButton (click)="inplace.deactivate($event)"></button>
+    </span>
+</p-inplace>
