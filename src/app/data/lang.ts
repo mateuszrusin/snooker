@@ -7,7 +7,8 @@ export const LANG = {
         "back": "Back",
         "foul": "Foul",
         "frame": "Frame",
-        "language": "Language"
+        "language": "Language",
+        "referee": "Referee"
     },
     "pl": {
         "frames": "Partie",
@@ -17,6 +18,7 @@ export const LANG = {
         "back": "Cofnij",
         "foul": "Faul",
         "frame": "Partia",
-        "language": "Język"
+        "language": "Język",
+        "referee": "Sędzia"
     }
 }

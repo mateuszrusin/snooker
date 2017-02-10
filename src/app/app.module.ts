@@ -19,6 +19,7 @@ import {Game} from "./service/game/game.service";
 import {AppTranslateModule} from "./app.translate";
 import {TieredMenuModule} from "primeng/components/tieredmenu/tieredmenu";
 import {SpinnerModule} from "primeng/components/spinner/spinner";
+import { EditorComponent } from './component/editor/editor.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import {SpinnerModule} from "primeng/components/spinner/spinner";
         PlayerComponent,
         HeaderComponent,
         FrameComponent,
-        RefereeComponent
+        RefereeComponent,
+        EditorComponent
     ],
     imports: [
         BrowserModule,
