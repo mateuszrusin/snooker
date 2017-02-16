@@ -1,14 +1,21 @@
 <div class="container">
-    <div class="ui-grid ui-grid-responsive ui-grid-pad">
-        <app-header></app-header>
-        <app-player [state]="result.player1" [player]="config.player1"></app-player>
-        <div class="ui-grid-row break">
-            <div class="ui-grid-col-2"></div>
-            <app-referee class="ui-grid-col-6 right middle"></app-referee>
-            <app-frame class="ui-grid-col-2 middle"></app-frame>
-            <app-break class="ui-grid-col-2"></app-break>
-        </div>
-        <app-player [state]="result.player2" [player]="config.player2"></app-player>
-        <app-controls></app-controls>
+    <div class="ui-g top middle">
+        <app-lang class="ui-g-7"></app-lang>
+        <app-header class="ui-g-5"></app-header>
+    </div>
+    <div class="ui-g item middle">
+        <app-player [player]="config.player1" class="ui-g-7"></app-player>
+        <app-state [state]="result.player1" class="ui-g-5"></app-state>
+    </div>
+    <div class="ui-g inside middle">
+        <app-referee class="ui-g-7"></app-referee>
+        <app-break class="ui-g-5"></app-break>
+    </div>
+    <div class="ui-g item middle">
+        <app-player [player]="config.player2" class="ui-g-7"></app-player>
+        <app-state [state]="result.player2" class="ui-g-5"></app-state>
+    </div>
+    <div class="ui-g bottom middle">
+        <app-controls class="ui-g-12"></app-controls>
     </div>
 </div>

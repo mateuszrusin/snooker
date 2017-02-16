@@ -17,9 +17,8 @@ import {FrameComponent} from "./component/frame/frame.component";
 import {RefereeComponent} from "./component/referee/referee.component";
 import {Game} from "./service/game/game.service";
 import {AppTranslateModule} from "./app.translate";
-import {TieredMenuModule} from "primeng/components/tieredmenu/tieredmenu";
-import {SpinnerModule} from "primeng/components/spinner/spinner";
-import { EditorComponent } from './component/editor/editor.component';
+import { StateComponent } from './component/state/state.component';
+import { LangComponent } from './component/lang/lang.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +30,8 @@ import { EditorComponent } from './component/editor/editor.component';
         HeaderComponent,
         FrameComponent,
         RefereeComponent,
-        EditorComponent
+        StateComponent,
+        LangComponent
     ],
     imports: [
         BrowserModule,
@@ -40,9 +40,7 @@ import { EditorComponent } from './component/editor/editor.component';
         AppTranslateModule,
         SplitButtonModule,
         ButtonModule,
-        InplaceModule,
-        TieredMenuModule,
-        SpinnerModule
+        InplaceModule
     ],
     providers: [
         Config,

@@ -21,30 +21,12 @@ body {
 
 .container {
     width: 96%;
-    height: 90%;
-    padding: 5% 2%;
+    height: 96%;
+    padding: 2% 2%;
     margin: 0 auto;
     text-align: center;
     background-color: gainsboro;
 }
-
-.controls {
-    height: 26vh;
-    white-space: nowrap;
-}
-
-.header {
-    height: 2vh;
-}
-
-.player {
-    height: 25vh;
-}
-
-.break {
-    height: 20vh;
-}
-
 
 
 /* ROOT FONT STYLES */

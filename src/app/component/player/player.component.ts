@@ -1,6 +1,5 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {Player} from "../../type/player";
-import {State} from "../../type/state";
 
 @Component({
     selector: 'app-player',
@@ -10,7 +9,6 @@ import {State} from "../../type/state";
 })
 export class PlayerComponent {
 
-    @Input() state: State;
     @Input() player: Player;
 
 }

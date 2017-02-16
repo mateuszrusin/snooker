@@ -1,3 +1,15 @@
-<div class="center middle">
-    <app-editor [value]="frames" [class]="'frames'"></app-editor>
+<div class="ui-g">
+    <div class="ui-g-1 middle"></div>
+    <div class="ui-g-5">
+        <p-inplace #inplace class="edit middle">
+        <span pInplaceDisplay class="display">
+            ({{frames}})
+        </span>
+            <span pInplaceContent class="center middle">
+            <input #input pInputText type="text" [(ngModel)]="frames" class="ui-state-default ui-corner-all">
+            <button type="button" icon="fa-check" pButton (click)="inplace.deactivate($event)"></button>
+        </span>
+        </p-inplace>
+    </div>
+    <div class="ui-g-6 middle"></div>
 </div>

@@ -1,24 +1,13 @@
-<div class="ui-grid-row player">
-    <div class="ui-grid-col-1 middle">
-        <p-spinner size="5" [(ngModel)]="state.factor" [step]="0.25" [min]="1" [max]="10"></p-spinner>
-    </div>
-    <div class="ui-grid-col-1 middle">
-        <img [src]="player.photo" class="photo"/>
-    </div>
-    <div class="ui-grid-col-5 center middle">
-        <app-editor [value]="player.name" [class]="'name'"></app-editor>
-    </div>
-    <div class="ui-grid-col-1 middle">
-        <div *ngIf="state.active" class="circle center"></div>
-    </div>
-    <div class="ui-grid-col-2 middle">
-        <span class="frames">
-            {{state.frames}}
-        </span>
-    </div>
-    <div class="ui-grid-col-2 middle">
-        <span class="points">
-            {{state.points}}
-        </span>
+<div class="ui-g">
+    <div class="ui-g-12 center middle">
+        <p-inplace #inplace class="edit middle">
+            <span pInplaceDisplay class="display">
+                {{player.name}}
+            </span>
+            <span pInplaceContent class="edit center middle">
+                <input #input pInputText type="text" [(ngModel)]="player.name" class="ui-state-default ui-corner-all">
+                <button type="button" icon="fa-check" pButton (click)="inplace.deactivate($event)"></button>
+            </span>
+        </p-inplace>
     </div>
 </div>

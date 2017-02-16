@@ -1,12 +1,6 @@
 .frames {
     padding: 0 10px;
 }
-.photo {
-    width: 50%;
-}
-.referee {
-
-}
 .circle {
     width: 2vw;
     height: 2vw;
@@ -23,4 +17,9 @@
 .points {
     font-size: 10vw;
     font-weight: bold;
+}
+
+.display {
+    font-weight: bold;
+    font-size: 4vw;
 }

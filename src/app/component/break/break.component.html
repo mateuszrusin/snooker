@@ -1,10 +1,21 @@
-<div *ngIf="break.total" class="ui-grid-row break">
-    <div class="ui-grid-col-12 middle">
-        <span class="total">{{break.total}}</span>
-    </div>
-</div>
-<div *ngIf="break.total" class="ui-grid-row order">
-    <div class="ui-grid-col-12 middle">
-        <span *ngFor="let ball of break.order" class="ball {{ball.color}}"></span>
+<div class="center">
+    <div class="ui-g">
+        <div class="ui-g-1 middle">
+        </div>
+        <div class="ui-g-5 middle">
+            <app-frame></app-frame>
+        </div>
+        <div *ngIf="break.total" class="ui-g-6 ui-g middle center">
+            <div class="ui-g-12 ui-g-nopad">
+                <div class="center">
+                    <div class="total">
+                        {{break.total}}
+                    </div>
+                    <div class="order">
+                        <span *ngFor="let ball of break.order" class="ball {{ball.color}}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

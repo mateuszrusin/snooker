@@ -1,13 +1,11 @@
-.break {
-    height: 80%;
-}
 
 .order {
-    height: 20%;
+    text-align: center;
 }
 
 .total {
     font-size: 8vw;
+    line-height: 1;
 }
 
 .ball {
