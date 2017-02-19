@@ -17,8 +17,8 @@ import {FrameComponent} from "./component/frame/frame.component";
 import {RefereeComponent} from "./component/referee/referee.component";
 import {Game} from "./service/game/game.service";
 import {AppTranslateModule} from "./app.translate";
-import { StateComponent } from './component/state/state.component';
-import { LangComponent } from './component/lang/lang.component';
+import {StateComponent} from "./component/state/state.component";
+import {LangComponent} from "./component/lang/lang.component";
 
 @NgModule({
     declarations: [

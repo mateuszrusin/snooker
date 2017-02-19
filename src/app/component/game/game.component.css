@@ -1,6 +1,6 @@
 
 .top {
-    height: 2vh;
+    height: auto;
 }
 
 .item {
@@ -8,24 +8,12 @@
 }
 
 .inside {
-    height: 20vh;
+    height: 15vh;
 }
 
 .bottom {
     height: 26vh;
     white-space: nowrap;
-}
-
-.frames {
-    padding: 0 10px;
-}
-.circle {
-    width: 30px;
-    height: 30px;
-    background: red;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
 }
 
 .edit span {

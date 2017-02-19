@@ -1,17 +1,14 @@
 export const CONFIG: Object = {
     "game": {
-        "frames": 19,
+        "frames": 1,
         "referee": {
-            "name": "Brendan Moore",
-            "photo": "assets/player.jpg"
+            "name": ""
         },
         "player1": {
-            "name": "Adam Płócieniak",
-            "photo": "assets/player.jpg"
+            "name": "Player One"
         },
         "player2": {
-            "name": "Paweł Rusakiewicz",
-            "photo": "assets/player.jpg"
+            "name": "Player Two"
         }
     }
 }

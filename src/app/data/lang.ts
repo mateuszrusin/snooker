@@ -1,5 +1,6 @@
 export const LANG = {
     "en": {
+        "iso": "english",
         "frames": "Frames",
         "points": "Points",
         "clear": "Clear",
@@ -11,13 +12,14 @@ export const LANG = {
         "referee": "Referee"
     },
     "pl": {
-        "frames": "Partie",
+        "iso": "polski",
+        "frames": "Frejmy",
         "points": "Punkty",
         "clear": "Reset",
         "enter": "Zmień",
         "back": "Cofnij",
         "foul": "Faul",
-        "frame": "Partia",
+        "frame": "Frejm",
         "language": "Język",
         "referee": "Sędzia"
     }

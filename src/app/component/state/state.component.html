@@ -1,15 +1,11 @@
-<div class="ui-g">
-    <div class="ui-g-1 ui-g-nopad middle">
-      <div *ngIf="state.active" class="circle center"></div>
+<div class="ui-g middle">
+    <div class="ui-g-2 middle center">
+        <div *ngIf="state.active" class="circle middle"></div>
     </div>
-    <div class="ui-g-5 middle">
-        <span class="frames">
-            {{state.frames}}
-        </span>
+    <div class="ui-g-4 frames">
+        {{state.frames}}
     </div>
-    <div class="ui-g-6 middle">
-        <span class="points">
-            {{state.points}}
-        </span>
+    <div class="ui-g-6 middle points">
+        {{state.points}}
     </div>
 </div>

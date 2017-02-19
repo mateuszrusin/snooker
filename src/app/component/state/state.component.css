@@ -1,0 +1,22 @@
+
+.circle {
+    width: 3vmax;
+    height: 3vmax;
+    background: red;
+    -moz-border-radius: 8vmin;
+    -webkit-border-radius: 8vmin;
+    border-radius: 8vmin;
+}
+
+.frames {
+    font-size: 9vw;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.points {
+    font-size: 10vw;
+    font-weight: bold;
+    padding: 0;
+    margin: 0 auto;
+}

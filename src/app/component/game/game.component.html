@@ -1,21 +1,44 @@
 <div class="container">
     <div class="ui-g top middle">
-        <app-lang class="ui-g-7"></app-lang>
-        <app-header class="ui-g-5"></app-header>
+        <div class="ui-g-7 ui-g-nopad">
+            <app-lang></app-lang>
+        </div>
+        <div class="ui-g-5 ui-g-nopad">
+            <app-header></app-header>
+        </div>
     </div>
     <div class="ui-g item middle">
-        <app-player [player]="config.player1" class="ui-g-7"></app-player>
-        <app-state [state]="result.player1" class="ui-g-5"></app-state>
+        <div class="ui-g-7 ui-g-nopad">
+            <app-player [player]="config.player1"></app-player>
+        </div>
+        <div class="ui-g-5 ui-g-nopad">
+            <app-state [state]="result.player1"></app-state>
+        </div>
     </div>
     <div class="ui-g inside middle">
-        <app-referee class="ui-g-7"></app-referee>
-        <app-break class="ui-g-5"></app-break>
+        <div class="ui-g-7 middle">
+            <app-referee></app-referee>
+        </div>
+        <div class="ui-g ui-g-5 ui-g-nopad">
+            <div class="ui-g-2 middle">
+            </div>
+            <div class="ui-g-4 middle">
+                <app-frame></app-frame>
+            </div>
+            <div class="ui-g-6">
+                <app-break></app-break>
+            </div>
+        </div>
     </div>
     <div class="ui-g item middle">
-        <app-player [player]="config.player2" class="ui-g-7"></app-player>
-        <app-state [state]="result.player2" class="ui-g-5"></app-state>
+        <div class="ui-g-7 ui-g-nopad">
+            <app-player [player]="config.player2"></app-player>
+        </div>
+        <div class="ui-g-5 ui-g-nopad">
+            <app-state [state]="result.player2"></app-state>
+        </div>
     </div>
-    <div class="ui-g bottom middle">
+    <div class="ui-g bottom ui-g-nopad">
         <app-controls class="ui-g-12"></app-controls>
     </div>
 </div>

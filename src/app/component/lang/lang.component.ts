@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TranslateService, TranslationChangeEvent} from "ng2-translate";
+import {TranslateService} from "ng2-translate";
 import {MenuItem} from "primeng/components/common/api";
+import {LANG} from "../../data/lang";
 
 @Component({
   selector: 'app-lang',
@@ -17,8 +18,11 @@ export class LangComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.translate.getLangs().forEach((key) => {
-      this.langs.push({label: key.toUpperCase(), command: () => this.translate.use(key)});
-    });
+      Object.keys(LANG).forEach((key) => {
+          this.langs.push({
+            label: LANG[key].iso,
+            command: () => this.translate.use(key)
+          });
+      });
   }
 }

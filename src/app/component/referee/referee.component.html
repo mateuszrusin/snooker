@@ -1,13 +1,12 @@
-<div class="ui-g">
-    <div class="ui-g-12 center middle">
-        <p-inplace #inplace>
-            <span pInplaceDisplay class="referee center middle">
-                <label>{{'referee' | translate}}: </label> {{referee.name}}
-            </span>
-            <span pInplaceContent class="edit center middle">
-                <input #input pInputText type="text" [(ngModel)]="referee.name" class="ui-state-default ui-corner-all">
-                <button type="button" icon="fa-check" pButton (click)="inplace.deactivate($event)"></button>
-            </span>
-        </p-inplace>
-    </div>
+<div class="center middle">
+    <p-inplace #inplace>
+        <span pInplaceDisplay class="referee center middle">
+            <label *ngIf="referee.name">{{'referee' | translate}}: </label> {{referee.name}}
+            <span *ngIf="!referee.name">...</span>
+        </span>
+        <span pInplaceContent class="edit center middle">
+            <input #input pInputText type="text" [(ngModel)]="referee.name" class="ui-state-default ui-corner-all">
+            <button type="button" icon="fa-check" pButton (click)="inplace.deactivate($event)"></button>
+        </span>
+    </p-inplace>
 </div>
