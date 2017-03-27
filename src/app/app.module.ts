@@ -18,6 +18,8 @@ import {Result} from "./service/result/result.service";
 import {GameComponent} from "./component/game/game.component";
 import {Frame} from "./service/frame/frame.service";
 import {InplaceModule} from "primeng/components/inplace/inplace";
+import {FieldsetModule} from "primeng/components/fieldset/fieldset";
+import {FileUploadModule} from "primeng/components/fileupload/fileupload";
 
 export function loader(config: Config) {
     return function() {
@@ -41,7 +43,9 @@ export function loader(config: Config) {
         AppRoutingModule,
         SplitButtonModule,
         ButtonModule,
-        InplaceModule
+        InplaceModule,
+        FieldsetModule,
+        FileUploadModule
     ],
     providers: [
         Config,

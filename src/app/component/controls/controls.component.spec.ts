@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ControlsComponent } from './controls.component.ts';
+import { ControlsComponent } from './controls.component';
 
 describe('ControlsComponent', () => {
   let component: ControlsComponent;
