@@ -19,6 +19,14 @@ server.route({
         });
     }
 });
+// options
+server.route({
+    method: 'OPTIONS',
+    path: '/upload',
+    handler: function (request, reply) {
+        reply();
+    }
+});
 
 // save data to mongo
 server.route({
@@ -46,30 +54,30 @@ server.route({
 
 
             var data = request.payload;
-
-            reply(data);
-
-            //console.log(request.payload);
-
-            // if (data.file) {
-            //     var name = data.file.hapi.filename;
-            //     var path = __dirname + "/uploads/" + name;
-            //     var file = Fs.createWriteStream(path);
             //
-            //     file.on('error', function (err) {
-            //         console.error(err)
-            //     });
+            // reply(data);
             //
-            //     data.file.pipe(file);
-            //
-            //     data.file.on('end', function (err) {
-            //         var ret = {
-            //             filename: data.file.hapi.filename,
-            //             headers: data.file.hapi.headers
-            //         }
-            //         reply(JSON.stringify(ret));
-            //     })
-            // }
+            // console.log(request.payload);
+
+            if (data.file) {
+                var name = data.file.hapi.filename;
+                var path = __dirname + "/uploads/" + name;
+                var file = Fs.createWriteStream(path);
+
+                file.on('error', function (err) {
+                    console.error(err)
+                });
+
+                data.file.pipe(file);
+
+                data.file.on('end', function (err) {
+                    var ret = {
+                        filename: data.file.hapi.filename,
+                        headers: data.file.hapi.headers
+                    }
+                    reply(JSON.stringify(ret));
+                })
+            }
         }
     }
 });
