@@ -3,7 +3,14 @@
 <p-fieldset legend="Player 1">
     <input type="text" pInputText />
     <br />
-    <p-fileUpload name="file" url="http://localhost:3000/upload" accept="image/*" maxFileSize="1000000"></p-fileUpload>
+    <p-fileUpload name="file" url="http://localhost:3000/upload" accept="image/*" maxFileSize="1000000" auto="true">
+        <template let-file pTemplate="file">
+            <div>Custom UI to display a file</div>
+        </template>
+        <template pTemplate="content">
+            <div>{{content}}</div>
+        </template>
+    </p-fileUpload>
 </p-fieldset>
 
 

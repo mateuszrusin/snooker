@@ -23,7 +23,7 @@ import {FileUploadModule} from "primeng/components/fileupload/fileupload";
 
 export function loader(config: Config) {
     return function() {
-        return config.load();
+        //return config.load();
     }
 }
 
