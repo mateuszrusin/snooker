@@ -1,18 +1,47 @@
 <h1>Admin panel or smtg</h1>
 
-<p-fieldset legend="Player 1">
-    <input type="text" pInputText />
-    <br />
-    <p-fileUpload name="file" url="http://localhost:3000/upload" accept="image/*" maxFileSize="1000000" auto="true">
-        <template let-file pTemplate="file">
-            <div>Custom UI to display a file</div>
-        </template>
-        <template pTemplate="content">
-            <div>{{content}}</div>
-        </template>
-    </p-fileUpload>
-</p-fieldset>
-
-
-<p-fieldset legend="Player 2">
-</p-fieldset>
+<div class="ui-g">
+    <div class="ui-g-6">
+        <p-fieldset legend="Player 1">
+            <p-panel header="Name">
+                <input type="text" pInputText [(ngModel)]="players[1].name" class="full" />
+            </p-panel>
+            <p-fileUpload
+                    name="file"
+                    url="http://localhost:3000/upload"
+                    accept="image/*"
+                    maxFileSize="1000000"
+                    auto="true"
+                    (onUpload)="onUpload($event, 1)">
+                <ng-template pTemplate="content">
+                    <div *ngIf="players[1].photo">
+                        <img [src]="players[1].photo" class="photo"/>
+                    </div>
+                </ng-template>
+            </p-fileUpload>
+        </p-fieldset>
+    </div>
+    <div class="ui-g-6">
+        <p-fieldset legend="Player 2">
+            <p-panel header="Name">
+                <input type="text" pInputText [(ngModel)]="players[2].name" />
+            </p-panel>
+            <p-fileUpload
+                    name="file"
+                    url="http://localhost:3000/upload"
+                    accept="image/*"
+                    maxFileSize="1000000"
+                    auto="true"
+                    (onUpload)="onUpload($event, 2)">
+                <ng-template pTemplate="content">
+                    <div *ngIf="players[2].photo">
+                        <img [src]="players[2].photo" class="photo"/>
+                    </div>
+                </ng-template>
+            </p-fileUpload>
+        </p-fieldset>
+    </div>
+    <div class="ui-g-12 center">
+        <button pButton type="button" (click)="onClick()" label="OK"></button>
+    </div>
+</div>

@@ -90,3 +90,9 @@ p {
 .justify {
     text-align: justify;
 }
+
+/* SIZE */
+
+.full {
+    width: 100%;
+}

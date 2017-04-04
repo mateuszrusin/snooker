@@ -1,11 +1,16 @@
 'use strict';
+var HOST = 'localhost';
+var PORT = 3000;
+var PHOTOS = 'img';
 var Hapi = require('hapi');
 var Mongojs = require('mongojs');
 var Fs = require('fs');
 var Path = require('path');
-var db = Mongojs('mongodb://localhost:27017/snooker', ['games']);
+var Inert = require('inert');
+var Db = Mongojs('mongodb://localhost:27017/snooker', ['games']);
 var server = new Hapi.Server();
-server.connection({ port: 3000, host: 'localhost' });
+server.register(Inert, function () { });
+server.connection({ port: PORT, host: HOST });
 server.route({
     method: 'GET',
     path: '/test',
@@ -19,7 +24,7 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        db.games.save({ created: 'just now' }, function (err, doc) {
+        Db.games.save({ created: 'just now' }, function (err, doc) {
             reply('Inserted' + doc._id.toString());
         });
     }
@@ -35,9 +40,9 @@ server.route({
 // save data to mongo
 server.route({
     method: 'POST',
-    path: '/',
+    path: '/save',
     handler: function (request, reply) {
-        db.games.save(request.payload, function (err, doc) {
+        Db.games.save(request.payload, function (err, doc) {
             reply('Inserted: ' + doc._id.toString());
         });
     }
@@ -58,18 +63,24 @@ server.route({
                 reply();
             }
             var name = Date.now() + Path.parse(data.file.hapi.filename).ext;
-            var path = __dirname + "/uploads/" + name;
+            var path = [__dirname, PHOTOS, name].join('/');
             var file = Fs.createWriteStream(path);
             file.on('error', function (err) {
                 console.error(err);
             });
             data.file.pipe(file);
             data.file.on('end', function (err) {
-                var ret = {
-                    filename: name,
-                };
-                reply(JSON.stringify(ret));
+                reply([server.info.uri, PHOTOS, name].join('/'));
             });
+        }
+    }
+});
+server.route({
+    method: 'GET',
+    path: '/img/{filename}',
+    handler: {
+        file: function (request) {
+            return [PHOTOS, request.params.filename].join('/');
         }
     }
 });

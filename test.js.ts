@@ -1,14 +1,21 @@
 'use strict';
 
+const HOST = 'localhost';
+const PORT = 3000;
+const PHOTOS = 'img';
+
 const Hapi = require('hapi');
 const Mongojs = require('mongojs');
 const Fs = require('fs');
 const Path = require('path');
+const Inert = require('inert');
 
-const db = Mongojs('mongodb://localhost:27017/snooker', ['games']);
+const Db = Mongojs('mongodb://localhost:27017/snooker', ['games']);
 const server = new Hapi.Server();
 
-server.connection({ port: 3000, host: 'localhost' });
+server.register(Inert, () => {});
+
+server.connection({ port: PORT, host: HOST });
 
 server.route({
     method: 'GET',
@@ -28,7 +35,7 @@ server.route({
     path: '/',
     handler: function (request, reply) {
 
-        db.games.save({created: 'just now'}, function(err, doc) {
+        Db.games.save({created: 'just now'}, function(err, doc) {
             reply('Inserted' + doc._id.toString())
         });
     }
@@ -45,9 +52,9 @@ server.route({
 // save data to mongo
 server.route({
     method: 'POST',
-    path: '/',
+    path: '/save',
     handler: function (request, reply) {
-        db.games.save(request.payload, function(err, doc) {
+        Db.games.save(request.payload, function(err, doc) {
             reply('Inserted: ' + doc._id.toString())
         });
     }
@@ -74,7 +81,7 @@ server.route({
             const name = Date.now() + Path.parse(data.file.hapi.filename).ext;
 
 
-            const path = __dirname + "/uploads/" + name;
+            const path = [__dirname, PHOTOS, name].join('/');
             const file = Fs.createWriteStream(path);
 
             file.on('error', function (err) {
@@ -83,11 +90,18 @@ server.route({
 
             data.file.pipe(file);
             data.file.on('end', function (err) {
-                const ret = {
-                    filename: name,
-                }
-                reply(JSON.stringify(ret));
+                reply([server.info.uri, PHOTOS, name].join('/'));
             })
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/img/{filename}',
+    handler: {
+        file: function (request) {
+            return [PHOTOS, request.params.filename].join('/');
         }
     }
 });

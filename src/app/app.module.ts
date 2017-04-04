@@ -1,3 +1,4 @@
+///<reference path="../../node_modules/primeng/components/button/button.d.ts"/>
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule, APP_INITIALIZER} from "@angular/core";
 import {FormsModule} from "@angular/forms";
@@ -8,7 +9,6 @@ import {ControlsComponent} from "./component/controls/controls.component";
 import {Players} from "./service/players/players.service";
 import {Break} from "./service/break/break.service";
 import {BallsService} from "./service/balls/balls.service";
-import {SplitButtonModule, ButtonModule} from "primeng/primeng";
 import {AppRoutingModule} from "./app.routes";
 import {Config} from "./service/config/config.service";
 import {ResultComponent} from "./component/result/result.component";
@@ -17,9 +17,13 @@ import {StateService} from "./service/state/state.service";
 import {Result} from "./service/result/result.service";
 import {GameComponent} from "./component/game/game.component";
 import {Frame} from "./service/frame/frame.service";
+import {SplitButtonModule} from "primeng/components/splitbutton/splitbutton";
+import {ButtonModule} from "primeng/components/button/button";
 import {InplaceModule} from "primeng/components/inplace/inplace";
 import {FieldsetModule} from "primeng/components/fieldset/fieldset";
 import {FileUploadModule} from "primeng/components/fileupload/fileupload";
+import {PanelModule} from "primeng/components/panel/panel";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 export function loader(config: Config) {
     return function() {
@@ -40,12 +44,14 @@ export function loader(config: Config) {
         BrowserModule,
         FormsModule,
         HttpModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         SplitButtonModule,
         ButtonModule,
         InplaceModule,
         FieldsetModule,
-        FileUploadModule
+        FileUploadModule,
+        PanelModule
     ],
     providers: [
         Config,
