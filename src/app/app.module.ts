@@ -24,6 +24,8 @@ import {FieldsetModule} from "primeng/components/fieldset/fieldset";
 import {FileUploadModule} from "primeng/components/fileupload/fileupload";
 import {PanelModule} from "primeng/components/panel/panel";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { PlayerComponent } from './component/player/player.component';
+import {QRCodeComponent} from "ng2-qrcode";
 
 export function loader(config: Config) {
     return function() {
@@ -38,7 +40,9 @@ export function loader(config: Config) {
         BreakComponent,
         ControlsComponent,
         ResultComponent,
-        PreviewComponent
+        PreviewComponent,
+        PlayerComponent,
+        QRCodeComponent
     ],
     imports: [
         BrowserModule,

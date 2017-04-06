@@ -28,6 +28,7 @@
     "hapi": "^16.1.0",
     "inert": "^4.2.0",
     "mongojs": "^2.4.0",
+    "ng2-qrcode": "^0.1.1",
     "ng2-translate": "^5.0.0",
     "peer": "^0.2.8",
     "postcss-loader": "^1.2.2",

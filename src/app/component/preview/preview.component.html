@@ -2,46 +2,17 @@
 
 <div class="ui-g">
     <div class="ui-g-6">
-        <p-fieldset legend="Player 1">
-            <p-panel header="Name">
-                <input type="text" pInputText [(ngModel)]="players[1].name" class="full" />
-            </p-panel>
-            <p-fileUpload
-                    name="file"
-                    url="http://localhost:3000/upload"
-                    accept="image/*"
-                    maxFileSize="1000000"
-                    auto="true"
-                    (onUpload)="onUpload($event, 1)">
-                <ng-template pTemplate="content">
-                    <div *ngIf="players[1].photo">
-                        <img [src]="players[1].photo" class="photo"/>
-                    </div>
-                </ng-template>
-            </p-fileUpload>
-        </p-fieldset>
+        <app-player [player]="players[0]"></app-player>
     </div>
     <div class="ui-g-6">
-        <p-fieldset legend="Player 2">
-            <p-panel header="Name">
-                <input type="text" pInputText [(ngModel)]="players[2].name" />
-            </p-panel>
-            <p-fileUpload
-                    name="file"
-                    url="http://localhost:3000/upload"
-                    accept="image/*"
-                    maxFileSize="1000000"
-                    auto="true"
-                    (onUpload)="onUpload($event, 2)">
-                <ng-template pTemplate="content">
-                    <div *ngIf="players[2].photo">
-                        <img [src]="players[2].photo" class="photo"/>
-                    </div>
-                </ng-template>
-            </p-fileUpload>
-        </p-fieldset>
+        <app-player [player]="players[1]"></app-player>
     </div>
     <div class="ui-g-12 center">
         <button pButton type="button" (click)="onClick()" label="OK"></button>
+    </div>
+    <div class="ui-g-12 center">
+        <div>
+            <qrcode [qrdata]="'http://www.wp.pl'" [size]="256" [level]="'M'"></qrcode>
+        </div>
     </div>
 </div>
