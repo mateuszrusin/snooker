@@ -12,7 +12,6 @@ import {BallsService} from "./service/balls/balls.service";
 import {AppRoutingModule} from "./app.routes";
 import {Config} from "./service/config/config.service";
 import {ResultComponent} from "./component/result/result.component";
-import {PreviewComponent} from "./component/preview/preview.component";
 import {StateService} from "./service/state/state.service";
 import {Result} from "./service/result/result.service";
 import {GameComponent} from "./component/game/game.component";
@@ -24,8 +23,7 @@ import {FieldsetModule} from "primeng/components/fieldset/fieldset";
 import {FileUploadModule} from "primeng/components/fileupload/fileupload";
 import {PanelModule} from "primeng/components/panel/panel";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { PlayerComponent } from './component/player/player.component';
-import {QRCodeComponent} from "ng2-qrcode";
+import {CreatorModule} from "./creator/creator.module";
 
 export function loader(config: Config) {
     return function() {
@@ -39,10 +37,7 @@ export function loader(config: Config) {
         GameComponent,
         BreakComponent,
         ControlsComponent,
-        ResultComponent,
-        PreviewComponent,
-        PlayerComponent,
-        QRCodeComponent
+        ResultComponent
     ],
     imports: [
         BrowserModule,
@@ -55,7 +50,8 @@ export function loader(config: Config) {
         InplaceModule,
         FieldsetModule,
         FileUploadModule,
-        PanelModule
+        PanelModule,
+        CreatorModule
     ],
     providers: [
         Config,

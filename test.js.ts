@@ -50,7 +50,7 @@ server.route({
         };
 
         Db.games.save(item, function(err, doc) {
-            reply(server.info.uri + '/' + doc._id.toString())
+            reply(doc._id.toString())
         });
     }
 });
@@ -97,6 +97,16 @@ server.route({
     handler: {
         file: function (request) {
             return [PHOTOS, request.params.filename].join('/');
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/{filename}',
+    handler: {
+        file: function (request) {
+            return request.params.filename;
         }
     }
 });

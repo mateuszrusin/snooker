@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-player',
+  selector: 'creator-player',
   templateUrl: 'player.component.html',
   styleUrls: ['player.component.css']
 })
