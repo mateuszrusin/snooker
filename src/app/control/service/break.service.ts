@@ -4,8 +4,8 @@ import {Ball} from "../../type/ball";
 @Injectable()
 export class Break {
 
-    order: Ball[] = [];
     total: number = 0;
+    order: Ball[] = [];
 
     reset(): void {
         this.total = 0;
@@ -13,7 +13,7 @@ export class Break {
     }
 
     update(ball: Ball): void {
-        this.order.push(ball);
         this.total += ball.points;
+        this.order.push(ball);
     }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {Break} from "../../service/break/break.service";
+import {Break} from "../../control/service/break.service";
 
 @Component({
     selector: 'app-break',

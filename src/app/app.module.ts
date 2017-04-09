@@ -7,7 +7,7 @@ import {AppComponent} from "./component/app/app.component";
 import {BreakComponent} from "./component/break/break.component";
 import {ControlsComponent} from "./component/controls/controls.component";
 import {Players} from "./service/players/players.service";
-import {Break} from "./service/break/break.service";
+import {Break} from "./control/service/break.service";
 import {BallsService} from "./service/balls/balls.service";
 import {AppRoutingModule} from "./app.routes";
 import {Config} from "./service/config/config.service";

@@ -13,15 +13,6 @@ server.register(Inert, function () { });
 server.connection({ port: PORT, host: HOST });
 server.route({
     method: 'GET',
-    path: '/test',
-    handler: function (request, reply) {
-        var file = 'plik.jakis.jpg';
-        console.log(Path.parse(file));
-        reply();
-    }
-});
-server.route({
-    method: 'GET',
     path: '/',
     handler: function (request, reply) {
         Db.games.save({ created: 'just now' }, function (err, doc) {
@@ -42,8 +33,13 @@ server.route({
     method: 'POST',
     path: '/save',
     handler: function (request, reply) {
-        Db.games.save(request.payload, function (err, doc) {
-            reply('Inserted: ' + doc._id.toString());
+        var data = JSON.parse(request.payload);
+        var item = {
+            'player1': data[0],
+            'player2': data[1]
+        };
+        Db.games.save(item, function (err, doc) {
+            reply(doc._id.toString());
         });
     }
 });
@@ -70,7 +66,7 @@ server.route({
             });
             data.file.pipe(file);
             data.file.on('end', function (err) {
-                reply([server.info.uri, PHOTOS, name].join('/'));
+                reply(name);
             });
         }
     }
@@ -81,6 +77,15 @@ server.route({
     handler: {
         file: function (request) {
             return [PHOTOS, request.params.filename].join('/');
+        }
+    }
+});
+server.route({
+    method: 'GET',
+    path: '/{filename}',
+    handler: {
+        file: function (request) {
+            return request.params.filename;
         }
     }
 });

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Break} from "../break/break.service";
+import {Break} from "../../control/service/break.service";
 import {Players} from "../players/players.service";
 import {Ball} from "../../type/ball";
 import {Player} from "../../type/player";
@@ -19,83 +19,55 @@ export class StateService  {
         this.break = breakService;
     }
 
-    start(id: any): void {
-        this.peer = new Peer('CONTROL_' + id, this.config.get('env.peer'));
-        this.dest = 'RESULT_' + id;
-    }
-
     select(ball: Ball): void {
-        this.break.update(ball);
-        this.players.points(ball.points);
         this.save();
-        this.send();
+        this.break.update(ball);
+        this.result.points(ball.points);
     }
 
     enter(): void {
-        this.players.toggle();
-        this.break.reset();
         this.save();
-        this.send();
+        this.result.toggle();
+        this.break.reset();
     }
 
     foul(points: number): void {
-        this.players.toggle();
-        this.players.points(points);
-        this.break.reset();
-        this.save();
-        this.send();
+        this.enter();
+        this.result.points(points);
     }
 
-    win(): void {
-        const winner: Player = this.frame.winner();
-
-        if (winner) {
-            this.frame.update(winner);
-            this.frame.start();
-        } else {
-            alert("Draw, need to re-spot black :D");
-        }
-
-        this.break.reset();
+    frame(): void {
         this.save();
-        this.send();
+        this.result.frame();
+        this.break.reset();
     }
 
     back(): void {
-        this.states.pop();
-
-        const current = this.current();
+        const current = this.history.pop();
 
         if (current) {
-            this.players.player1 = current.player1;
-            this.players.player2 = current.player2;
+            this.result.player1 = current.player1;
+            this.result.player2 = current.player2;
 
             this.break.total = current.break.total;
             this.break.order = current.break.order.slice();
-            this.send();
         }
     }
 
+    clear(): void {
+        this.result.clear();
+        this.break.reset();
+        this.history = [];
+    }
+
     private save(): void {
-        this.states.push({
-            player1: Object.assign({}, this.players.player1),
-            player2: Object.assign({}, this.players.player2),
+        this.history.push({
+            player1: Object.assign({}, this.result.player1),
+            player2: Object.assign({}, this.result.player2),
             break: {
                 total: this.break.total,
                 order: this.break.order.slice()
             }
         })
-    }
-
-    private send(): void {
-        let conn = this.peer.connect(this.dest);
-
-        conn.on('open', () => {
-            conn.send(this.current());
-        });
-    }
-
-    private current(): State {
-        return this.states[this.states.length-1]; // TODO: or reset state?
-    }
+    }z
 }
