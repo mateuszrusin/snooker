@@ -1,0 +1,17 @@
+.frames {
+    padding: 0 10px;
+}
+.photo {
+    width: 75%;
+}
+.referee {
+    width: 50%;
+}
+.circle {
+    width: 30px;
+    height: 30px;
+    background: red;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}

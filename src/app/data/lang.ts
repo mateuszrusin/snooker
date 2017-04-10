@@ -1,5 +1,4 @@
-"use strict";
-exports.LANG = {
+export const LANG = {
     "en": {
         "iso": "english",
         "frames": "Frames",
@@ -24,4 +23,4 @@ exports.LANG = {
         "language": "Język",
         "referee": "Sędzia"
     }
-};
+}

@@ -118,3 +118,10 @@ server.start((err) => {
     }
     console.log(`Server running at: ${server.info.uri}`);
 });
+
+var PeerServer = require('peer').PeerServer;
+var serv = PeerServer({port: 9000, path: '/'}, function(server) {
+
+    console.log(server.address().address, server.address().port);
+
+});

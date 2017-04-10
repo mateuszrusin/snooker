@@ -1,6 +1,6 @@
 import {Injectable, NgZone} from '@angular/core';
 import {State} from "../../type/state";
-import {DataService} from "./data.service";
+import {DataService} from "../../control/service/data.service";
 
 @Injectable()
 export class ClientService {
@@ -12,7 +12,7 @@ export class ClientService {
     }
 
     create(id: any) {
-        this.peer = new Peer(this.type + id, this.type);
+        this.peer = new Peer(this.type + id, {host: 'localhost', port: 9000, path: '/'});
         this.peer.on('connection', this.connection);
     }
 

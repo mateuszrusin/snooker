@@ -1,0 +1,72 @@
+.ui-button {
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+}
+
+.ui-splitbutton {
+    height: 50px;
+}
+
+.ui-buttonset .ui-button {
+    width: 120px;
+    margin-left: 10px;
+}
+
+.ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.ball {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.red {
+    background: red;
+}
+
+.yellow {
+    background: yellow;
+}
+
+.green {
+    background: green;
+}
+
+.brown {
+    background: brown;
+}
+
+.blue {
+    background: blue;
+}
+
+.pink {
+    background: pink;
+}
+
+.black {
+    background: black;
+}
+
+.ball p {
+    margin: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.yellow p,
+.pink p {
+    color: black;
+}

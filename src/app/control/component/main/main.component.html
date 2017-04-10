@@ -1,26 +1,35 @@
-<div class="ui-g ui-g-12">
-    <div class="ui-g-8 ui-g-nopad center middle">
-        <div *ngFor="let ball of balls" class="ball {{ball.color}}" (click)="select(ball)">
-            <p>{{ball.points}}</p>
+<div class="ui-g center">
+    <div class="ui-g-12 center">
+        <div class="ball red" (click)="select(balls[0])">
+            <p>1</p>
         </div>
     </div>
-    <div class="ui-g-4 ui-g ui-g-nopad">
-        <div class="ui-g-4 ui-g-nopad center middle">
-            <div class="buttons">
-                <button pButton type="button" (click)="clear()" label="{{ 'clear' | translate }}"></button>
-                <button pButton type="button" (click)="frame()" label="{{ 'frame' | translate }}"></button>
+    <div class="ui-g-12 center">
+        <div class="center">
+            <div *ngFor="let ball of balls | slice:1:4" class="ball {{ball.color}}" (click)="select(ball)">
+                <p>{{ball.points}}</p>
             </div>
         </div>
-        <div class="ui-g-4 ui-g-nopad center middle">
-            <div class="buttons">
-                <button pButton type="button" (click)="back()" label="{{ 'back' | translate }}"></button>
-                <p-splitButton [model]="fouls" (onClick)="foul" label="{{ 'foul' | translate }} (4)"></p-splitButton>
+    </div>
+    <div class="ui-g-12 center">
+        <div class="center">
+            <div *ngFor="let ball of balls | slice:4:7" class="ball {{ball.color}}" (click)="select(ball)">
+                <p>{{ball.points}}</p>
             </div>
         </div>
-        <div class="ui-g-4 ui-g-nopad center middle">
-            <div class="buttons enter">
-                <button pButton type="button" (click)="enter()" label="{{ 'enter' | translate }}"></button>
-            </div>
-        </div>
+    </div>
+</div>
+<div class="ui-g">
+    <div class="ui-g-6 center">
+        <button pButton type="button" (click)="enter()" label="{{ 'enter' | translate }}"></button>
+    </div>
+    <div class="ui-g-6 center">
+        <p-splitButton [model]="fouls" (onClick)="foul(4)" label="{{ 'foul' | translate }} (4)"></p-splitButton>
+    </div>
+    <div class="ui-g-6 center">
+        <button pButton type="button" (click)="frame()" label="{{ 'frame' | translate }}"></button>
+    </div>
+    <div class="ui-g-6 center">
+        <button pButton type="button" (click)="back()" label="{{ 'back' | translate }}"></button>
     </div>
 </div>

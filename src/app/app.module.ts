@@ -5,17 +5,13 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {AppComponent} from "./component/app/app.component";
 import {BreakComponent} from "./component/break/break.component";
-import {ControlsComponent} from "./component/controls/controls.component";
 import {Players} from "./service/players/players.service";
 import {Break} from "./control/service/break.service";
 import {BallsService} from "./service/balls/balls.service";
 import {AppRoutingModule} from "./app.routes";
 import {Config} from "./service/config/config.service";
 import {ResultComponent} from "./component/result/result.component";
-import {StateService} from "./service/state/state.service";
-import {Result} from "./service/result/result.service";
 import {GameComponent} from "./component/game/game.component";
-import {Frame} from "./service/frame/frame.service";
 import {SplitButtonModule} from "primeng/components/splitbutton/splitbutton";
 import {ButtonModule} from "primeng/components/button/button";
 import {InplaceModule} from "primeng/components/inplace/inplace";
@@ -24,6 +20,9 @@ import {FileUploadModule} from "primeng/components/fileupload/fileupload";
 import {PanelModule} from "primeng/components/panel/panel";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CreatorModule} from "./creator/creator.module";
+import {ControlModule} from "./control/control.module";
+import {AppTranslateModule} from "./app.translate";
+import {DisplayModule} from "./display/display.module";
 
 export function loader(config: Config) {
     return function() {
@@ -36,7 +35,6 @@ export function loader(config: Config) {
         AppComponent,
         GameComponent,
         BreakComponent,
-        ControlsComponent,
         ResultComponent
     ],
     imports: [
@@ -45,23 +43,22 @@ export function loader(config: Config) {
         HttpModule,
         BrowserAnimationsModule,
         AppRoutingModule,
+        AppTranslateModule,
         SplitButtonModule,
-        ButtonModule,
         InplaceModule,
         FieldsetModule,
         FileUploadModule,
         PanelModule,
-        CreatorModule
+        CreatorModule,
+        ControlModule,
+        DisplayModule
     ],
     providers: [
         Config,
         { provide: APP_INITIALIZER, useFactory: loader , deps: [Config], multi: true },
         Players,
         Break,
-        BallsService,
-        StateService,
-        Result,
-        Frame
+        BallsService
     ],
     bootstrap: [AppComponent]
 })

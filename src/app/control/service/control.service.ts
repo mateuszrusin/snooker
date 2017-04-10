@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Break} from "./break.service";
-import {Result} from "./result.service";
 import {Ball} from "../../type/ball";
 import {ServerService} from "./server.service";
 import {DataService} from "./data.service";
@@ -8,10 +6,13 @@ import {DataService} from "./data.service";
 @Injectable()
 export class ControlService {
 
-    private break: Break;
-    private history: any[];
+    private history = [];
 
     constructor(private data: DataService, private server: ServerService) {}
+
+    init(id: string): void {
+        this.server.create(id);
+    }
 
     select(ball: Ball): void {
         this.save();
@@ -48,12 +49,11 @@ export class ControlService {
         this.send();
     }
 
-
     private send(): void {
         this.server.send(this.data.get());
     }
 
     private save(): void {
-        this.history.push(this.data.get())
+        this.history.push(this.data.get());
     }
 }

@@ -8,8 +8,9 @@ export class ServerService  {
     private dest: string = 'C';
 
     create(id: any) {
-        this.peer = new Peer(this.type + id, this.type);
+        this.peer = new Peer(this.type + id, {host: 'localhost', port: 9000, path: '/'});
         this.dest += id;
+        console.log(this.peer);
     }
 
     send(data: any): void {

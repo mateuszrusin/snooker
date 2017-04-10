@@ -1,21 +1,28 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ControlService} from "../../service/control.service";
 import {TranslateService} from "ng2-translate";
 import {Ball} from "../../../type/ball";
 import {BALLS} from "../../../data/balls";
 import {MenuItem} from "primeng/primeng";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html',
-    styleUrls: ['./main.component.css']
+    styleUrls: ['./main.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class MainComponent implements OnInit {
 
     balls: Ball[] = BALLS;
     fouls: MenuItem[] = [];
 
-    constructor(private control: ControlService, private translate: TranslateService) {
+    constructor(private control: ControlService, private translate: TranslateService, route: ActivatedRoute) {
+        translate.setDefaultLang('en');
+        translate.use(translate.getBrowserLang());
+        route.params.subscribe(params => {
+            this.control.init(params['id']);
+        });
     }
 
     ngOnInit() {
