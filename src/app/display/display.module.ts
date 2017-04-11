@@ -4,11 +4,12 @@ import {MainComponent} from './component/main/main.component';
 import {AppTranslateModule} from "../app.translate";
 import {ClientService} from "./service/client.service";
 import {DataService} from "../shared/service/data.service";
-import {GameService} from "./service/game.service";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
     imports: [
         CommonModule,
+        SharedModule,
         AppTranslateModule,
     ],
     declarations: [
@@ -16,9 +17,8 @@ import {GameService} from "./service/game.service";
     ],
     providers: [
         DataService,
-        GameService,
         ClientService,
-    ],
+    ]
 })
 export class DisplayModule {
 }

@@ -2,13 +2,13 @@
 
 <div class="ui-g" [@visibilityChanged]="visibility">
     <div class="ui-g-6">
-        <creator-player [player]="players[0]"></creator-player>
+        <creator-player [player]="game.data.player1"></creator-player>
     </div>
     <div class="ui-g-6">
-        <creator-player [player]="players[1]"></creator-player>
+        <creator-player [player]="game.data.player2"></creator-player>
     </div>
     <div class="ui-g-12 center">
-        <button pButton type="button" (click)="onClick()" label="OK"></button>
+        <button pButton type="button" (click)="save()" label="{{ 'create' | translate }}"></button>
     </div>
 </div>
 <div *ngIf="id">

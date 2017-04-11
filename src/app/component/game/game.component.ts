@@ -1,6 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {State} from "../../shared/type/state";
-import {Config} from "../../service/config/config.service";
 
 @Component({
     selector: 'app-game',
@@ -13,7 +12,7 @@ export class GameComponent implements OnInit {
     private game: any;
     private players: any;
 
-    constructor(config: Config) {
+    constructor(config: any) {
         this.game = config.get('game');
         this.players = config.get('players');
     }

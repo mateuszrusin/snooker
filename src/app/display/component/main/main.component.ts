@@ -2,7 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../service/client.service";
 import {DataService} from "../../../shared/service/data.service";
-import {GameService} from "../../service/game.service";
+import {GameService} from "../../../shared/service/game.service";
 
 @Component({
     selector: 'app-main',
@@ -23,12 +23,9 @@ export class MainComponent implements OnInit {
                     err => {
                         console.log("LOAD ERROR:", err);
                     });
-
-            console.log(client);
         });
     }
 
     ngOnInit() {
-        console.log(this.game);
     }
 }

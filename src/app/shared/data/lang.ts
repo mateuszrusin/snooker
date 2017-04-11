@@ -9,7 +9,8 @@ export const LANG = {
         "foul": "Foul",
         "frame": "Frame",
         "language": "Language",
-        "referee": "Referee"
+        "referee": "Referee",
+        "create": "Create"
     },
     "pl": {
         "iso": "polski",
@@ -21,6 +22,7 @@ export const LANG = {
         "foul": "Faul",
         "frame": "Frejm",
         "language": "Język",
-        "referee": "Sędzia"
+        "referee": "Sędzia",
+        "create": "Utwórz"
     }
 }

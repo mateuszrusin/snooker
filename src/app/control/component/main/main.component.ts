@@ -18,8 +18,6 @@ export class MainComponent implements OnInit {
     fouls: MenuItem[] = [];
 
     constructor(private control: ControlService, private translate: TranslateService, route: ActivatedRoute) {
-        translate.setDefaultLang('en');
-        translate.use(translate.getBrowserLang());
         route.params.subscribe(params => {
             this.control.init(params['id']);
         });

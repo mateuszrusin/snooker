@@ -13,6 +13,7 @@ var Fs = require('fs');
 var Path = require('path');
 var Db = Mongojs('mongodb://localhost:27017/snooker', ['games']);
 var multer  = require('multer');
+var bodyParser = require('body-parser');
 
 var server = app.listen(3000, function () {
     console.log('Example app listening on port 3000!')
@@ -25,17 +26,12 @@ var options = {
 app.use('/peer', ExpressPeerServer(server, options));
 
 // save data to mongo
-app.post('/save', function (request, response) {
+app.post('/game', bodyParser.text(), function(request, response) {
 
-    const data = JSON.parse(request.payload);
+    const data = JSON.parse(request.body);
 
-    const item = {
-        'player1': data[0],
-        'player2': data[1]
-    };
-
-    Db.games.save(item, function (err, doc) {
-        reply(doc._id.toString())
+    Db.games.save(data, function (err, doc) {
+        response.send(doc._id.toString());
     });
 });
 
@@ -50,10 +46,6 @@ app.get('/game/:id', function (request, response) {
 
 var upload = multer({dest: 'img/'});
 
-// options
-app.options('/upload', function (request, response) {
-    response.send();
-});
 //save uploaded image
 app.post('/upload', upload.single('file'), function(request, response) {
 

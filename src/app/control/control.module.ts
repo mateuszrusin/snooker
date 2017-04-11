@@ -9,11 +9,12 @@ import {ResultService} from "../shared/service/result.service";
 import {AppTranslateModule} from "../app.translate";
 import {ButtonModule} from "primeng/components/button/button";
 import {SplitButtonModule} from "primeng/components/splitbutton/splitbutton";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
     imports: [
         CommonModule,
-        AppTranslateModule,
+        SharedModule,
         ButtonModule,
         SplitButtonModule
     ],

@@ -7,10 +7,12 @@ import {FieldsetModule} from "primeng/components/fieldset/fieldset";
 import {FileUploadModule} from "primeng/components/fileupload/fileupload";
 import {PanelModule} from "primeng/components/panel/panel";
 import {FormsModule} from "@angular/forms";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
     imports: [
         CommonModule,
+        SharedModule,
         FormsModule,
         FieldsetModule,
         FileUploadModule,

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Http} from "@angular/http";
 import {QRCodeComponent} from 'ng2-qrcode';
 import {trigger, state, transition, style, animate} from "@angular/animations";
+import {GameService} from "../../../shared/service/game.service";
+import {TranslateService} from "ng2-translate";
 
 @Component({
     selector: 'creator-main',
@@ -10,7 +12,7 @@ import {trigger, state, transition, style, animate} from "@angular/animations";
     animations: [
         trigger('visibilityChanged', [
             state('1', style({opacity: 1})),
-            state('0', style({opacity: 0, height: 0})),
+            state('0', style({opacity: 0, height: 0, display: 'none'})),
             transition('* => *', animate('.5s'))
         ])
     ],
@@ -18,34 +20,21 @@ import {trigger, state, transition, style, animate} from "@angular/animations";
 export class MainComponent implements OnInit {
 
     private id;
-    private players = {};
-
     private visibility = '1';
 
-    constructor(private http: Http) {
-        this.players[0] = {
-            name: null,
-            photo: null
-        }
-        this.players[1] = {
-            name: null,
-            photo: null
-        }
-    }
+    constructor(private game: GameService, private translate: TranslateService) {}
 
     ngOnInit() {
     }
 
-    onClick() {
-        this.http.post(
-            'http://localhost:3000/save',
-            JSON.stringify(this.players)
-        )
-        .toPromise()
-        .then(response => {
-            this.id = response.text();
-            this.visibility = '0';
-        });
+    save() {
+        this.game.save().subscribe(
+            id  => {
+                this.id = id;
+                this.visibility = '0';
+            },
+            error =>  null
+        );
     }
 
 }
