@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
-import {Result} from "./result.service";
-import {Break} from "./break.service";
-import {Ball} from "../../type/ball";
+import {ResultService} from "./result.service";
+import {BreakService} from "./break.service";
+import {Ball} from "../type/ball";
 
 @Injectable()
 export class DataService {
 
-    private break: Break;
+    private break: BreakService;
 
-    constructor(private result: Result, break_: Break) {
+    constructor(private result: ResultService, break_: BreakService) {
         this.break = break_;
     }
 

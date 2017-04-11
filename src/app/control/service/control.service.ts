@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Ball} from "../../type/ball";
+import {Ball} from "../../shared/type/ball";
 import {ServerService} from "./server.service";
-import {DataService} from "./data.service";
+import {DataService} from "../../shared/service/data.service";
 
 @Injectable()
 export class ControlService {

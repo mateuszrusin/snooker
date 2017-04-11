@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
-import {Player} from "../../type/player";
+import {Player} from "../type/player";
 
 @Injectable()
-export class Result {
+export class ResultService {
 
     player1: Player = {
         points: 0,

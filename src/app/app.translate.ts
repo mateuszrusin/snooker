@@ -1,5 +1,5 @@
 import {NgModule} from "@angular/core";
-import {LANG} from "./data/lang";
+import {LANG} from "./shared/data/lang";
 import {TranslateLoader, TranslateModule} from "ng2-translate";
 import {Observable} from "rxjs";
 

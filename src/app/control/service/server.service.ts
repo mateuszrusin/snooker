@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {State} from "../../shared/type/state";
 
 @Injectable()
 export class ServerService  {
@@ -8,12 +9,11 @@ export class ServerService  {
     private dest: string = 'C';
 
     create(id: any) {
-        this.peer = new Peer(this.type + id, {host: 'localhost', port: 9000, path: '/'});
+        this.peer = new Peer(this.type + id, {host: '0.0.0.0', port: 9000, path: '/', debug: 3});
         this.dest += id;
-        console.log(this.peer);
     }
 
-    send(data: any): void {
+    send(data: State): void {
         let conn = this.peer.connect(this.dest);
 
         conn.on('open', () => {

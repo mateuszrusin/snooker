@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var lang_1 = require("../../data/lang");
+var lang_1 = require(".././lang");
 var LangComponent = (function () {
     function LangComponent(translate) {
         this.translate = translate;

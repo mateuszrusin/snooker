@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from "@angular/core";
-import {State} from "../../type/state";
+import {State} from "../../shared/type/state";
 import {Config} from "../../service/config/config.service";
 
 @Component({

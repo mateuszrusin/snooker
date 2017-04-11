@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
-import {Ball} from "../../type/ball";
+import {Ball} from "../type/ball";
 
 @Injectable()
-export class Break {
+export class BreakService {
 
     total: number = 0;
     order: Ball[] = [];

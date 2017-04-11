@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ControlService} from "../../service/control.service";
 import {TranslateService} from "ng2-translate";
-import {Ball} from "../../../type/ball";
-import {BALLS} from "../../../data/balls";
+import {Ball} from "../../../shared/type/ball";
+import {BALLS} from "../../../shared/data/balls";
 import {MenuItem} from "primeng/primeng";
 import {ActivatedRoute} from "@angular/router";
 

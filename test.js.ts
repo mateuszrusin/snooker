@@ -55,6 +55,19 @@ server.route({
     }
 });
 
+// get data from mongo
+server.route({
+    method: 'GET',
+    path: '/game/{id}',
+    handler: function (request, reply) {
+        Db.games.findOne({
+            _id: Mongojs.ObjectId(request.params.id)
+        }, function(err, doc) {
+            reply(doc)
+        });
+    }
+});
+
 //save uploaded image
 server.route({
     method: 'POST',
@@ -122,6 +135,6 @@ server.start((err) => {
 var PeerServer = require('peer').PeerServer;
 var serv = PeerServer({port: 9000, path: '/'}, function(server) {
 
-    console.log(server.address().address, server.address().port);
+    console.log(server.address());
 
 });

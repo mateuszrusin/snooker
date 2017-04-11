@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../service/client.service";
-import {DataService} from "../../../control/service/data.service";
+import {DataService} from "../../../shared/service/data.service";
 import {GameService} from "../../service/game.service";
 
 @Component({
@@ -12,16 +12,23 @@ import {GameService} from "../../service/game.service";
 })
 export class MainComponent implements OnInit {
 
-    constructor(private client: ClientService, private data: DataService, private game: GameService, route: ActivatedRoute) {
+    private game: any;
+
+    constructor(private data: DataService, client: ClientService, game: GameService, route: ActivatedRoute) {
         route.params.subscribe(params => {
-            this.client.create(params['id']);
-            this.game.load(params['id']);
+            client.create(params['id']);
+            game.load(params['id'])
+                .subscribe(
+                    data => this.game = data,
+                    err => {
+                        console.log("LOAD ERROR:", err);
+                    });
+
+            console.log(client);
         });
     }
 
     ngOnInit() {
-        setInterval(
-            console.log(this.game.config), 10000
-        );
+        console.log(this.game);
     }
 }

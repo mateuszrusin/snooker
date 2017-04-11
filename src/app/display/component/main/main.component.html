@@ -71,7 +71,10 @@
 
 <div>{{data.result.player1.points}}</div>
 <div>{{data.result.player2.points}}</div>
-
+<div *ngIf="game">
+    GAME:
+    <div>{{game?.player1.photo}}</div>
+</div>
 <div *ngIf="data.break.total" class="ui-grid-col-12 center">
     <h3>Break: {{data.break.total}}</h3>
     <div class="break">
