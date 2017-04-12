@@ -4,7 +4,6 @@ const HOST = 'localhost';
 const PORT = 3000;
 const PHOTOS = 'img';
 
-
 var express = require('express');
 var app = express();
 var ExpressPeerServer = require('peer').ExpressPeerServer;
@@ -15,8 +14,8 @@ var Db = Mongojs('mongodb://localhost:27017/snooker', ['games']);
 var multer  = require('multer');
 var bodyParser = require('body-parser');
 
-var server = app.listen(3000, function () {
-    console.log('Example app listening on port 3000!')
+var server = app.listen(PORT, function () {
+    console.log('Listening on port ' + PORT)
 })
 
 var options = {
@@ -37,9 +36,10 @@ app.post('/game', bodyParser.text(), function(request, response) {
 
 // get data from mongo
 app.get('/game/:id', function (request, response) {
-    Db.games.findOne({
-        _id: Mongojs.ObjectId(request.params.id)
-    }, function(err, doc) {
+
+    const data = { _id: Mongojs.ObjectId(request.params.id) };
+
+    Db.games.findOne(data, function(err, doc) {
         response.send(doc)
     });
 });

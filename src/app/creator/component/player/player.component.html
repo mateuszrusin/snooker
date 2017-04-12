@@ -4,14 +4,14 @@
     </p-panel>
     <p-fileUpload
             name="file"
-            url="http://localhost:3000/upload"
             accept="image/*"
             maxFileSize="1000000"
             auto="true"
+            [url]="URL_UPLOAD"
             (onUpload)="onUpload($event)">
         <ng-template pTemplate="content">
             <div *ngIf="player.photo">
-                <img [src]="IMG_URL + player.photo" class="photo"/>
+                <img [src]="URL_IMG + player.photo" class="photo"/>
             </div>
         </ng-template>
     </p-fileUpload>

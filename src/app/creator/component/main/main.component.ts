@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Http} from "@angular/http";
-import {QRCodeComponent} from 'ng2-qrcode';
 import {trigger, state, transition, style, animate} from "@angular/animations";
 import {GameService} from "../../../shared/service/game.service";
 import {TranslateService} from "ng2-translate";
+import {Config} from "../../../shared/data/config";
 
 @Component({
     selector: 'creator-main',
@@ -21,6 +20,7 @@ export class MainComponent implements OnInit {
 
     private id;
     private visibility = '1';
+    private url = Config.APP_URL;
 
     constructor(private game: GameService, private translate: TranslateService) {}
 

@@ -5,6 +5,7 @@ import {AppTranslateModule} from "../app.translate";
 import {ClientService} from "./service/client.service";
 import {DataService} from "../shared/service/data.service";
 import {SharedModule} from "../shared/shared.module";
+import {BreakComponent} from "./component/break/break.component";
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import {SharedModule} from "../shared/shared.module";
         AppTranslateModule,
     ],
     declarations: [
-        MainComponent
+        MainComponent,
+        BreakComponent
     ],
     providers: [
         DataService,

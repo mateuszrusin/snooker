@@ -14,12 +14,12 @@
 <div *ngIf="id">
     <div class="">
         <div class="center">
-            <qrcode [qrdata]="'http://localhost:3000/control/' + id" [size]="256" [level]="'M'"></qrcode>
+            <qrcode [qrdata]="url + 'control/' + id" [size]="256" [level]="'M'"></qrcode>
         </div>
     </div>
     <div class="">
         <div class="center">
-            <a [href]="'http://localhost:3000/result/' + id">http://localhost:3000/result/{{id}}</a>
+            <a [href]="url + 'result/' + id">{{url}}result/{{id}}</a>
         </div>
     </div>
 </div>
