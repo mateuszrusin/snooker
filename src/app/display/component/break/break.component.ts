@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {BreakService} from "../../../shared/service/break.service";
+import {Break} from "../../../shared/type/break";
 
 @Component({
     selector: 'display-break',
@@ -8,7 +9,11 @@ import {BreakService} from "../../../shared/service/break.service";
 })
 export class BreakComponent implements OnInit {
 
-    @Input() break: BreakService;
+    private break: Break;
+
+    constructor(breakService: BreakService) {
+        this.break = breakService.get();
+    }
 
     ngOnInit() {
 

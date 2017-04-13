@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import {Ball} from "../../shared/type/ball";
 import {ServerService} from "./server.service";
 import {DataService} from "../../shared/service/data.service";
+import {State} from "../../shared/type/state";
 
 @Injectable()
 export class ControlService {
 
-    private history = [];
+    private history: State[] = [];
 
     constructor(private data: DataService, private server: ServerService) {}
 

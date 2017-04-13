@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {ResultService} from "./result.service";
 import {BreakService} from "./break.service";
 import {Ball} from "../type/ball";
+import {State} from "../type/state";
 
 @Injectable()
 export class DataService {
@@ -38,24 +39,17 @@ export class DataService {
         this.break.reset();
     }
 
-    set(data: any): void {
+    set(data: State): void {
         if (data) {
-            this.result.player1 = this.clone(data.player1);
-            this.result.player2 = this.clone(data.player2);
-
-            this.break.total = data.break.total;
-            this.break.order = data.break.order.slice();
+            this.result.set(data.result);
+            this.break.set(data.break);
         }
     }
 
-    get(): any {
+    get(): State {
         return {
-            player1: this.clone(this.result.player1),
-            player2: this.clone(this.result.player2),
-            break: {
-                total: this.break.total,
-                order: this.break.order.slice()
-            }
+            result: this.clone(this.result.get()),
+            break: this.clone(this.break.get())
         }
     }
 

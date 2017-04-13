@@ -31,10 +31,10 @@
     <div class="ui-g-5">
         <div class="ui-g">
             <div class="ui-g-4 right">
-                <div *ngIf="data.result.player1.active" class="circle center"></div>
+                <div *ngIf="result.player1.active" class="circle center"></div>
             </div>
             <div class="ui-g-4 center">
-                {{data.result.player1.points}}
+                {{result.player1.points}}
             </div>
             <div class="ui-g-4">
             </div>
@@ -43,7 +43,7 @@
     <div class="ui-g-2">
         <div class="ui-g">
             <div class="ui-g-4 right">
-                {{data.result.player1.frames}}
+                {{result.player1.frames}}
             </div>
             <div class="ui-g-4">
                 <div class="frames" class="center">
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="ui-g-4 left">
-                {{data.result.player2.frames}}
+                {{result.player2.frames}}
             </div>
         </div>
     </div>
@@ -60,14 +60,14 @@
             <div class="ui-g-4 right">
             </div>
             <div class="ui-g-4 center">
-                {{data.result.player2.points}}
+                {{result.player2.points}}
             </div>
             <div class="ui-g-4">
-                <div *ngIf="data.result.player2.active" class="circle center"></div>
+                <div *ngIf="result.player2.active" class="circle center"></div>
             </div>
         </div>
     </div>
 </div>
 <div class="ui-g">
-    <display-break [break]="data.break" class="center"></display-break>
+    <display-break class="center"></display-break>
 </div>

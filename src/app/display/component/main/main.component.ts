@@ -3,6 +3,10 @@ import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../service/client.service";
 import {DataService} from "../../../shared/service/data.service";
 import {GameService} from "../../../shared/service/game.service";
+import {Break} from "../../../shared/type/break";
+import {Observable} from "rxjs";
+import {Result} from "../../../shared/type/result";
+import {ResultService} from "../../../shared/service/result.service";
 
 @Component({
     selector: 'app-main',
@@ -12,9 +16,12 @@ import {GameService} from "../../../shared/service/game.service";
 })
 export class MainComponent implements OnInit {
 
+    private result: Result;
+    private break: Break;
+
     private game: any;
 
-    constructor(private data: DataService, client: ClientService, game: GameService, route: ActivatedRoute) {
+    constructor(result: ResultService, client: ClientService, game: GameService, route: ActivatedRoute) {
         route.params.subscribe(params => {
             client.create(params['id']);
             game.load(params['id'])
@@ -23,6 +30,8 @@ export class MainComponent implements OnInit {
                     err => {
                         console.log("LOAD ERROR:", err);
                     });
+
+            this.result = result.get();
         });
     }
 

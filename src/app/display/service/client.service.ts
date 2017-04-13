@@ -23,6 +23,7 @@ export class ClientService {
 
     receive = (data: State) => {
         this.ngZone.run(() => {
+            console.log(data);
             this.data.set(data);
         })
     }
