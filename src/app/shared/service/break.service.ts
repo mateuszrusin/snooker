@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Ball} from "../type/ball";
 import {Break} from "../type/break";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class BreakService {
@@ -14,7 +15,11 @@ export class BreakService {
         return this.break;
     }
 
-    set(data: any): void {
+    load(): Observable<Break> {
+        return Observable.of(this.break);
+    }
+
+    set(data: Break): void {
         this.break.total = data.total;
         this.break.order = data.order.slice();
     }

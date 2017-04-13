@@ -8,8 +8,8 @@ import {Config} from "../../../shared/data/config";
 })
 export class PlayerComponent implements OnInit {
 
-    readonly URL_IMG = Config.APP_URL + 'img/';
-    readonly URL_UPLOAD = Config.APP_URL + 'upload/';
+    readonly URL_IMG = Config.SERVER_URL + 'img/';
+    readonly URL_UPLOAD = Config.SERVER_URL + 'upload/';
 
     @Input() player: any;
 

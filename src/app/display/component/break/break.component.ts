@@ -12,7 +12,7 @@ export class BreakComponent implements OnInit {
     private break: Break;
 
     constructor(breakService: BreakService) {
-        this.break = breakService.get();
+        breakService.load().subscribe(data => this.break = data)
     }
 
     ngOnInit() {

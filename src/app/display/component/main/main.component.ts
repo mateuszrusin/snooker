@@ -7,6 +7,8 @@ import {Break} from "../../../shared/type/break";
 import {Observable} from "rxjs";
 import {Result} from "../../../shared/type/result";
 import {ResultService} from "../../../shared/service/result.service";
+import {Player} from "../../../shared/type/player";
+import {Config} from "../../../shared/data/config";
 
 @Component({
     selector: 'app-main',
@@ -17,11 +19,12 @@ import {ResultService} from "../../../shared/service/result.service";
 export class MainComponent implements OnInit {
 
     private result: Result;
-    private break: Break;
-
+    private readonly URL_IMG = Config.SERVER_URL + 'img/';
     private game: any;
 
-    constructor(result: ResultService, client: ClientService, game: GameService, route: ActivatedRoute) {
+    constructor(private resultService: ResultService, client: ClientService, game: GameService, route: ActivatedRoute) {
+        this.result = resultService.result;
+
         route.params.subscribe(params => {
             client.create(params['id']);
             game.load(params['id'])
@@ -30,8 +33,6 @@ export class MainComponent implements OnInit {
                     err => {
                         console.log("LOAD ERROR:", err);
                     });
-
-            this.result = result.get();
         });
     }
 

@@ -1,14 +1,22 @@
 import {Injectable} from "@angular/core";
 import {Player} from "../type/player";
 import {Result} from "../type/result";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class ResultService {
 
-    private result: Result;
-
-    constructor() {
-        this.clear();
+    result: Result = {
+        player1: {
+            points: 0,
+            frames: 0,
+            active: true
+        },
+        player2: {
+            points: 0,
+            frames: 0,
+            active: false
+        }
     }
 
     points(points: number): void {
@@ -31,26 +39,20 @@ export class ResultService {
     }
 
     clear(): void {
-        this.result = {
-            player1: {
-                points: 0,
-                frames: 0,
-                active: true
-            },
-            player2: {
-                points: 0,
-                frames: 0,
-                active: false
-            }
-        }
+
     }
 
     get(): Result {
         return this.result;
     }
 
+    load(): Observable<Result> {
+        return Observable.of(this.result);
+    }
+
     set(result: Result): void {
-        this.result = result;
+        this.result.player1 = this.clone(result.player1);
+        this.result.player2 = this.clone(result.player2);
     }
 
     private active(): Player {
@@ -64,5 +66,9 @@ export class ResultService {
         if (this.result.player1.points < this.result.player2.points) {
             this.result.player2.frames++;
         }
+    }
+
+    private clone(object: any): any {
+        return Object.assign({}, object);
     }
 }

@@ -41,16 +41,34 @@ export class DataService {
 
     set(data: State): void {
         if (data) {
-            this.result.set(data.result);
-            this.break.set(data.break);
+            this.result.set(this.clone(data.result));
+            this.break.set(this.clone(data.break));
         }
     }
 
     get(): State {
-        return {
-            result: this.clone(this.result.get()),
-            break: this.clone(this.break.get())
-        }
+        const result = this.result.get();
+        const break_ = this.break.get();
+
+        return this.clone({
+            result: {
+                player1: {
+                    points: result.player1.points,
+                    frames: result.player1.frames,
+                    active: result.player1.active,
+                },
+                player2: {
+                    points: result.player2.points,
+                    frames: result.player2.frames,
+                    active: result.player2.active,
+                }
+            },
+            break: {
+                total: break_.total,
+                order: break_.order.slice()
+
+            }
+        });
     }
 
     private clone(object: any): any {
