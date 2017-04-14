@@ -56,6 +56,5 @@ export class ControlService {
 
     private save(): void {
         this.history.push(this.data.get());
-        console.log("HISTORY COUNT: ", this.history.length);
     }
 }

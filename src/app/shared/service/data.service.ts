@@ -3,14 +3,15 @@ import {ResultService} from "./result.service";
 import {BreakService} from "./break.service";
 import {Ball} from "../type/ball";
 import {State} from "../type/state";
+import * as _ from "lodash";
 
 @Injectable()
 export class DataService {
 
     private break: BreakService;
 
-    constructor(private result: ResultService, break_: BreakService) {
-        this.break = break_;
+    constructor(private result: ResultService, breakService: BreakService) {
+        this.break = breakService;
     }
 
     select(ball: Ball): void {
@@ -41,37 +42,15 @@ export class DataService {
 
     set(data: State): void {
         if (data) {
-            this.result.set(this.clone(data.result));
-            this.break.set(this.clone(data.break));
+            this.result.set(data.result);
+            this.break.set(data.break);
         }
     }
 
     get(): State {
-        const result = this.result.get();
-        const break_ = this.break.get();
-
-        return this.clone({
-            result: {
-                player1: {
-                    points: result.player1.points,
-                    frames: result.player1.frames,
-                    active: result.player1.active,
-                },
-                player2: {
-                    points: result.player2.points,
-                    frames: result.player2.frames,
-                    active: result.player2.active,
-                }
-            },
-            break: {
-                total: break_.total,
-                order: break_.order.slice()
-
-            }
+        return _.cloneDeep({
+            result: this.result.get(),
+            break:  this.break.get()
         });
-    }
-
-    private clone(object: any): any {
-        return Object.assign({}, object);
     }
 }

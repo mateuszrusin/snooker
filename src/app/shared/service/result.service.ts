@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Player} from "../type/player";
 import {Result} from "../type/result";
 import {Observable} from "rxjs/Observable";
+import * as _ from "lodash";
 
 @Injectable()
 export class ResultService {
@@ -51,8 +52,8 @@ export class ResultService {
     }
 
     set(result: Result): void {
-        this.result.player1 = this.clone(result.player1);
-        this.result.player2 = this.clone(result.player2);
+        this.result.player1 = _.cloneDeep(result.player1);
+        this.result.player2 = _.cloneDeep(result.player2);
     }
 
     private active(): Player {
@@ -66,9 +67,5 @@ export class ResultService {
         if (this.result.player1.points < this.result.player2.points) {
             this.result.player2.frames++;
         }
-    }
-
-    private clone(object: any): any {
-        return Object.assign({}, object);
     }
 }

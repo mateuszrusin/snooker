@@ -1,23 +1,22 @@
 import {Injectable, NgZone} from '@angular/core';
 import {State} from "../../shared/type/state";
 import {DataService} from "../../shared/service/data.service";
+import {Config} from "../../shared/data/config";
 
 @Injectable()
 export class ClientService {
 
-    readonly type: string = 'C';
-    peer: any;
+    private readonly type: string = 'C';
+    private peer: any;
 
-    constructor(private data: DataService, private ngZone: NgZone) {
-    }
+    constructor(private data: DataService, private ngZone: NgZone) {}
 
     create(id: any) {
-        this.peer = new Peer(this.type + id, {host: '0.0.0.0', port: 3000, path: '/peer', debug: 3});
+        this.peer = new Peer(this.type + id, Config.PEER_PARAMS);
         this.peer.on('connection', this.connection);
     }
 
     connection = (conn) => {
-        conn.on('open', function() {});
         conn.on('data', this.receive);
     };
 
