@@ -1,17 +1,15 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {MainComponent} from './component/main/main.component';
-import {AppTranslateModule} from "../app.translate";
 import {ClientService} from "./service/client.service";
 import {DataService} from "../shared/service/data.service";
 import {SharedModule} from "../shared/shared.module";
 import {BreakComponent} from "./component/break/break.component";
+import {GameService} from "../shared/service/game.service";
+import {ResultService} from "../shared/service/result.service";
 
 @NgModule({
     imports: [
-        CommonModule,
-        SharedModule,
-        AppTranslateModule,
+        SharedModule
     ],
     declarations: [
         MainComponent,
@@ -19,7 +17,9 @@ import {BreakComponent} from "./component/break/break.component";
     ],
     providers: [
         DataService,
-        ClientService,
+        GameService,
+        ResultService,
+        ClientService
     ]
 })
 export class DisplayModule {

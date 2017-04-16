@@ -1,18 +1,17 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {MainComponent} from "./component/main/main.component";
 import {PlayerComponent} from "./component/player/player.component";
-import {QRCodeComponent} from "ng2-qrcode";
 import {FieldsetModule} from "primeng/components/fieldset/fieldset";
 import {FileUploadModule} from "primeng/components/fileupload/fileupload";
 import {PanelModule} from "primeng/components/panel/panel";
 import {FormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
+import {QRCodeModule} from 'angular2-qrcode';
 
 @NgModule({
     imports: [
-        CommonModule,
         SharedModule,
+        QRCodeModule,
         FormsModule,
         FieldsetModule,
         FileUploadModule,
@@ -20,11 +19,7 @@ import {SharedModule} from "../shared/shared.module";
     ],
     declarations: [
         MainComponent,
-        PlayerComponent,
-        QRCodeComponent
-    ],
-    exports: [
-        QRCodeComponent
+        PlayerComponent
     ]
 })
 export class CreatorModule {

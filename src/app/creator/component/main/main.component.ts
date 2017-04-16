@@ -18,11 +18,14 @@ import {Config} from "../../../shared/data/config";
 })
 export class MainComponent implements OnInit {
 
-    private id;
-    private visibility = '1';
-    private url = Config.APP_URL;
+    visibility: string = '1';
+    url: string = Config.APP_URL;
+    id: string;
+    data: any;
 
-    constructor(private game: GameService, private translate: TranslateService) {}
+    constructor(private game: GameService, private translate: TranslateService) {
+        this.data = game.data;
+    }
 
     ngOnInit() {
     }

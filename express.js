@@ -64,3 +64,5 @@ app.post('/upload', upload.single('file'), function(request, response) {
 
 app.use('/img', express.static('img'));
 app.use('/asset', express.static('asset'));
+
+app.use('/', express.static('dist'))

@@ -18,9 +18,9 @@ import {Config} from "../../../shared/data/config";
 })
 export class MainComponent implements OnInit {
 
-    private result: Result;
-    private readonly URL_IMG = Config.SERVER_URL + 'img/';
-    private game: any;
+    result: Result;
+    readonly URL_IMG = Config.SERVER_URL + 'img/';
+    game: any;
 
     constructor(private resultService: ResultService, client: ClientService, game: GameService, route: ActivatedRoute) {
         this.result = resultService.result;

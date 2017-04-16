@@ -9,7 +9,7 @@ import {Break} from "../../../shared/type/break";
 })
 export class BreakComponent implements OnInit {
 
-    private break: Break;
+    break: Break;
 
     constructor(breakService: BreakService) {
         breakService.load().subscribe(data => this.break = data)

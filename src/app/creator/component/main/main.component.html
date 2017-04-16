@@ -2,10 +2,10 @@
 
 <div class="ui-g" [@visibilityChanged]="visibility">
     <div class="ui-g-6">
-        <creator-player [player]="game.data.player1"></creator-player>
+        <creator-player [player]="data.player1"></creator-player>
     </div>
     <div class="ui-g-6">
-        <creator-player [player]="game.data.player2"></creator-player>
+        <creator-player [player]="data.player2"></creator-player>
     </div>
     <div class="ui-g-12 center">
         <button pButton type="button" (click)="save()" label="{{ 'create' | translate }}"></button>
@@ -14,7 +14,7 @@
 <div *ngIf="id">
     <div class="">
         <div class="center">
-            <qrcode [qrdata]="url + 'control/' + id" [size]="256" [level]="'M'"></qrcode>
+            <qr-code [value]="url + 'control/' + id" [size]="256" [level]="'M'"></qr-code>
         </div>
     </div>
     <div class="">
