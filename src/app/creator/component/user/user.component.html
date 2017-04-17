@@ -1,6 +1,6 @@
-<p-fieldset legend="Player">
+<p-fieldset [legend]="title">
     <p-panel header="Name">
-        <input type="text" pInputText [(ngModel)]="player.name" class="full"/>
+        <input type="text" pInputText [(ngModel)]="user.name" class="full"/>
     </p-panel>
     <p-fileUpload
             name="file"
@@ -10,8 +10,8 @@
             [url]="URL_UPLOAD"
             (onUpload)="onUpload($event)">
         <ng-template pTemplate="content">
-            <div *ngIf="player.photo">
-                <img [src]="URL_IMG + player.photo" class="photo"/>
+            <div *ngIf="user.photo">
+                <img [src]="URL_IMG + user.photo" class="photo"/>
             </div>
         </ng-template>
     </p-fileUpload>

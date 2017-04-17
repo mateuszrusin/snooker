@@ -19,7 +19,8 @@ export class GameService {
             name: null,
             photo: null
         },
-        frames: 1
+        frames: 1,
+        title: ""
     };
 
     private readonly URL: string = Config.SERVER_URL + 'game/';
