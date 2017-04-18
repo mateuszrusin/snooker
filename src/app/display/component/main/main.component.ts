@@ -9,6 +9,8 @@ import {Result} from "../../../shared/type/result";
 import {ResultService} from "../../../shared/service/result.service";
 import {Player} from "../../../shared/type/player";
 import {Config} from "../../../shared/data/config";
+import {Game} from "../../../shared/type/game";
+import {User} from "../../../shared/type/user";
 
 @Component({
     selector: 'app-main',
@@ -19,8 +21,7 @@ import {Config} from "../../../shared/data/config";
 export class MainComponent implements OnInit {
 
     result: Result;
-    readonly URL_IMG = Config.SERVER_URL + 'img/';
-    game: any;
+    game: Game;
 
     constructor(private resultService: ResultService, client: ClientService, game: GameService, route: ActivatedRoute) {
         this.result = resultService.result;
@@ -34,6 +35,14 @@ export class MainComponent implements OnInit {
                         console.log("LOAD ERROR:", err);
                     });
         });
+    }
+
+    photo(user: User): string {
+        if (user.photo) {
+            return Config.SERVER_URL + 'img/' + user.photo;
+        }
+
+        return Config.SERVER_URL + 'asset/player.jpg';
     }
 
     ngOnInit() {

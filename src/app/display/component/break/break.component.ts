@@ -9,6 +9,7 @@ import {Break} from "../../../shared/type/break";
 })
 export class BreakComponent implements OnInit {
 
+    @Input() position: string;
     break: Break;
 
     constructor(breakService: BreakService) {

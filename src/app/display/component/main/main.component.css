@@ -1,11 +1,16 @@
+.title {
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .frames {
     padding: 0 10px;
 }
 .photo {
-    width: 75%;
+    width: 15vw;
 }
 .referee {
-    width: 50%;
+    width: 10vw;
 }
 .circle {
     width: 30px;
