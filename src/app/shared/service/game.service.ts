@@ -2,11 +2,12 @@ import {Injectable} from '@angular/core';
 import {Http} from "@angular/http";
 import {Observable} from "rxjs";
 import {Config} from "../data/config";
+import {Game} from "../type/game";
 
 @Injectable()
 export class GameService {
 
-    public data = {
+    public data: Game = {
         player1: {
             name: null,
             photo: null

@@ -1,4 +1,4 @@
-export interface Ball {
-    points: number;
-    color: string;
+export interface User {
+    name: string;
+    photo: string;
 }
