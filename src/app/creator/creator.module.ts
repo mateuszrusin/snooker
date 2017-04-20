@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
 import {QRCodeModule} from 'angular2-qrcode';
 import { UserComponent } from './component/user/user.component';
+import {SpinnerModule} from "primeng/primeng";
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { UserComponent } from './component/user/user.component';
         FieldsetModule,
         FileUploadModule,
         PanelModule,
+        SpinnerModule
     ],
     declarations: [
         MainComponent,

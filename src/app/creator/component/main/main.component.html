@@ -7,17 +7,16 @@
     <div class="ui-g-6">
         <creator-user [user]="data.player2" title="Player 2"></creator-user>
     </div>
-    <div class="ui-g-4">
+    <div class="ui-g-6">
         <creator-user [user]="data.referee" title="Referee"></creator-user>
     </div>
-    <div class="ui-g-8">
-        <p-fieldset legend="Other">
-            <p-panel header="Frames">
-                <input type="text" pInputText [(ngModel)]="data.frames" class="full"/>
-            </p-panel>
-            <p-panel header="Title">
-                <input type="text" pInputText [(ngModel)]="data.title" class="full"/>
-            </p-panel>
+    <div class="ui-g-6">
+        <p-fieldset legend="Frames">
+            <p-spinner size="100" [(ngModel)]="data.frames" [min]="0" [max]="100" class="full"></p-spinner>
+        </p-fieldset>
+        <br />
+        <p-fieldset legend="Title">
+            <input type="text" pInputText [(ngModel)]="data.title" class="full"/>
         </p-fieldset>
     </div>
     <div class="ui-g-12 center">

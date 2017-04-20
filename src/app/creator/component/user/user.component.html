@@ -1,7 +1,5 @@
 <p-fieldset [legend]="title">
-    <p-panel header="Name">
-        <input type="text" pInputText [(ngModel)]="user.name" class="full"/>
-    </p-panel>
+    <input type="text" pInputText [(ngModel)]="user.name" class="full"/>
     <p-fileUpload
             name="file"
             accept="image/*"

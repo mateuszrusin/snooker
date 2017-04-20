@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
+import {Http, RequestOptions, Headers} from "@angular/http";
 import {Observable} from "rxjs";
 import {Config} from "../data/config";
 import {Game} from "../type/game";
@@ -38,7 +38,8 @@ export class GameService {
         return this.http
             .post(
                 this.URL,
-                JSON.stringify(this.data)
+                JSON.stringify(this.data),
+                new RequestOptions({headers: new Headers({'Content-Type': 'application/json'})})
             )
             .map(response => {
                 return response.text();

@@ -13,6 +13,11 @@ var Path = require('path');
 var Db = Mongojs('mongodb://localhost:27017/snooker', ['games']);
 var multer  = require('multer');
 var bodyParser = require('body-parser');
+var joi = require('joi');
+//  Initialize valid-express module
+var validExpress = require('valid-express');
+var validator = validExpress();
+
 
 var server = app.listen(PORT, function () {
     console.log('Listening on port ' + PORT)
@@ -24,10 +29,23 @@ var options = {
 
 app.use('/peer', ExpressPeerServer(server, options));
 
-// save data to mongo
-app.post('/game', bodyParser.text(), function(request, response) {
+app.use(bodyParser.json());
 
-    const data = JSON.parse(request.body);
+var bodySchema = {
+    body: {
+        player1: joi.object().required(),
+        player2: joi.object().required(),
+        referee: joi.object().required(),
+        frames: joi.number().integer().min(1).max(100),
+        title: joi.string().allow('')
+    }
+};
+
+
+// save data to mongo
+app.post('/game', validator.validate(bodySchema), function(request, response) {
+
+    const data = (request.body);
 
     Db.games.save(data, function (err, doc) {
         response.send(doc._id.toString());

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {trigger, state, transition, style, animate} from "@angular/animations";
 import {GameService} from "../../../shared/service/game.service";
 import {TranslateService} from "ng2-translate";
@@ -8,6 +8,7 @@ import {Config} from "../../../shared/data/config";
     selector: 'creator-main',
     templateUrl: 'main.component.html',
     styleUrls: ['main.component.css'],
+    encapsulation: ViewEncapsulation.None,
     animations: [
         trigger('visibilityChanged', [
             state('1', style({opacity: 1})),

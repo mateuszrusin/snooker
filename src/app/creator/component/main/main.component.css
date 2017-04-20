@@ -1,3 +1,13 @@
 :host /deep/ img {
     display: inline !important;
 }
+
+.ui-widget input {
+    border: 1px solid #dddddd;
+    margin: 10px 0;
+}
+
+.ui-fileupload-content {
+    padding: 0;
+    text-align: center;
+}
