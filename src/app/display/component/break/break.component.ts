@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from "@angular/core";
+import {Component} from "@angular/core";
 import {BreakService} from "../../../shared/service/break.service";
 import {Break} from "../../../shared/type/break";
 
@@ -7,16 +7,11 @@ import {Break} from "../../../shared/type/break";
     templateUrl: 'break.component.html',
     styleUrls: ['break.component.css']
 })
-export class BreakComponent implements OnInit {
+export class BreakComponent {
 
-    @Input() position: string;
     break: Break;
 
     constructor(breakService: BreakService) {
         this.break = breakService.get();
-    }
-
-    ngOnInit() {
-
     }
 }

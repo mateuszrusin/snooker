@@ -1,13 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {ClientService} from "../../service/client.service";
-import {DataService} from "../../../shared/service/data.service";
 import {GameService} from "../../../shared/service/game.service";
-import {Break} from "../../../shared/type/break";
-import {Observable} from "rxjs";
 import {Result} from "../../../shared/type/result";
 import {ResultService} from "../../../shared/service/result.service";
-import {Player} from "../../../shared/type/player";
 import {Config} from "../../../shared/data/config";
 import {Game} from "../../../shared/type/game";
 import {User} from "../../../shared/type/user";
@@ -18,13 +14,13 @@ import {User} from "../../../shared/type/user";
     styleUrls: ['./main.component.css'],
     encapsulation: ViewEncapsulation.None
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
 
     result: Result;
     game: Game;
 
     constructor(private resultService: ResultService, client: ClientService, game: GameService, route: ActivatedRoute) {
-        this.result = resultService.result;
+        this.result = resultService.get();
 
         route.params.subscribe(params => {
             client.create(params['id']);
@@ -43,8 +39,5 @@ export class MainComponent implements OnInit {
         }
 
         return Config.SERVER_URL + 'asset/player.jpg';
-    }
-
-    ngOnInit() {
     }
 }

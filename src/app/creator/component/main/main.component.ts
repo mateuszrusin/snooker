@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {trigger, state, transition, style, animate} from "@angular/animations";
 import {GameService} from "../../../shared/service/game.service";
-import {TranslateService} from "ng2-translate";
 import {Config} from "../../../shared/data/config";
+import {Game} from "../../../shared/type/game";
 
 @Component({
     selector: 'creator-main',
@@ -17,18 +17,15 @@ import {Config} from "../../../shared/data/config";
         ])
     ],
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
 
     visibility: string = '1';
     url: string = Config.APP_URL;
     id: string;
-    data: any;
+    data: Game;
 
-    constructor(private game: GameService, private translate: TranslateService) {
+    constructor(private game: GameService) {
         this.data = game.data;
-    }
-
-    ngOnInit() {
     }
 
     save() {

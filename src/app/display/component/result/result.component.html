@@ -1,0 +1,14 @@
+<div class="ui-g">
+    <div class="ui-g-4 right">
+        <div *ngIf="player.active && left" class="circle center"></div>
+    </div>
+    <div class="ui-g-4 center">
+        {{player.points}}
+    </div>
+    <div class="ui-g-4">
+        <div *ngIf="player.active && !left" class="circle center"></div>
+    </div>
+</div>
+<div *ngIf="player.active" class="center">
+    <display-break></display-break>
+</div>

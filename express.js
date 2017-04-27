@@ -24,11 +24,11 @@ var validator = validExpress();
 var bodySchema = {
     body: {
         player1: joi.object().keys({
-            name: joi.string(),
+            name: joi.string().required(),
             photo: joi.string().allow(null)
         }),
         player2: joi.object().keys({
-            name: joi.string(),
+            name: joi.string().required(),
             photo: joi.string().allow(null)
         }),
         referee: joi.object().required(),

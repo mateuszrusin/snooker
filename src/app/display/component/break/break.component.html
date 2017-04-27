@@ -1,6 +1,7 @@
 <div [class]="position">
     <div *ngIf="break?.total" class="ui-grid-col-12 center">
         <div class="total">
+            {{ 'break' | translate }}:<br />
             {{break.total}}
         </div>
         <div class="order">

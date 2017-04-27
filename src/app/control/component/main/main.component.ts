@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {ControlService} from "../../service/control.service";
-import {TranslateService} from "ng2-translate";
 import {Ball} from "../../../shared/type/ball";
 import {BALLS} from "../../../shared/data/balls";
 import {MenuItem} from "primeng/primeng";
@@ -17,7 +16,7 @@ export class MainComponent implements OnInit {
     balls: Ball[] = BALLS;
     fouls: MenuItem[] = [];
 
-    constructor(private control: ControlService, private translate: TranslateService, route: ActivatedRoute) {
+    constructor(private control: ControlService, route: ActivatedRoute) {
         route.params.subscribe(params => {
             this.control.init(params['id']);
         });

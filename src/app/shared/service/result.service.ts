@@ -6,7 +6,7 @@ import * as _ from "lodash";
 @Injectable()
 export class ResultService {
 
-    result: Result = {
+    private result: Result = {
         player1: {
             points: 0,
             frames: 0,

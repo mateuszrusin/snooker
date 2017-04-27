@@ -6,6 +6,7 @@ import {SharedModule} from "../shared/shared.module";
 import {BreakComponent} from "./component/break/break.component";
 import {GameService} from "../shared/service/game.service";
 import {ResultService} from "../shared/service/result.service";
+import { ResultComponent } from './component/result/result.component';
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import {ResultService} from "../shared/service/result.service";
     ],
     declarations: [
         MainComponent,
-        BreakComponent
+        BreakComponent,
+        ResultComponent
     ],
     providers: [
         DataService,

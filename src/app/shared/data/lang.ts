@@ -10,7 +10,10 @@ export const LANG = {
         "frame": "Frame",
         "language": "Language",
         "referee": "Referee",
-        "create": "Create"
+        "create": "Create",
+        "break": "Break",
+        "title": "Title",
+        "player": "Player"
     },
     "pl": {
         "iso": "polski",
@@ -23,6 +26,9 @@ export const LANG = {
         "frame": "Frejm",
         "language": "Język",
         "referee": "Sędzia",
-        "create": "Utwórz"
+        "create": "Utwórz",
+        "break": "Brejk",
+        "title": "Tytuł",
+        "player": "Zawodnik"
     }
 }
