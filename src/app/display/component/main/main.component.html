@@ -37,6 +37,9 @@
                 <div class="ui-g-4">
                 </div>
             </div>
+            <div *ngIf="result.player1.active" class="center">
+                <display-break></display-break>
+            </div>
         </div>
         <div class="ui-g-2">
             <div class="ui-g">
@@ -64,10 +67,9 @@
                     <div *ngIf="result.player2.active" class="circle center"></div>
                 </div>
             </div>
+            <div *ngIf="result.player2.active" class="center">
+                <display-break></display-break>
+            </div>
         </div>
-    </div>
-
-    <div class="ui-g">
-        <display-break [position]="result.player1.active ? 'left' : 'right'"></display-break>
     </div>
 </div>

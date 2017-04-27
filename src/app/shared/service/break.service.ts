@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Ball} from "../type/ball";
 import {Break} from "../type/break";
-import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class BreakService {
@@ -13,10 +12,6 @@ export class BreakService {
 
     get(): Break {
         return this.break;
-    }
-
-    load(): Observable<Break> {
-        return Observable.of(this.break);
     }
 
     set(data: Break): void {

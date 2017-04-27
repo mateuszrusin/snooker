@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Player} from "../type/player";
 import {Result} from "../type/result";
-import {Observable} from "rxjs/Observable";
 import * as _ from "lodash";
 
 @Injectable()
@@ -45,10 +44,6 @@ export class ResultService {
 
     get(): Result {
         return this.result;
-    }
-
-    load(): Observable<Result> {
-        return Observable.of(this.result);
     }
 
     set(result: Result): void {

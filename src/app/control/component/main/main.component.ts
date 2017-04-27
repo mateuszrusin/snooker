@@ -62,9 +62,7 @@ export class MainComponent implements OnInit {
     private createFoulItem(points: number): MenuItem {
         return {
             label: points.toString(),
-            command: () => {
-                this.control.foul(points)
-            }
+            command: () => this.control.foul(points)
         }
     }
 }
