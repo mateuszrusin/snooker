@@ -1,7 +1,8 @@
 <div *ngIf="game">
 
-    <div class="title">{{game.title}}</div>
-
+    <div class="title-container">
+        <div class="title">{{game.title}}</div>
+    </div>
 
     <div class="ui-g full center">
         <div class="ui-g-5 center">
@@ -12,8 +13,9 @@
         </div>
         <div class="ui-g-2">
             <div *ngIf="game.referee.name">
+                {{ 'referee' | translate }}:
                 <img [src]="photo(game.referee)" class="referee"/>
-                <br/>{{game.referee.name}}
+                {{game.referee.name}}
             </div>
         </div>
         <div class="ui-g-5 center">

@@ -1,4 +1,13 @@
 
+.result {
+    height: 20vmin;
+}
+
+.points {
+    font-size: 15rem;
+    font-weight: bold;
+}
+
 .circle {
     width: 30px;
     height: 30px;

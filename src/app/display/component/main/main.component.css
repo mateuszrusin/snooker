@@ -1,6 +1,16 @@
+.title-container {
+    height: 10vmin;
+    display: table;
+    margin: 0 auto;
+}
+
 .title {
     text-align: center;
     text-transform: uppercase;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .frames {
@@ -11,4 +21,7 @@
 }
 .referee {
     width: 10vw;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
 }

@@ -1,9 +1,9 @@
-<div class="ui-g">
+<div class="ui-g result">
     <div class="ui-g-4 right">
         <div *ngIf="player.active && left" class="circle center"></div>
     </div>
     <div class="ui-g-4 center">
-        {{player.points}}
+        <div class="points">{{player.points}}</div>
     </div>
     <div class="ui-g-4">
         <div *ngIf="player.active && !left" class="circle center"></div>
