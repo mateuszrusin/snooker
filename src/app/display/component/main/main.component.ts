@@ -9,7 +9,7 @@ import {Game} from "../../../shared/type/game";
 import {User} from "../../../shared/type/user";
 
 @Component({
-    selector: 'app-main',
+    selector: 'display-main',
     templateUrl: './main.component.html',
     styleUrls: ['./main.component.css'],
     encapsulation: ViewEncapsulation.None

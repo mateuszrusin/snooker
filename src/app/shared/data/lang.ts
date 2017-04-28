@@ -12,8 +12,10 @@ export const LANG = {
         "referee": "Referee",
         "create": "Create",
         "break": "Break",
-        "title": "Title",
-        "player": "Player"
+        "title": "Title of the game",
+        "player": "Player",
+        "choose photo": "Choose photo...",
+        "enter name": "Enter name..."
     },
     "pl": {
         "iso": "polski",
@@ -28,7 +30,9 @@ export const LANG = {
         "referee": "Sędzia",
         "create": "Utwórz",
         "break": "Brejk",
-        "title": "Tytuł",
-        "player": "Zawodnik"
+        "title": "Tytuł meczu",
+        "player": "Zawodnik",
+        "choose photo": "Wybierz zdjęcie...",
+        "enter name": "Wpisz imię i nazwisko..."
     }
 }

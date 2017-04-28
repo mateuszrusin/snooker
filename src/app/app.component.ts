@@ -3,7 +3,7 @@ import {TranslateService} from "ng2-translate";
 
 @Component({
     selector: 'app-root',
-    templateUrl: 'app.component.html'
+    template: '<router-outlet></router-outlet>'
 })
 
 export class AppComponent {
