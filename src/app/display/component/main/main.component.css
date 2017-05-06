@@ -1,5 +1,11 @@
+.game {
+    height: 100%;
+    background-color: #dddddd;
+    max-height: 100%;
+}
+
 .title-container {
-    height: 10vmin;
+    height: 10vh;
     display: table;
     margin: 0 auto;
 }
@@ -13,15 +19,14 @@
     font-weight: bold;
 }
 
-.frames {
-    padding: 0 10px;
-}
-.photo {
-    width: 15vw;
-}
-.referee {
-    width: 10vw;
-    display: block;
+.info {
     text-align: center;
-    margin: 0 auto;
+    width: 100%;
+    height: 45vh;
+}
+
+.result {
+    text-align: center;
+    width: 100%;
+    height: 45vh;
 }

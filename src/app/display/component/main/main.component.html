@@ -1,53 +1,31 @@
-<div *ngIf="game">
+<div *ngIf="game" class="game">
 
     <div class="title-container">
         <div class="title">{{game.title}}</div>
     </div>
 
-    <div class="ui-g full center">
+    <div class="ui-g info">
         <div class="ui-g-5 center">
-            <img [src]="photo(game.player1)" class="photo"/>
-            <h1 class="center">
-                {{game?.player1.name}}
-            </h1>
+            <display-player [player]="game.player1"></display-player>
         </div>
         <div class="ui-g-2">
-            <div *ngIf="game.referee.name">
-                {{ 'referee' | translate }}:
-                <img [src]="photo(game.referee)" class="referee"/>
-                {{game.referee.name}}
-            </div>
+            <display-referee [referee]="game.referee"></display-referee>
         </div>
         <div class="ui-g-5 center">
-            <img [src]="photo(game.player2)" class="photo"/>
-            <h1 class="center">
-                {{game?.player2.name}}
-            </h1>
+            <display-player [player]="game.player2"></display-player>
         </div>
     </div>
 
 
-    <div class="ui-g">
+    <div class="ui-g result">
         <div class="ui-g-5">
-            <display-result [player]="result.player1" [left]="true"></display-result>
+            <display-result [player]="result.player1" [right]="false"></display-result>
         </div>
         <div class="ui-g-2">
-            <div class="ui-g">
-                <div class="ui-g-4 right">
-                    {{result.player1.frames}}
-                </div>
-                <div class="ui-g-4">
-                    <div class="frames center">
-                        ({{game.frames}})
-                    </div>
-                </div>
-                <div class="ui-g-4 left">
-                    {{result.player2.frames}}
-                </div>
-            </div>
+            <display-frame [frames]="game.frames" [player1]="result.player1.frames" [player2]="result.player2.frames"></display-frame>
         </div>
         <div class="ui-g-5">
-            <display-result [player]="result.player2" [left]="false"></display-result>
+            <display-result [player]="result.player2" [right]="true"></display-result>
         </div>
     </div>
 </div>

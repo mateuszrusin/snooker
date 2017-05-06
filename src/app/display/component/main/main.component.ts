@@ -11,33 +11,27 @@ import {User} from "../../../shared/type/user";
 @Component({
     selector: 'display-main',
     templateUrl: './main.component.html',
-    styleUrls: ['./main.component.css'],
-    encapsulation: ViewEncapsulation.None
+    styleUrls: ['./main.component.css']
 })
 export class MainComponent {
 
     result: Result;
+    frames: any;
     game: Game;
 
     constructor(private resultService: ResultService, client: ClientService, game: GameService, route: ActivatedRoute) {
 
         route.params.subscribe(params => {
-            this.result = resultService.get();
             client.create(params['id']);
             game.load(params['id']).subscribe(
-                data => this.game = data,
+                data => {
+                    this.game = data;
+                    this.result = resultService.get();
+                },
                 err => {
                     console.log("LOAD ERROR:", err);
                 }
             );
         });
-    }
-
-    photo(user: User): string {
-        if (user.photo) {
-            return Config.SERVER_URL + 'img/' + user.photo;
-        }
-
-        return Config.SERVER_URL + 'asset/player.jpg';
     }
 }

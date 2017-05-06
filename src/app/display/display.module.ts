@@ -7,6 +7,9 @@ import {BreakComponent} from "./component/break/break.component";
 import {GameService} from "../shared/service/game.service";
 import {ResultService} from "../shared/service/result.service";
 import { ResultComponent } from './component/result/result.component';
+import { RefereeComponent } from './component/referee/referee.component';
+import { PlayerComponent } from './component/player/player.component';
+import { FrameComponent } from './component/frame/frame.component';
 
 @NgModule({
     imports: [
@@ -15,7 +18,10 @@ import { ResultComponent } from './component/result/result.component';
     declarations: [
         MainComponent,
         BreakComponent,
-        ResultComponent
+        ResultComponent,
+        RefereeComponent,
+        PlayerComponent,
+        FrameComponent
     ],
     providers: [
         DataService,

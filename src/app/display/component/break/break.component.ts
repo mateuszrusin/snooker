@@ -14,4 +14,21 @@ export class BreakComponent {
     constructor(breakService: BreakService) {
         this.break = breakService.get();
     }
+
+    size(): string {
+        const count = this.break.order.length;
+
+        switch (true) {
+            case count > 20:
+                return 's';
+            case count > 15:
+                return 'm';
+            case count > 10:
+                return 'l';
+            case count > 5:
+                return 'xl';
+            default:
+                return 'xxl';
+        }
+    }
 }

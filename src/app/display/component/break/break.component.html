@@ -1,11 +1,10 @@
 <div [class]="position">
-    <div *ngIf="break?.total" class="ui-grid-col-12 center">
+    <div *ngIf="break.total" class="break">
         <div class="total">
-            {{ 'break' | translate }}:<br />
             {{break.total}}
         </div>
         <div class="order">
-            <span *ngFor="let ball of break.order" class="ball {{ball.color}}"></span>
+            <span *ngFor="let ball of break.order" class="ball {{ball.color}} {{size()}}"></span>
         </div>
     </div>
 </div>

@@ -9,6 +9,6 @@ import {Player} from "../../../shared/type/player";
 export class ResultComponent {
 
     @Input() player: Player;
-    @Input() left: boolean;
+    @Input() right: boolean;
 
 }

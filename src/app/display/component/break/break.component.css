@@ -1,20 +1,56 @@
 .break {
-    height: 50px;
+    height: 100%;
 }
-.mini {
-    width: 10px;
-    height: 10px;
-}
+
 .ball {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 0.5vw;
-    height: 0.5vw;
-    margin: 0.1vw;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
+}
+
+.xxl {
+    width: 5em;
+    height: 5em;
+    margin: 1%;
+    -moz-border-radius: 3em;
+    -webkit-border-radius: 3em;
+    border-radius: 3em;
+}
+
+.xl {
+    width: 3em;
+    height: 3em;
+    margin: 1%;
+    -moz-border-radius: 3em;
+    -webkit-border-radius: 3em;
+    border-radius: 3em;
+}
+
+.l {
+    width: 2em;
+    height: 2em;
+    margin: 1%;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+}
+
+.m {
+    width: 1em;
+    height: 1em;
+    margin: 1%;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+}
+
+.s {
+    width: 0.5em;
+    height: 0.5em;
+    margin: 1%;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    border-radius: 0.5em;
 }
 
 .red {
@@ -43,4 +79,16 @@
 
 .black {
     background: black;
+}
+
+.total {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 50%;
+    font-size: 10em;
+}
+
+.order {
+    height: 50%;
 }

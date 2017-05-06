@@ -1,18 +1,25 @@
 
 .result {
-    height: 20vmin;
+    height: 35%;
+}
+
+.break {
+    height: 65%;
 }
 
 .points {
-    font-size: 15rem;
+    font-size: 10em;
     font-weight: bold;
+    margin:0;
+    padding:0;
+    line-height: 0;
 }
 
 .circle {
-    width: 30px;
-    height: 30px;
+    width: 5em;
+    height: 5em;
     background: red;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
+    -moz-border-radius: 5em;
+    -webkit-border-radius: 5em;
+    border-radius: 5em;
 }

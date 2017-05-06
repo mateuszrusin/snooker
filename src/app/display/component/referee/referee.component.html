@@ -1,0 +1,11 @@
+<div *ngIf="referee.name" class="referee">
+    <div class="header">
+        {{ 'referee' | translate }}:
+    </div>
+    <div class="photo">
+        <img [src]="photo()"/>
+    </div>
+    <div class="name">
+        {{referee.name}}
+    </div>
+</div>
