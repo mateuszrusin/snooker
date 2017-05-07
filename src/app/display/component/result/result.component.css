@@ -1,10 +1,10 @@
 
 .result {
-    height: 35%;
+    height: 15vh;
 }
 
 .break {
-    height: 65%;
+    height: 40vh;
 }
 
 .points {
@@ -16,6 +16,7 @@
 }
 
 .circle {
+    margin:0;
     width: 5em;
     height: 5em;
     background: red;

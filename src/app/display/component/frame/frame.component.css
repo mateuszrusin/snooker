@@ -1,10 +1,20 @@
 
-.result {
-    font-size: 2rem;
+.frame {
+    height: 15vh;
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
 }
 
-.frames {
-    font-size: 2rem;
+.result {
+    font-size: 3em;
     text-align: center;
+    font-weight: bold;
+    padding: 0;
+}
+
+.frames {
+    font-size: 3em;
+    text-align: center;
+    padding: 0;
 }
