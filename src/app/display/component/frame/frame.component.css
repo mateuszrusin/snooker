@@ -1,13 +1,13 @@
 
 .frame {
-    height: 15vh;
+    height: 24vh;
     width: 100%;
     margin: 0 auto;
     text-align: center;
 }
 
 .result {
-    font-size: 3em;
+    font-size: 8em;
     text-align: center;
     font-weight: bold;
     padding: 0;

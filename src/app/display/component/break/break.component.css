@@ -1,5 +1,5 @@
 .break {
-    height: 100%;
+    height: 30vh;
 }
 
 .ball {
@@ -9,15 +9,6 @@
 }
 
 .xxl {
-    width: 5em;
-    height: 5em;
-    margin: 1%;
-    -moz-border-radius: 3em;
-    -webkit-border-radius: 3em;
-    border-radius: 3em;
-}
-
-.xl {
     width: 3em;
     height: 3em;
     margin: 1%;
@@ -26,16 +17,16 @@
     border-radius: 3em;
 }
 
-.l {
+.xl {
     width: 2em;
     height: 2em;
     margin: 1%;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
+    -moz-border-radius: 2em;
+    -webkit-border-radius: 2em;
+    border-radius: 2em;
 }
 
-.m {
+.l {
     width: 1em;
     height: 1em;
     margin: 1%;
@@ -44,13 +35,22 @@
     border-radius: 1em;
 }
 
-.s {
+.m {
     width: 0.5em;
     height: 0.5em;
     margin: 1%;
-    -moz-border-radius: 0.5em;
-    -webkit-border-radius: 0.5em;
-    border-radius: 0.5em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+}
+
+.s {
+    width: 0.25em;
+    height: 0.25em;
+    margin: 1%;
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    border-radius: 0.25em;
 }
 
 .red {
@@ -85,10 +85,10 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 50%;
-    font-size: 10em;
+    height: 24vh;
+    font-size: 22vh;
 }
 
 .order {
-    height: 50%;
+    height: 100%;
 }

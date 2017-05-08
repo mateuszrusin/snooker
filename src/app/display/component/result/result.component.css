@@ -1,14 +1,14 @@
 
 .result {
-    height: 15vh;
+    height: 24vh;
 }
 
 .break {
-    height: 40vh;
+    height: 30vh;
 }
 
 .points {
-    font-size: 10em;
+    font-size: 22vh;
     font-weight: bold;
     margin:0;
     padding:0;
