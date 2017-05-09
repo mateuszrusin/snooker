@@ -10,10 +10,16 @@ import { ResultComponent } from './component/result/result.component';
 import { RefereeComponent } from './component/referee/referee.component';
 import { PlayerComponent } from './component/player/player.component';
 import { FrameComponent } from './component/frame/frame.component';
+import { MenuComponent } from './component/menu/menu.component';
+import {SplitButtonModule} from "primeng/components/splitbutton/splitbutton";
+import {TieredMenuModule} from "primeng/components/tieredmenu/tieredmenu";
+import {ThemeService} from "./service/theme.service";
 
 @NgModule({
     imports: [
-        SharedModule
+        SharedModule,
+        TieredMenuModule,
+        SplitButtonModule
     ],
     declarations: [
         MainComponent,
@@ -21,13 +27,15 @@ import { FrameComponent } from './component/frame/frame.component';
         ResultComponent,
         RefereeComponent,
         PlayerComponent,
-        FrameComponent
+        FrameComponent,
+        MenuComponent
     ],
     providers: [
         DataService,
         GameService,
         ResultService,
-        ClientService
+        ClientService,
+        ThemeService
     ]
 })
 export class DisplayModule {

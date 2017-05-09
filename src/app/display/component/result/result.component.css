@@ -8,11 +8,11 @@
 }
 
 .points {
-    font-size: 22vh;
+    font-size: 25vh;
     font-weight: bold;
     margin:0;
     padding:0;
-    line-height: 0;
+    line-height: 1;
 }
 
 .circle {

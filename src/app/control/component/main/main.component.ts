@@ -2,8 +2,8 @@ import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {ControlService} from "../../service/control.service";
 import {Ball} from "../../../shared/type/ball";
 import {BALLS} from "../../../shared/data/balls";
-import {MenuItem} from "primeng/primeng";
 import {ActivatedRoute} from "@angular/router";
+import {MenuItem} from "primeng/components/common/api";
 
 @Component({
     selector: 'app-main',

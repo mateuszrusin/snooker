@@ -1,11 +1,11 @@
 <div class="ui-g result">
-    <div class="ui-g-3 right box">
-        <div *ngIf="player.active && !right" class="circle center"></div>
+    <div class="ui-g-3 box">
+        <div *ngIf="player.active && !right" class="circle"></div>
     </div>
     <div class="ui-g-6 box">
         <div class="points">{{player.points}}</div>
     </div>
-    <div class="ui-g-3 left box">
+    <div class="ui-g-3 center box">
         <div *ngIf="player.active && right" class="circle center"></div>
     </div>
 </div>

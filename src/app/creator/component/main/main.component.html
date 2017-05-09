@@ -7,18 +7,21 @@
     <div class="ui-g-6">
         <creator-user [user]="data.player2" title="{{ 'player' | translate }} 2"></creator-user>
     </div>
-    <div class="ui-g-6">
-        <creator-user [user]="data.referee" title="{{ 'referee' | translate }}"></creator-user>
-    </div>
-    <div class="ui-g-6">
-        <p-fieldset legend="{{ 'frames' | translate }}">
-            <p-spinner size="100" [(ngModel)]="data.frames" [min]="0" [max]="100" class="full"></p-spinner>
-        </p-fieldset>
-        <br />
+
+    <div class="ui-g-4">
         <p-fieldset legend="{{ 'title' | translate }}">
             <input type="text" pInputText [(ngModel)]="data.title" class="full"/>
         </p-fieldset>
     </div>
+    <div class="ui-g-4">
+        <creator-user [user]="data.referee" title="{{ 'referee' | translate }}"></creator-user>
+    </div>
+    <div class="ui-g-4">
+        <p-fieldset legend="{{ 'frames' | translate }}">
+            <p-spinner [(ngModel)]="data.frames" [min]="0" [max]="100" class="full"></p-spinner>
+        </p-fieldset>
+    </div>
+
     <div class="ui-g-12 center">
         <button pButton type="button" (click)="save()" label="{{ 'create' | translate }}"></button>
     </div>

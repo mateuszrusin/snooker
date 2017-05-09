@@ -1,0 +1,26 @@
+$defaultTextColor: #333447;
+$darkTextColor: #eeeeee;
+
+.default {
+    background-color: #eeeeee;
+
+    .title,
+    .frame,
+    .result,
+    .player,
+    .referee {
+        color: $defaultTextColor;
+    }
+}
+
+.dark {
+    background-color: #111111;
+
+    .title,
+    .frame,
+    .result,
+    .player,
+    .referee {
+        color: $darkTextColor;
+    }
+}

@@ -1,0 +1,4 @@
+<div class="menu">
+    <p-tieredMenu #menu popup="popup" [model]="items"></p-tieredMenu>
+    <button #btn type="button" pButton icon="fa fa-list" label="{{ 'settings' | translate }}" (click)="menu.toggle($event)"></button>
+</div>

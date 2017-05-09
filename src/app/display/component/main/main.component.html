@@ -1,34 +1,38 @@
-<div *ngIf="game" class="main">
+<div *ngIf="game" class="main {{theme.class}}">
 
     <div class="ui-g game">
         <div class="ui-g players">
-            <div class="ui-g-5 center">
+            <div class="ui-g-6 center">
                 <display-player [player]="game.player1"></display-player>
             </div>
-            <div class="ui-g-2">
-            </div>
-            <div class="ui-g-5 center">
+            <div class="ui-g-6 center">
                 <display-player [player]="game.player2"></display-player>
             </div>
         </div>
 
         <div class="ui-g result">
-            <div class="ui-g-5">
+            <div class="ui-g-6">
                 <display-result [player]="result.player1" [right]="false"></display-result>
             </div>
-            <div class="ui-g-2">
-                <display-frame [frames]="game.frames" [player1]="result.player1.frames" [player2]="result.player2.frames"></display-frame>
-            </div>
-            <div class="ui-g-5">
+            <div class="ui-g-6">
                 <display-result [player]="result.player2" [right]="true"></display-result>
+            </div>
+            <div class="frame">
+                <display-frame [frames]="game.frames" [player1]="result.player1.frames" [player2]="result.player2.frames"></display-frame>
             </div>
         </div>
 
 
-        <div class="title">{{game.title}}</div>
+        <div *ngIf="game.title" class="title">
+            {{game.title}}
+        </div>
 
-        <div class="referee">
+        <div *ngIf="game.referee?.name" class="referee">
             <display-referee [referee]="game.referee"></display-referee>
+        </div>
+
+        <div class="menu">
+            <display-menu></display-menu>
         </div>
     </div>
 

@@ -5,7 +5,7 @@ import {Break} from "../../../shared/type/break";
 @Component({
     selector: 'display-break',
     templateUrl: 'break.component.html',
-    styleUrls: ['break.component.css']
+    styleUrls: ['./break.component.scss']
 })
 export class BreakComponent {
 
@@ -19,11 +19,11 @@ export class BreakComponent {
         const count = this.break.order.length;
 
         switch (true) {
-            case count > 20:
+            case count > 30:
                 return 's';
-            case count > 15:
+            case count > 20:
                 return 'm';
-            case count > 10:
+            case count > 15:
                 return 'l';
             case count > 5:
                 return 'xl';
