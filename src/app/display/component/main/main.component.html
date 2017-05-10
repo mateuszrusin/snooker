@@ -1,28 +1,16 @@
 <div *ngIf="game" class="main {{theme.class}}">
-
     <div class="ui-g game">
         <div class="ui-g players">
-            <div class="ui-g-6 center">
-                <display-player [player]="game.player1"></display-player>
-            </div>
-            <div class="ui-g-6 center">
-                <display-player [player]="game.player2"></display-player>
-            </div>
+            <display-player class="ui-g-6 center" [player]="game.player1"></display-player>
+            <display-player class="ui-g-6 center" [player]="game.player2"></display-player>
         </div>
 
         <div class="ui-g result">
-            <div class="ui-g-6">
-                <display-result [player]="result.player1" [right]="false"></display-result>
-            </div>
-            <div class="ui-g-6">
-                <display-result [player]="result.player2" [right]="true"></display-result>
-            </div>
-            <div class="frame">
-                <display-frame [frames]="game.frames" [player1]="result.player1.frames" [player2]="result.player2.frames"></display-frame>
-            </div>
+            <display-result class="ui-g-6" [player]="result.player1" [right]="false"></display-result>
+            <display-result class="ui-g-6" [player]="result.player2" [right]="true"></display-result>
+            <display-frame class="frame" [frames]="game.frames" [player1]="result.player1.frames" [player2]="result.player2.frames"></display-frame>
         </div>
-
-
+        
         <div *ngIf="game.title" class="title">
             {{game.title}}
         </div>
@@ -35,6 +23,4 @@
             <display-menu></display-menu>
         </div>
     </div>
-
-
 </div>

@@ -1,10 +1,8 @@
-<div [class]="position">
-    <div *ngIf="break.total" class="break">
-        <div class="total">
-            {{break.total}}
-        </div>
-        <div class="order">
-            <span *ngFor="let ball of break.order" class="ball {{ball.color}} {{size()}}"></span>
-        </div>
+<div *ngIf="break.total" class="break">
+    <div class="total">
+        {{break.total}}
+    </div>
+    <div class="order">
+        <span *ngFor="let ball of break.order" class="ball {{ball.color}} {{size()}}"></span>
     </div>
 </div>

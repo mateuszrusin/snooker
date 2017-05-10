@@ -7,7 +7,7 @@
 }
 
 .photo {
-    height: 75%;
+    height: 70%;
     width: 100%;
     min-width: 100%;
     max-height: 100%;
@@ -22,7 +22,7 @@ img {
 }
 
 .name {
-    height: 25%;
+    height: 30%;
     font-size: 5em;
     font-weight: bold;
     display: flex;
