@@ -1,40 +1,50 @@
-<h1>Admin panel or smtg</h1>
-
-<div class="ui-g" [@visibilityChanged]="visibility">
-    <div class="ui-g-6">
-        <creator-user [user]="data.player1" title="{{ 'player' | translate }} 1"></creator-user>
-    </div>
-    <div class="ui-g-6">
-        <creator-user [user]="data.player2" title="{{ 'player' | translate }} 2"></creator-user>
-    </div>
-
-    <div class="ui-g-4">
-        <p-fieldset legend="{{ 'title' | translate }}">
-            <input type="text" pInputText [(ngModel)]="data.title" class="full"/>
-        </p-fieldset>
-    </div>
-    <div class="ui-g-4">
-        <creator-user [user]="data.referee" title="{{ 'referee' | translate }}"></creator-user>
-    </div>
-    <div class="ui-g-4">
-        <p-fieldset legend="{{ 'frames' | translate }}">
-            <p-spinner [(ngModel)]="data.frames" [min]="0" [max]="100" class="full"></p-spinner>
-        </p-fieldset>
-    </div>
-
-    <div class="ui-g-12 center">
-        <button pButton type="button" (click)="save()" label="{{ 'create' | translate }}"></button>
-    </div>
-</div>
-<div *ngIf="id">
-    <div class="">
-        <div class="center">
-            <qr-code [value]="url + 'control/' + id" [size]="256" [level]="'M'"></qr-code>
+<div class="main">
+    <div class="form">
+        <h1>Admin panel or smtg</h1>
+        <p-panel header="Players" class="full">
+            <div class="ui-g">
+                <div class="ui-g-6">
+                    <creator-user [user]="data.player1" title="{{ 'player' | translate }} 1"></creator-user>
+                </div>
+                <div class="ui-g-6">
+                    <creator-user [user]="data.player2" title="{{ 'player' | translate }} 2"></creator-user>
+                </div>
+            </div>
+        </p-panel>
+        <p-panel header="Other" class="full">
+            <div class="ui-g">
+                <div class="ui-g-4">
+                    <p-fieldset legend="{{ 'title' | translate }}">
+                        <input type="text" pInputText [(ngModel)]="data.title" class="full"/>
+                    </p-fieldset>
+                </div>
+                <div class="ui-g-4">
+                    <creator-user [user]="data.referee" title="{{ 'referee' | translate }}"></creator-user>
+                </div>
+                <div class="ui-g-4">
+                    <p-fieldset legend="{{ 'frames' | translate }}">
+                        <p-spinner [(ngModel)]="data.frames" [min]="0" [max]="100" class="full"></p-spinner>
+                    </p-fieldset>
+                </div>
+            </div>
+        </p-panel>
+        <div class="create">
+            <button pButton type="button" (click)="save()" label="{{ 'create' | translate }}"></button>
         </div>
     </div>
-    <div class="">
+
+    <div [ngBusy]="{busy: busy, message: 'Loading...'}"></div>
+
+    <p-dialog header="{{ 'scan' | translate }}" [(visible)]="id" modal="true" closable="false">
         <div class="center">
-            <a [href]="url + 'result/' + id">{{url}}result/{{id}}</a>
+            <qr-code [value]="link('control')" [size]="512" [level]="'M'"></qr-code>
         </div>
-    </div>
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-external-link-square" (click)="go()" label="{{ 'go' | translate }}"></button>
+            </div>
+        </p-footer>
+    </p-dialog>
+
+    <shared-menu class="menu"></shared-menu>
 </div>

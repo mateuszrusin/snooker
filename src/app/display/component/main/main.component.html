@@ -10,7 +10,7 @@
             <display-result class="ui-g-6" [player]="result.player2" [right]="true"></display-result>
             <display-frame class="frame" [frames]="game.frames" [player1]="result.player1.frames" [player2]="result.player2.frames"></display-frame>
         </div>
-        
+
         <div *ngIf="game.title" class="title">
             {{game.title}}
         </div>
@@ -19,8 +19,6 @@
             <display-referee [referee]="game.referee"></display-referee>
         </div>
 
-        <div class="menu">
-            <display-menu></display-menu>
-        </div>
     </div>
+    <shared-menu class="menu"></shared-menu>
 </div>

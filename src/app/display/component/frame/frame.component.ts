@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {ResultService} from "../../../shared/service/result.service";
 
 @Component({
     selector: 'display-frame',

@@ -4,7 +4,7 @@ import {TranslateService, TranslationChangeEvent} from "ng2-translate";
 import {ThemeService} from "../../service/theme.service";
 
 @Component({
-  selector: 'display-menu',
+  selector: 'shared-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
@@ -15,13 +15,7 @@ export class MenuComponent implements OnInit {
     themes: MenuItem[] = [];
 
     constructor(private translate: TranslateService, private theme: ThemeService) {
-        translate.setDefaultLang('en');
-
-        translate.onLangChange.subscribe((event: TranslationChangeEvent) => {
-            this.menu();
-        });
-
-        translate.use(translate.getBrowserLang());
+        translate.onLangChange.subscribe(() => this.menu());
     }
 
     ngOnInit() {
@@ -32,6 +26,7 @@ export class MenuComponent implements OnInit {
         this.theme.all.forEach((name) => {
            this.themes.push({label: name, icon: 'fa-eye', command: () => this.theme.set(name)});
         });
+        this.menu();
     }
 
     private menu(): void {

@@ -14,8 +14,10 @@ export const LANG = {
         "break": "Break",
         "settings": "Settings",
         "theme": "Theme",
+        "scan": "Scan code to control game",
         "title": "Title of the game",
         "player": "Player",
+        "go": "Go to scoreboard",
         "choose photo": "Choose photo...",
         "enter name": "Enter name..."
     },
@@ -34,8 +36,10 @@ export const LANG = {
         "break": "Brejk",
         "settings": "Ustawienia",
         "theme": "Temat",
+        "scan": "Zeskanuj kod do sterowania",
         "title": "Tytuł meczu",
         "player": "Zawodnik",
+        "go": "Przejdź do tablicy wyników",
         "choose photo": "Wybierz zdjęcie...",
         "enter name": "Wpisz imię i nazwisko..."
     }

@@ -1,34 +1,43 @@
-.ui-button {
-    width: 150px;
-    height: 50px;
-    margin: 10px;
+.balls {
+    height: 60vh;
+    width: 100%;
 }
 
+.buttons {
+    height: 35vh;
+}
+
+.ui-button,
 .ui-splitbutton {
-    height: 50px;
+    width: 100%;
+    height: 15vh;
+}
+
+.splitbutton {
+    width: 100%;
 }
 
 .ui-buttonset .ui-button {
-    width: 120px;
-    margin-left: 10px;
+    width: 80%;
 }
 
 .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
     margin-left: 0;
-    margin-right: 10px;
+    width: 20%;
+    border-left: 0;
 }
 
 .ball {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 10px;
-    width: 100px;
-    height: 100px;
+    width: 30vmin;
+    height: 30vmin;
     cursor: pointer;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
+    margin: 1vmin;
+    -moz-border-radius: 25vmin;
+    -webkit-border-radius: 25vmin;
+    border-radius: 25vmin;
 }
 
 .red {

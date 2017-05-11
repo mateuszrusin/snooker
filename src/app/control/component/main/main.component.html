@@ -1,35 +1,31 @@
-<div class="ui-g center">
-    <div class="ui-g-12 center">
+<div class="center balls">
+    <div class="center">
         <div class="ball red" (click)="select(balls[0])">
             <p>1</p>
         </div>
     </div>
-    <div class="ui-g-12 center">
-        <div class="center">
-            <div *ngFor="let ball of balls | slice:1:4" class="ball {{ball.color}}" (click)="select(ball)">
-                <p>{{ball.points}}</p>
-            </div>
+    <div class="center">
+        <div *ngFor="let ball of balls | slice:1:4" class="ball {{ball.color}}" (click)="select(ball)">
+            <p>{{ball.points}}</p>
         </div>
     </div>
-    <div class="ui-g-12 center">
-        <div class="center">
-            <div *ngFor="let ball of balls | slice:4:7" class="ball {{ball.color}}" (click)="select(ball)">
-                <p>{{ball.points}}</p>
-            </div>
+    <div class="center">
+        <div *ngFor="let ball of balls | slice:4:7" class="ball {{ball.color}}" (click)="select(ball)">
+            <p>{{ball.points}}</p>
         </div>
     </div>
 </div>
-<div class="ui-g">
-    <div class="ui-g-6 center">
-        <button pButton type="button" (click)="enter()" label="{{ 'enter' | translate }}"></button>
-    </div>
-    <div class="ui-g-6 center">
-        <p-splitButton [model]="fouls" (onClick)="foul(4)" label="{{ 'foul' | translate }} (4)"></p-splitButton>
-    </div>
-    <div class="ui-g-6 center">
+<div class="ui-g buttons">
+    <div class="ui-g-6 box">
         <button pButton type="button" (click)="frame()" label="{{ 'frame' | translate }}"></button>
     </div>
-    <div class="ui-g-6 center">
+    <div class="ui-g-6 box">
+        <p-splitButton [model]="fouls" (onClick)="foul(4)" label="{{ 'foul' | translate }} (4)" class="splitbutton"></p-splitButton>
+    </div>
+    <div class="ui-g-6 box">
         <button pButton type="button" (click)="back()" label="{{ 'back' | translate }}"></button>
+    </div>
+    <div class="ui-g-6 box">
+        <button pButton type="button" (click)="enter()" label="{{ 'enter' | translate }}"></button>
     </div>
 </div>

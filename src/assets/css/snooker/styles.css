@@ -17,7 +17,6 @@ body {
     left: 0;
     top: 0;
     font-size: 100%;
-    overflow: hidden;
 }
 
 /* ROOT FONT STYLES */
@@ -96,7 +95,7 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     padding: 0;
     margin: 0 auto;
     align-items: center;

@@ -9,6 +9,8 @@ import {QRCodeModule} from 'angular2-qrcode';
 import { UserComponent } from './component/user/user.component';
 import {AutoCompleteModule} from "primeng/components/autocomplete/autocomplete";
 import {SpinnerModule} from "primeng/components/spinner/spinner";
+import {BusyModule} from 'angular2-busy';
+import {DialogModule} from "primeng/components/dialog/dialog";
 
 @NgModule({
     imports: [
@@ -19,7 +21,9 @@ import {SpinnerModule} from "primeng/components/spinner/spinner";
         FileUploadModule,
         PanelModule,
         SpinnerModule,
-        AutoCompleteModule
+        AutoCompleteModule,
+        BusyModule,
+        DialogModule
     ],
     declarations: [
         MainComponent,

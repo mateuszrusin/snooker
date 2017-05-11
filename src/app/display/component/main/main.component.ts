@@ -5,7 +5,7 @@ import {GameService} from "../../../shared/service/game.service";
 import {Result} from "../../../shared/type/result";
 import {ResultService} from "../../../shared/service/result.service";
 import {Game} from "../../../shared/type/game";
-import {ThemeService} from "../../service/theme.service";
+import {ThemeService} from "../../../shared/service/theme.service";
 
 @Component({
     selector: 'display-main',
@@ -24,11 +24,11 @@ export class MainComponent {
             game.load(params['id']).subscribe(
                 data => {
                     this.game = data;
-                    this.result = result.get();
                 },
                 err => {
                     console.log("LOAD ERROR:", err);
-                }
+                },
+                () => this.result = result.get()
             );
         });
     }

@@ -20,7 +20,8 @@
         "assets/css/snooker/theme.css",
         "assets/css/snooker/colors.scss",
         "../node_modules/primeng/resources/primeng.min.css",
-        "../node_modules/font-awesome/css/font-awesome.min.css"
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/angular2-busy/build/style/busy.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
