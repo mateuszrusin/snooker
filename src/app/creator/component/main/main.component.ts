@@ -20,6 +20,14 @@ export class MainComponent {
         this.data = game.data;
     }
 
+    isValid(): boolean {
+        if (this.data.player1.name && this.data.player2.name) {
+            return this.data.player1.name.trim().length > 0 && this.data.player2.name.trim().length > 0;
+        }
+
+        return false;
+    }
+
     save() {
         this.busy = this.game.save().subscribe(
             id  => {

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-node server.js &
-ng serve --host 0.0.0.0
+IP=`ip addr list  |grep "inet " |cut -d' ' -f6|cut -d/ -f1 | tail -1`
+
+node express.js &
+ng serve --host $IP
 
 

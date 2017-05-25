@@ -1,13 +1,18 @@
 <p-fieldset [legend]="title">
-    <input type="text" pInputText [(ngModel)]="user.name" class="full" placeholder="{{ 'enter name' | translate }}" />
+    <input pInputText
+        type="text"
+        class="full"
+        [(ngModel)]="user.name"
+        placeholder="{{ 'enter name' | translate }}"
+    />
     <p-fileUpload
-            name="file"
-            accept="image/*"
-            maxFileSize="1000000"
-            auto="true"
-            chooseLabel="{{ 'choose photo' | translate }}"
-            [url]="URL_UPLOAD"
-            (onUpload)="onUpload($event)">
+        name="file"
+        accept="image/*"
+        maxFileSize="1000000"
+        auto="true"
+        chooseLabel="{{ 'choose photo' | translate }}"
+        [url]="URL_UPLOAD"
+        (onUpload)="onUpload($event)">
         <ng-template pTemplate="content">
             <div *ngIf="user.photo">
                 <img [src]="URL_IMG + user.photo" class="photo"/>

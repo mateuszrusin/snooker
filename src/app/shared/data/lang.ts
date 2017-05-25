@@ -19,7 +19,9 @@ export const LANG = {
         "player": "Player",
         "go": "Go to scoreboard",
         "choose photo": "Choose photo...",
-        "enter name": "Enter name..."
+        "enter name": "Enter name...",
+        "create new game": "Create new game",
+        "loading": "Loading..."
     },
     "pl": {
         "iso": "polski",
@@ -41,6 +43,8 @@ export const LANG = {
         "player": "Zawodnik",
         "go": "Przejdź do tablicy wyników",
         "choose photo": "Wybierz zdjęcie...",
-        "enter name": "Wpisz imię i nazwisko..."
+        "enter name": "Wpisz imię i nazwisko...",
+        "create new game": "Utwórz nową grę",
+        "loading": "Uruchamianie..."
     }
 }
