@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, RequestOptions, Headers} from "@angular/http";
-import {Observable} from "rxjs";
-import {Config} from "../data/config";
+import {Observable} from "rxjs/Observable";
 import {Game} from "../type/game";
 
 @Injectable()
@@ -24,7 +23,7 @@ export class GameService {
         title: ""
     };
 
-    private readonly URL: string = Config.SERVER_URL + 'game/';
+    private readonly URL: string = '/game/';
 
     constructor(private http: Http) {}
 

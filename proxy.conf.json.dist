@@ -1,0 +1,7 @@
+{
+    "/game/*":{
+        "target": "http://IP:3000",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

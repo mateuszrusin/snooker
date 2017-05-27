@@ -1,0 +1,7 @@
+{
+    "/game/*":{
+        "target": "http://192.168.0.5:3000",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

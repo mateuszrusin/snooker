@@ -1,13 +1,14 @@
 'use strict';
 
-const PORT = 3000;
+const IP = process.argv[2] || 'localhost';
+const PORT = process.argv[3] || 3000;
 const PHOTOS = 'img';
 
 var express = require('express');
 var app = express();
 
-var server = app.listen(PORT, function() {
-    console.log('Listening on port ' + PORT)
+var server = app.listen(PORT, IP, function() {
+    console.log(server.address());
 });
 
 /** PEER **/
@@ -17,7 +18,7 @@ app.use('/peer', ExpressPeerServer(server, {debug: true}));
 /** GAME **/
 var bodyParser = require('body-parser');
 var Mongojs = require('mongojs');
-var Db = Mongojs('mongodb://localhost:27017/snooker', ['games']);
+var Db = Mongojs('mongodb://' + IP + ':27017/snooker', ['games']);
 var joi = require('joi');
 var validExpress = require('valid-express');
 var validator = validExpress();
@@ -38,7 +39,10 @@ var bodySchema = {
 };
 app.use(bodyParser.json());
 app.post('/game', validator.validate(bodySchema), function(request, response) {
-    Db.games.save(request.body, function (err, doc) {
+    var data = request.body;
+    data.created = new Date().toISOString().replace('T', ' ').substr(0, 19);
+
+    Db.games.save(data, function (err, doc) {
         response.send(doc._id.toString());
     });
 });
