@@ -2,6 +2,7 @@
 
 const IP = process.argv[2] || 'localhost';
 const PORT = process.argv[3] || 3000;
+const MONGO = 'mongodb://localhost:27017/snooker';
 const PHOTOS = 'img';
 
 var express = require('express');
@@ -18,7 +19,7 @@ app.use('/peer', ExpressPeerServer(server, {debug: true}));
 /** GAME **/
 var bodyParser = require('body-parser');
 var Mongojs = require('mongojs');
-var Db = Mongojs('mongodb://' + IP + ':27017/snooker', ['games']);
+var Db = Mongojs(MONGO, ['games']);
 var joi = require('joi');
 var validExpress = require('valid-express');
 var validator = validExpress();
@@ -38,7 +39,7 @@ var bodySchema = {
     }
 };
 app.use(bodyParser.json());
-app.post('/game', validator.validate(bodySchema), function(request, response) {
+app.post('/api/game', validator.validate(bodySchema), function(request, response) {
     var data = request.body;
     data.created = new Date().toISOString().replace('T', ' ').substr(0, 19);
 
@@ -46,7 +47,7 @@ app.post('/game', validator.validate(bodySchema), function(request, response) {
         response.send(doc._id.toString());
     });
 });
-app.get('/game/:id', function (request, response) {
+app.get('/api/game/:id', function (request, response) {
     Db.games.findOne({_id: Mongojs.ObjectId(request.params.id)}, function(err, doc) {
         response.send(doc)
     });
@@ -57,7 +58,7 @@ var Fs = require('fs');
 var Path = require('path');
 var multer  = require('multer');
 var upload = multer({dest: PHOTOS});
-app.post('/upload', upload.single('file'), function(request, response) {
+app.post('/api/upload', upload.single('file'), function(request, response) {
     var name = Date.now() + Path.parse(request.file.originalname).ext;
     var path = [__dirname, PHOTOS, name].join('/');
     Fs.rename(request.file.path, path, function(err) {

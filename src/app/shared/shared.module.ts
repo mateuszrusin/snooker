@@ -1,20 +1,17 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {AppTranslateModule} from "../app.translate";
-import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MenuComponent} from "./component/menu/menu.component";
 import {ThemeService} from "./service/theme.service";
 import {TieredMenuModule} from "primeng/components/tieredmenu/tieredmenu";
 import {ButtonModule} from "primeng/components/button/button";
+import {GameService} from "./service/game.service";
+import {BreakService} from "./service/break.service";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
     imports: [
-        CommonModule,
-        BrowserModule,
         FormsModule,
-        BrowserAnimationsModule,
         AppTranslateModule,
         TieredMenuModule,
         ButtonModule
@@ -23,6 +20,8 @@ import {ButtonModule} from "primeng/components/button/button";
         MenuComponent
     ],
     providers: [
+        BreakService,
+        GameService,
         ThemeService
     ],
     exports: [
@@ -31,5 +30,4 @@ import {ButtonModule} from "primeng/components/button/button";
         MenuComponent
     ]
 })
-export class SharedModule {
-}
+export class SharedModule {}

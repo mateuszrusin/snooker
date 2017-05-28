@@ -4,18 +4,17 @@ import {ClientService} from "./service/client.service";
 import {DataService} from "../shared/service/data.service";
 import {SharedModule} from "../shared/shared.module";
 import {BreakComponent} from "./component/break/break.component";
-import {GameService} from "../shared/service/game.service";
 import {ResultService} from "../shared/service/result.service";
 import { ResultComponent } from './component/result/result.component';
 import { RefereeComponent } from './component/referee/referee.component';
 import { PlayerComponent } from './component/player/player.component';
 import { FrameComponent } from './component/frame/frame.component';
-import {SplitButtonModule} from "primeng/components/splitbutton/splitbutton";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
         SharedModule,
-        SplitButtonModule
+        RouterModule.forChild([{ path: '', component: MainComponent }])
     ],
     declarations: [
         MainComponent,
@@ -27,7 +26,6 @@ import {SplitButtonModule} from "primeng/components/splitbutton/splitbutton";
     ],
     providers: [
         DataService,
-        GameService,
         ResultService,
         ClientService
     ]

@@ -15,7 +15,9 @@ export class MenuComponent implements OnInit {
     themes: MenuItem[] = [];
 
     constructor(private translate: TranslateService, private theme: ThemeService) {
+        translate.setDefaultLang('en');
         translate.onLangChange.subscribe(() => this.menu());
+        translate.use(translate.getBrowserLang());
     }
 
     ngOnInit() {

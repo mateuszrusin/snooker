@@ -9,7 +9,7 @@ import {Config} from "../../../shared/data/config";
 export class UserComponent {
 
   readonly URL_IMG = Config.SERVER_URL + 'img/';
-  readonly URL_UPLOAD = Config.SERVER_URL + 'upload/';
+  readonly URL_UPLOAD = '/api/upload/';
 
   @Input() user: any;
   @Input() title: string;

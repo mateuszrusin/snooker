@@ -6,7 +6,9 @@ import {Game} from "../type/game";
 @Injectable()
 export class GameService {
 
-    public data: Game = {
+    private readonly URL: string = '/api/game/';
+
+    private data: Game = {
         player1: {
             name: null,
             photo: null
@@ -23,7 +25,6 @@ export class GameService {
         title: ""
     };
 
-    private readonly URL: string = '/game/';
 
     constructor(private http: Http) {}
 
@@ -45,4 +46,7 @@ export class GameService {
             })
     }
 
+    public get(): Game {
+        return this.data;
+    }
 }

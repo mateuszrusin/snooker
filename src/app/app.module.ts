@@ -1,10 +1,7 @@
-///<reference path="../../node_modules/primeng/components/button/button.d.ts"/>
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app.routes";
-import {CreatorModule} from "./creator/creator.module";
-import {ControlModule} from "./control/control.module";
-import {DisplayModule} from "./display/display.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -12,10 +9,8 @@ import {DisplayModule} from "./display/display.module";
         AppComponent
     ],
     imports: [
-        AppRoutingModule,
-        CreatorModule,
-        ControlModule,
-        DisplayModule
+        BrowserAnimationsModule,
+        AppRoutingModule
     ],
     providers: [
     ],
