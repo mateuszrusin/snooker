@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule} from "@angular/core";
 import {AppTranslateModule} from "../app.translate";
 import {FormsModule} from "@angular/forms";
 import {MenuComponent} from "./component/menu/menu.component";
@@ -8,9 +8,11 @@ import {ButtonModule} from "primeng/components/button/button";
 import {GameService} from "./service/game.service";
 import {BreakService} from "./service/break.service";
 import {CommonModule} from "@angular/common";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
     imports: [
+        HttpModule,
         FormsModule,
         AppTranslateModule,
         TieredMenuModule,

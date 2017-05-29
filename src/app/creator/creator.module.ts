@@ -11,7 +11,6 @@ import {SpinnerModule} from "primeng/components/spinner/spinner";
 import {BusyModule} from "angular2-busy";
 import {DialogModule} from "primeng/components/dialog/dialog";
 import {RouterModule} from "@angular/router";
-import {CommonModule} from "@angular/common";
 
 @NgModule({
     imports: [

@@ -4,11 +4,12 @@ import {Ball} from "../../../shared/type/ball";
 import {BALLS} from "../../../shared/data/balls";
 import {ActivatedRoute} from "@angular/router";
 import {MenuItem} from "primeng/components/common/api";
+import {ThemeService} from "../../../shared/service/theme.service";
 
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html',
-    styleUrls: ['./main.component.css'],
+    styleUrls: ['./main.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class MainComponent implements OnInit {
@@ -16,7 +17,7 @@ export class MainComponent implements OnInit {
     balls: Ball[] = BALLS;
     fouls: MenuItem[] = [];
 
-    constructor(private control: ControlService, route: ActivatedRoute) {
+    constructor(private control: ControlService, private theme: ThemeService, route: ActivatedRoute) {
         route.params.subscribe(params => {
             this.control.init(params['id']);
         });

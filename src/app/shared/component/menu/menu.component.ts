@@ -1,12 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {MenuItem} from "primeng/components/common/api";
-import {TranslateService, TranslationChangeEvent} from "ng2-translate";
+import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "../../service/theme.service";
 
 @Component({
-  selector: 'shared-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+    selector: 'shared-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class MenuComponent implements OnInit {
 
@@ -26,7 +27,7 @@ export class MenuComponent implements OnInit {
         });
 
         this.theme.all.forEach((name) => {
-           this.themes.push({label: name, icon: 'fa-eye', command: () => this.theme.set(name)});
+            this.themes.push({label: name, icon: 'fa-eye', command: () => this.theme.set(name)});
         });
         this.menu();
     }

@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {LANG} from "./shared/data/lang";
-import {TranslateLoader, TranslateModule} from "ng2-translate";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {Observable} from "rxjs/Observable";
 
 export class LocalLoader implements TranslateLoader {
@@ -12,8 +12,10 @@ export class LocalLoader implements TranslateLoader {
 @NgModule({
     imports: [
         TranslateModule.forRoot({
-            provide: TranslateLoader,
-            useClass: LocalLoader
+            loader: {
+                provide: TranslateLoader,
+                useClass: LocalLoader
+            }
         })
     ],
     exports: [

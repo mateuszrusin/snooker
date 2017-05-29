@@ -3,4 +3,9 @@
     top: 0;
     left: 0;
     text-align: left;
+
+    .ui-menu,
+    .ui-menu .ui-menu-parent .ui-menu-child {
+        width: 8em;
+    }
 }

@@ -1,3 +1,14 @@
+.main {
+    height: 100%;
+    max-height: 100%;
+}
+
+.menu {
+    top: 1vmin;
+    left: 1vmin;
+    position: absolute;
+}
+
 .balls {
     height: 60vh;
     width: 100%;
@@ -5,26 +16,26 @@
 
 .buttons {
     height: 35vh;
-}
 
-.ui-button,
-.ui-splitbutton {
-    width: 100%;
-    height: 15vh;
-}
+    .ui-button,
+    .ui-splitbutton {
+        width: 100%;
+        height: 15vh;
+    }
 
-.splitbutton {
-    width: 100%;
-}
+    .splitbutton {
+        width: 100%;
+    }
 
-.ui-buttonset .ui-button {
-    width: 80%;
-}
+    .ui-buttonset .ui-button {
+        width: 80%;
+    }
 
-.ui-splitbutton .ui-button.ui-splitbutton-menubutton {
-    margin-left: 0;
-    width: 20%;
-    border-left: 0;
+    .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
+        margin-left: 0;
+        width: 20%;
+        border-left: 0;
+    }
 }
 
 .ball {
