@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
     balls: Ball[] = BALLS;
     fouls: MenuItem[] = [];
 
-    constructor(private control: ControlService, private theme: ThemeService, route: ActivatedRoute) {
+    constructor(route: ActivatedRoute, private control: ControlService, public theme: ThemeService) {
         route.params.subscribe(params => {
             this.control.init(params['id']);
         });
