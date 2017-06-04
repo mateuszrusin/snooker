@@ -29,7 +29,7 @@ export class ControlService {
 
     foul(points: number): void {
         this.save();
-        this.data.foul(points);
+        this.data.fine(points);
         this.send();
     }
 

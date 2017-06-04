@@ -12,3 +12,6 @@
 <div *ngIf="player.active" class="break">
     <display-break></display-break>
 </div>
+<div *ngIf="!player.active">
+    <display-foul></display-foul>
+</div>

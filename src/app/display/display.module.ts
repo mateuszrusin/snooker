@@ -1,15 +1,14 @@
 import {NgModule} from '@angular/core';
 import {MainComponent} from './component/main/main.component';
 import {ClientService} from "./service/client.service";
-import {DataService} from "../shared/service/data.service";
 import {SharedModule} from "../shared/shared.module";
 import {BreakComponent} from "./component/break/break.component";
-import {ResultService} from "../shared/service/result.service";
 import { ResultComponent } from './component/result/result.component';
 import { RefereeComponent } from './component/referee/referee.component';
 import { PlayerComponent } from './component/player/player.component';
 import { FrameComponent } from './component/frame/frame.component';
 import {RouterModule} from "@angular/router";
+import { FoulComponent } from './component/foul/foul.component';
 
 @NgModule({
     imports: [
@@ -22,11 +21,10 @@ import {RouterModule} from "@angular/router";
         ResultComponent,
         RefereeComponent,
         PlayerComponent,
-        FrameComponent
+        FrameComponent,
+        FoulComponent
     ],
     providers: [
-        DataService,
-        ResultService,
         ClientService
     ]
 })
