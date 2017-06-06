@@ -47,8 +47,7 @@ export class ResultService {
     }
 
     set(result: Result): void {
-        this.result.player1 = _.cloneDeep(result.player1);
-        this.result.player2 = _.cloneDeep(result.player2);
+        this.result = _.cloneDeep(result);
     }
 
     private active(): Player {

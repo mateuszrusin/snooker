@@ -1,3 +1,3 @@
-<p>
-  {{foul.value}}
-</p>
+<div *ngIf="foul.value > 0" class="foul" [style.color]="foul.color">
+    {{'foul' | translate | uppercase }} ({{foul.value}})
+</div>

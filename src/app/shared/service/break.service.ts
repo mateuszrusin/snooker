@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Ball} from "../type/ball";
 import {Break} from "../type/break";
+import * as _ from "lodash";
 
 @Injectable()
 export class BreakService {
@@ -15,8 +16,8 @@ export class BreakService {
     }
 
     set(data: Break): void {
-        this.break.total = data.total;
-        this.break.order = data.order.slice();
+        this.break.total = data.total || 0;
+        this.break.order = data.order || [];
     }
 
     reset(): void {

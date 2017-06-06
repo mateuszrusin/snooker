@@ -31,7 +31,7 @@ export class DataService {
         this.result.toggle();
         this.result.points(points);
         this.break.reset();
-        this.foul.set(points);
+        this.foul.fine(points);
     }
 
     frame(): void {
@@ -47,11 +47,9 @@ export class DataService {
     }
 
     set(data: State): void {
-        if (data) {
-            this.result.set(data.result);
-            this.break.set(data.break);
-            this.foul.set(data.foul.value)
-        }
+        this.result.set(data.result);
+        this.break.set(data.break);
+        this.foul.set(data.foul)
     }
 
     get(): State {
