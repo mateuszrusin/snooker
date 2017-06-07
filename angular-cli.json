@@ -16,7 +16,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "assets/css/snooker/styles.css",
+        "assets/css/snooker/styles.scss",
         "assets/css/snooker/theme.scss",
         "assets/css/snooker/colors.scss",
         "../node_modules/primeng/resources/primeng.min.css",

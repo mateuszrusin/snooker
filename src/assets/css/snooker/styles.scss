@@ -90,7 +90,6 @@ p {
     text-align: justify;
 }
 
-
 .box {
     display: flex;
     justify-content: center;
@@ -104,4 +103,22 @@ p {
 
 .full {
     width: 100%;
+}
+
+/* LOADER */
+
+.loader {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+    align-items: center;
+    div {
+        text-align: center;
+        i {
+            margin: 0 10px;
+        }
+    }
 }
