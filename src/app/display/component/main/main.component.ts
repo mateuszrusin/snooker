@@ -20,14 +20,10 @@ export class MainComponent {
     constructor(result: ResultService, client: ClientService, game: GameService, route: ActivatedRoute, public theme: ThemeService) {
 
         route.params.subscribe(params => {
-            client.create(params['id']);
-            game.load(params['id']).subscribe(
-                data => {
-                    this.game = data;
-                },
-                err => {
-                    console.log("LOAD ERROR:", err);
-                },
+            client.create(params.id);
+            game.load(params.id).subscribe(
+                data => this.game = data,
+                error => console.log("LOAD ERROR:", error),
                 () => this.result = result.get()
             );
         });

@@ -41,9 +41,7 @@ export class GameService {
                 JSON.stringify(this.data),
                 new RequestOptions({headers: new Headers({'Content-Type': 'application/json'})})
             )
-            .map(response => {
-                return response.text();
-            })
+            .map(response => response.text());
     }
 
     public get(): Game {

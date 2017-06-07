@@ -1,15 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Foul} from "../type/foul";
+import {FOULS} from "../data/fouls";
 
 @Injectable()
 export class FoulService {
-
-    static readonly COLORS = {
-        4: 'brown',
-        5: 'blue',
-        6: 'pink',
-        7: 'black'
-    };
 
     private foul: Foul = {
         value: 0,
@@ -22,18 +16,14 @@ export class FoulService {
 
     set(foul: Foul): void {
         this.foul.value = foul.value || 0;
-        this.foul.color = FoulService.COLORS[foul.value] || null;
+        this.foul.color = FOULS[foul.value] || null;
     }
 
     reset(): void {
-        this.foul.value = 0;
-        this.foul.color = null;
+        this.set({value: 0});
     }
 
     fine(value: number): void {
-        this.foul.value = value;
-        this.foul.color = FoulService.COLORS[value];
+        this.set({value: value});
     }
-
-
 }

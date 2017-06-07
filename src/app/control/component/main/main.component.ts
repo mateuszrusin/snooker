@@ -5,6 +5,7 @@ import {BALLS} from "../../../shared/data/balls";
 import {ActivatedRoute} from "@angular/router";
 import {MenuItem} from "primeng/components/common/api";
 import {ThemeService} from "../../../shared/service/theme.service";
+import {FOULS} from "../../../shared/data/fouls";
 
 @Component({
     selector: 'app-main',
@@ -19,34 +20,34 @@ export class MainComponent implements OnInit {
 
     constructor(route: ActivatedRoute, private control: ControlService, public theme: ThemeService) {
         route.params.subscribe(params => {
-            this.control.init(params['id']);
+            this.control.init(params.id);
         });
     }
 
     ngOnInit() {
-        for (let i = 4; i <= 7; i++) {
-            this.fouls.push(this.createFoulItem(i))
+        for (let i in FOULS) {
+            this.fouls.push(this.createFoulItem(Number(i)))
         }
     }
 
     select(ball: Ball): void {
         navigator.vibrate(50);
-        this.control.select(ball);
+        this.control.call('select', ball);
     }
 
     enter(): void {
         navigator.vibrate(75);
-        this.control.enter();
+        this.control.call('enter');
     }
 
     foul(points: number): void {
         navigator.vibrate(75);
-        this.control.foul(points);
+        this.control.call('fine', points);
     }
 
     frame(): void {
         navigator.vibrate(500);
-        this.control.frame();
+        this.control.call('frame');
     }
 
     back(): void {
@@ -54,15 +55,10 @@ export class MainComponent implements OnInit {
         this.control.back();
     }
 
-    clear(): void {
-        navigator.vibrate(1000);
-        this.control.clear();
-    }
-
     private createFoulItem(points: number): MenuItem {
         return {
             label: points.toString(),
-            command: () => this.control.foul(points)
+            command: () => this.control.call('fine', points)
         }
     }
 }

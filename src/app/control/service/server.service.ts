@@ -6,21 +6,16 @@ import {Config} from "../../shared/data/config";
 export class ServerService  {
 
     private peer: any;
-    private readonly type: string = 'S';
     private dest: string = 'C';
+    private readonly type: string = 'S';
 
-    create(id: any) {
+    public create(id: string): void {
         this.peer = new Peer(this.type + id, Config.PEER_PARAMS);
         this.dest += id;
     }
 
-    send(data: State): void {
-        if (data) {
-            let conn = this.peer.connect(this.dest);
-
-            conn.on('open', () => {
-                conn.send(data);
-            });
-        }
+    public send(data: State): void {
+        let conn = this.peer.connect(this.dest);
+        conn.on('open', () => conn.send(data));
     }
 }

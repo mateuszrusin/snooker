@@ -1,5 +1,4 @@
 import {Injectable} from "@angular/core";
-import {Player} from "../type/player";
 import {Result} from "../type/result";
 import * as _ from "lodash";
 
@@ -19,16 +18,31 @@ export class ResultService {
         }
     }
 
+    get(): Result {
+        return this.result;
+    }
+
+    set(result: Result): void {
+        this.result.player1 = _.cloneDeep(result.player1);
+        this.result.player2 = _.cloneDeep(result.player2);
+    }
+
     points(points: number): void {
-        this.active().points += points;
+        if (this.result.player1.active) {
+            this.result.player1.points += points;
+        } else {
+            this.result.player2.points += points;
+        }
     }
 
     frame(): void {
-        this.winner();
-        this.reset();
-    }
+        if (this.result.player1.points > this.result.player2.points) {
+            this.result.player1.frames++;
+        }
+        if (this.result.player1.points < this.result.player2.points) {
+            this.result.player2.frames++;
 
-    reset(): void {
+        }
         this.result.player1.points = 0;
         this.result.player2.points = 0;
     }
@@ -36,30 +50,5 @@ export class ResultService {
     toggle(): void {
         this.result.player1.active = !this.result.player1.active;
         this.result.player2.active = !this.result.player2.active;
-    }
-
-    clear(): void {
-
-    }
-
-    get(): Result {
-        return this.result;
-    }
-
-    set(result: Result): void {
-        this.result = _.cloneDeep(result);
-    }
-
-    private active(): Player {
-        return this.result.player1.active ? this.result.player1 : this.result.player2;
-    }
-
-    private winner(): void {
-        if (this.result.player1.points > this.result.player2.points) {
-            this.result.player1.frames++;
-        }
-        if (this.result.player1.points < this.result.player2.points) {
-            this.result.player2.frames++;
-        }
     }
 }

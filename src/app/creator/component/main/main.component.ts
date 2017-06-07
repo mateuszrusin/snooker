@@ -23,10 +23,8 @@ export class MainComponent {
 
     public save() {
         this.busy = this.game.save().subscribe(
-            id  => {
-                this.id = id;
-            },
-            error =>  null
+            id  => this.id = id,
+            error => console.log("SAVE ERROR:", error),
         );
     }
 

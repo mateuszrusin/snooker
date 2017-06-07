@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {ResultService} from "./result.service";
 import {BreakService} from "./break.service";
 import {Ball} from "../type/ball";
@@ -36,12 +36,6 @@ export class DataService {
 
     frame(): void {
         this.result.frame();
-        this.break.reset();
-        this.foul.reset();
-    }
-
-    clear(): void {
-        this.result.clear();
         this.break.reset();
         this.foul.reset();
     }
