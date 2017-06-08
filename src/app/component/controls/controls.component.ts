@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewEncapsulation} from "@angular/core";
 import {Ball} from "../../type/ball";
 import {BALLS} from "../../data/balls";
-import {MenuItem} from "primeng/primeng";
+import {MenuItem} from "primeng/components/common/api";
 import {Game} from "../../service/game/game.service";
-import {TranslateService} from "ng2-translate";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-controls',

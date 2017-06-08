@@ -5,7 +5,6 @@ import {AppComponent} from "./component/app/app.component";
 import {BreakComponent} from "./component/break/break.component";
 import {ControlsComponent} from "./component/controls/controls.component";
 import {Break} from "./service/break/break.service";
-import {SplitButtonModule, ButtonModule} from "primeng/primeng";
 import {AppRoutingModule} from "./app.routes";
 import {Config} from "./service/config/config.service";
 import {Result} from "./service/result/result.service";
@@ -19,6 +18,13 @@ import {Game} from "./service/game/game.service";
 import {AppTranslateModule} from "./app.translate";
 import {StateComponent} from "./component/state/state.component";
 import {LangComponent} from "./component/lang/lang.component";
+import {SplitButtonModule} from "primeng/components/splitbutton/splitbutton";
+import {ButtonModule} from "primeng/components/button/button";
+import { SettingsComponent } from './component/settings/settings.component';
+import {DialogModule} from "primeng/components/dialog/dialog";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {TabViewModule} from "primeng/components/tabview/tabview";
+import {SpinnerModule} from "primeng/components/spinner/spinner";
 
 @NgModule({
     declarations: [
@@ -31,16 +37,21 @@ import {LangComponent} from "./component/lang/lang.component";
         FrameComponent,
         RefereeComponent,
         StateComponent,
-        LangComponent
+        LangComponent,
+        SettingsComponent
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         AppRoutingModule,
         AppTranslateModule,
         SplitButtonModule,
         ButtonModule,
-        InplaceModule
+        InplaceModule,
+        DialogModule,
+        TabViewModule,
+        SpinnerModule
     ],
     providers: [
         Config,

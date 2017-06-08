@@ -1,0 +1,27 @@
+<button pButton type="button" icon="fa fa-gear" (click)="show()"></button>
+
+<p-dialog header="{{ 'scan' | translate }}" [(visible)]="popup" modal="true" closable="false">
+    <p-tabView>
+        <p-tabPanel header="Factors">
+            <div class="right">
+                <label>Player 1:</label>
+                <p-spinner [(ngModel)]="result.player1.factor" [min]="1" [max]="10" [step]="0.25"></p-spinner>
+            </div>
+            <div class="right">
+                <label>Player 2:</label>
+                <p-spinner [(ngModel)]="result.player2.factor" [min]="1" [max]="10" [step]="0.25"></p-spinner>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Header 2">
+            Content 2
+        </p-tabPanel>
+        <p-tabPanel header="Header 3">
+            Content 3
+        </p-tabPanel>
+    </p-tabView>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+            <button pButton type="button" icon="fa-external-link-square" (click)="close()" label="{{ 'go' | translate }}"></button>
+        </div>
+    </p-footer>
+</p-dialog>

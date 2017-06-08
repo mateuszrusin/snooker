@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {LANG} from "./data/lang";
-import {TranslateLoader, TranslateModule} from "ng2-translate";
-import {Observable} from "rxjs";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {Observable} from "rxjs/Observable";
 
 export class LocalLoader implements TranslateLoader {
     getTranslation(lang: string): Observable<any> {
@@ -12,8 +12,10 @@ export class LocalLoader implements TranslateLoader {
 @NgModule({
     imports: [
         TranslateModule.forRoot({
-            provide: TranslateLoader,
-            useClass: LocalLoader
+            loader: {
+                provide: TranslateLoader,
+                useClass: LocalLoader
+            }
         })
     ],
     exports: [
