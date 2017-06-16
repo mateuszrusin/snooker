@@ -1,4 +1,5 @@
 export interface Player {
     name: string;
-    photo: string;
+    factor: number;
+    photo?: string;
 }

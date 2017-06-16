@@ -18,9 +18,7 @@ export class ControlsComponent implements OnInit {
     constructor(private game: Game, private translate: TranslateService) {}
 
     ngOnInit() {
-        for (let i=4; i<=7; i++) {
-            this.fouls.push(this.createFoulItem(i))
-        }
+        this.balls.slice(4,7).forEach((item: Ball) => this.fouls.push(this.createFoulItem(item)));
     }
 
     select(ball:Ball): void {
@@ -33,9 +31,9 @@ export class ControlsComponent implements OnInit {
         this.game.enter();
     }
 
-    foul(points: number): void {
+    foul(ball: Ball): void {
         navigator.vibrate(75);
-        this.game.foul(points);
+        this.game.foul(ball);
     }
 
     frame(): void {
@@ -53,11 +51,11 @@ export class ControlsComponent implements OnInit {
         this.game.clear();
     }
 
-    private createFoulItem(points: number): MenuItem {
+    private createFoulItem(ball: Ball): MenuItem {
         return {
-            label: points.toString(),
+            label: ball.points.toString(),
             icon: 'fa-hand-paper-o',
-            command: () => { this.foul(points) }
+            command: () => { this.foul(ball) }
         }
     }
 }

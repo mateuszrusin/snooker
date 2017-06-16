@@ -27,9 +27,9 @@ export class Game  {
         this.break.reset();
     }
 
-    foul(points: number): void {
+    foul(ball: Ball): void {
         this.enter();
-        this.result.points(points);
+        this.result.points(ball.points);
     }
 
     frame(): void {

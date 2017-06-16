@@ -5,10 +5,12 @@ export const CONFIG: Object = {
             "name": ""
         },
         "player1": {
-            "name": "Player One"
+            "name": "Player One",
+            "factor": 1
         },
         "player2": {
-            "name": "Player Two"
+            "name": "Player Two",
+            "factor": 1
         }
     }
 }

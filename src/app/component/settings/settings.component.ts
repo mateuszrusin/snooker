@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Result} from "../../service/result/result.service";
+import {Config} from "../../service/config/config.service";
+import {Player} from "app/type/player";
 
 @Component({
     selector: 'app-settings',
@@ -9,9 +10,12 @@ import {Result} from "../../service/result/result.service";
 export class SettingsComponent implements OnInit {
 
     popup: boolean = false;
+    player1: Player;
+    player2: Player;
 
-    constructor(private result: Result) {
-
+    constructor(config: Config) {
+        this.player1 = config.get('game.player1');
+        this.player2 = config.get('game.player2');
     }
 
     ngOnInit() {
