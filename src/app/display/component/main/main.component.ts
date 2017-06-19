@@ -18,7 +18,6 @@ export class MainComponent {
     game: Game;
 
     constructor(result: ResultService, client: ClientService, game: GameService, route: ActivatedRoute, public theme: ThemeService) {
-
         route.params.subscribe(params => {
             client.create(params.id);
             game.load(params.id).subscribe(

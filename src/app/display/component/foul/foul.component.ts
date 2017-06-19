@@ -7,15 +7,11 @@ import {Foul} from "../../../shared/type/foul";
     templateUrl: './foul.component.html',
     styleUrls: ['./foul.component.scss']
 })
-export class FoulComponent implements OnInit {
+export class FoulComponent {
 
     foul: Foul;
 
     constructor(foul: FoulService) {
         this.foul = foul.get();
     }
-
-    ngOnInit() {
-    }
-
 }
