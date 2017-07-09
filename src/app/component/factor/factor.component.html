@@ -1,0 +1,6 @@
+<div class="factor">
+    <label>{{ 'factor' | translate }}</label>
+    <p-spinner size="10" [(ngModel)]="state.factor" [min]="1" [max]="10" [step]="0.5"></p-spinner>
+    <br />
+    <img src="assets/beer.png" width="16" *ngFor="let i of beers()" />
+</div>

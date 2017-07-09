@@ -108,3 +108,22 @@ p {
     vertical-align: middle;
     text-align: center;
 }
+
+
+/* LOADER */
+
+.loader {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+    align-items: center;
+}
+.loader div {
+    text-align: center;
+}
+.loader div i {
+    margin: 0 10px;
+}

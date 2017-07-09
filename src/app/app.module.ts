@@ -25,6 +25,7 @@ import {DialogModule} from "primeng/components/dialog/dialog";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {TabViewModule} from "primeng/components/tabview/tabview";
 import {SpinnerModule} from "primeng/components/spinner/spinner";
+import { FactorComponent } from './component/factor/factor.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import {SpinnerModule} from "primeng/components/spinner/spinner";
         RefereeComponent,
         StateComponent,
         LangComponent,
-        SettingsComponent
+        SettingsComponent,
+        FactorComponent
     ],
     imports: [
         BrowserModule,

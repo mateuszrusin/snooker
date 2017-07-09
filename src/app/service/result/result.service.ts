@@ -7,17 +7,19 @@ export class Result {
     player1: State = {
         points: 0,
         frames: 0,
+        factor: 1,
         active: true
     };
 
     player2: State = {
         points: 0,
         frames: 0,
+        factor: 1,
         active: false
     };
 
     points(points: number): void {
-        this.active().points += points;
+        this.active().points += points * this.active().factor;
     }
 
     frame(): void {
@@ -39,16 +41,18 @@ export class Result {
         this.player1 = {
             points: 0,
             frames: 0,
+            factor: 1,
             active: true
         }
         this.player2 = {
             points: 0,
             frames: 0,
+            factor: 1,
             active: false
         }
     }
 
-    active(): State {
+    private active(): State {
         return this.player1.active ? this.player1 : this.player2;
     }
 
