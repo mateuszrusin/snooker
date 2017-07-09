@@ -39,8 +39,6 @@
         </div>
     </div>
 
-    <div [ngBusy]="{busy: busy, message: 'loading' | translate }"></div>
-
     <p-dialog header="{{ 'scan' | translate }}" [(visible)]="id" modal="true" closable="false">
         <div class="center">
             <qr-code [value]="link('control')" [size]="512" [level]="'M'"></qr-code>
@@ -53,3 +51,5 @@
     </p-dialog>
 </div>
 <shared-menu class="menu"></shared-menu>
+<!--<div [ng2Busy]="{ busy: busy, message: 'loading' | translate }"></div>-->
+<creator-busy *ngIf="busy" class="busy"></creator-busy>

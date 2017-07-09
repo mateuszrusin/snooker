@@ -10,6 +10,6 @@ export class Config {
         host: Config.SERVER_HOST,
         port: Config.SERVER_PORT,
         path: '/peer',
-        debug: 3
+        debug: 0
     };
 }

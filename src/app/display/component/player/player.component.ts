@@ -13,9 +13,9 @@ export class PlayerComponent {
 
     public photo(): string {
         if (this.player.photo) {
-            return Config.SERVER_URL + 'img/' + this.player.photo;
+            return Config.APP_URL + 'img/' + this.player.photo;
         }
 
-        return Config.SERVER_URL + 'asset/player.jpg';
+        return Config.APP_URL + 'img/player.jpg';
     }
 }

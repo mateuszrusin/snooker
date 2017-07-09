@@ -13,9 +13,9 @@ export class RefereeComponent {
 
     public photo(): string {
         if (this.referee.photo) {
-            return Config.SERVER_URL + 'img/' + this.referee.photo;
+            return Config.APP_URL + 'img/' + this.referee.photo;
         }
 
-        return Config.SERVER_URL + 'asset/referee.jpg';
+        return Config.APP_URL + 'img/referee.jpg';
     }
 }

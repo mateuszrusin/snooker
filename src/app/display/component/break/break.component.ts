@@ -9,10 +9,10 @@ import {Break} from "../../../shared/type/break";
 })
 export class BreakComponent {
 
-    break: Break;
+    constructor(private brk: BreakService) {}
 
-    constructor(breakService: BreakService) {
-        this.break = breakService.get();
+    get break(): Break {
+        return this.brk.get();
     }
 
     size(): string {

@@ -1,0 +1,59 @@
+
+> canvas@1.6.5 install /home/me/Works/snooker/node_modules/canvas
+> node-gyp rebuild
+
+make: Wejście do katalogu '/home/me/Works/snooker/node_modules/canvas/build'
+  SOLINK_MODULE(target) Release/obj.target/canvas-postbuild.node
+  COPY Release/canvas-postbuild.node
+  CXX(target) Release/obj.target/canvas/src/Canvas.o
+canvas.target.mk:122: polecenia dla obiektu 'Release/obj.target/canvas/src/Canvas.o' nie powiodły się
+make: Opuszczenie katalogu '/home/me/Works/snooker/node_modules/canvas/build'
+
+> canvas@1.6.5 install /home/me/Works/snooker/node_modules/canvas
+> node-gyp rebuild
+
+make: Wejście do katalogu '/home/me/Works/snooker/node_modules/canvas/build'
+  SOLINK_MODULE(target) Release/obj.target/canvas-postbuild.node
+  COPY Release/canvas-postbuild.node
+  CXX(target) Release/obj.target/canvas/src/Canvas.o
+  CXX(target) Release/obj.target/canvas/src/CanvasGradient.o
+  CXX(target) Release/obj.target/canvas/src/CanvasPattern.o
+canvas.target.mk:122: polecenia dla obiektu 'Release/obj.target/canvas/src/CanvasPattern.o' nie powiodły się
+make: Opuszczenie katalogu '/home/me/Works/snooker/node_modules/canvas/build'
+
+> canvas@1.6.5 install /home/me/Works/snooker/node_modules/canvas
+> node-gyp rebuild
+
+make: Wejście do katalogu '/home/me/Works/snooker/node_modules/canvas/build'
+  SOLINK_MODULE(target) Release/obj.target/canvas-postbuild.node
+  COPY Release/canvas-postbuild.node
+  CXX(target) Release/obj.target/canvas/src/Canvas.o
+  CXX(target) Release/obj.target/canvas/src/CanvasGradient.o
+  CXX(target) Release/obj.target/canvas/src/CanvasPattern.o
+  CXX(target) Release/obj.target/canvas/src/CanvasRenderingContext2d.o
+  CXX(target) Release/obj.target/canvas/src/color.o
+  CXX(target) Release/obj.target/canvas/src/Image.o
+  CXX(target) Release/obj.target/canvas/src/ImageData.o
+  CXX(target) Release/obj.target/canvas/src/init.o
+  CXX(target) Release/obj.target/canvas/src/FontFace.o
+  SOLINK_MODULE(target) Release/obj.target/canvas.node
+  COPY Release/canvas.node
+make: Opuszczenie katalogu '/home/me/Works/snooker/node_modules/canvas/build'
+snooker@0.0.0 /home/me/Works/snooker
+└─┬ angular2-qrcode@2.0.1
+  └─┬ qrious@2.2.0
+    └─┬ canvas@1.6.5 
+      ├─┬ parse-css-font@2.0.2 
+      │ ├── css-font-size-keywords@1.0.0 
+      │ ├── css-font-stretch-keywords@1.0.1 
+      │ ├── css-font-style-keywords@1.0.1 
+      │ ├── css-font-weight-keywords@1.0.0 
+      │ ├── css-global-keywords@1.0.1 
+      │ ├── css-list-helpers@1.0.1 
+      │ ├── css-system-font-keywords@1.0.0 
+      │ ├── tcomb@2.7.0 
+      │ └── unquote@1.1.0 
+      └─┬ units-css@0.4.0 
+        ├── isnumeric@0.2.0 
+        └── viewport-dimensions@0.2.0 
+

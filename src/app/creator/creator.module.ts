@@ -8,9 +8,9 @@ import {SharedModule} from "../shared/shared.module";
 import {QRCodeModule} from "angular2-qrcode";
 import {UserComponent} from "./component/user/user.component";
 import {SpinnerModule} from "primeng/components/spinner/spinner";
-import {BusyModule} from "angular2-busy";
 import {DialogModule} from "primeng/components/dialog/dialog";
 import {RouterModule} from "@angular/router";
+import { BusyComponent } from './component/busy/busy.component';
 
 @NgModule({
     imports: [
@@ -21,13 +21,13 @@ import {RouterModule} from "@angular/router";
         FileUploadModule,
         PanelModule,
         SpinnerModule,
-        BusyModule,
         DialogModule,
         RouterModule.forChild([{ path: '', component: MainComponent }])
     ],
     declarations: [
         MainComponent,
-        UserComponent
+        UserComponent,
+        BusyComponent
     ]
 })
 export class CreatorModule {

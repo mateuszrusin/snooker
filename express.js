@@ -44,6 +44,13 @@ app.post('/api/game', validator.validate(bodySchema), function(request, response
     data.created = new Date().toISOString().replace('T', ' ').substr(0, 19);
 
     Db.games.save(data, function (err, doc) {
+
+        var seconds = 15;
+
+        var waitTill = new Date(new Date().getTime() + seconds * 1000);
+
+        while(waitTill > new Date()){}
+
         response.send(doc._id.toString());
     });
 });
@@ -72,4 +79,11 @@ app.post('/api/upload', upload.single('file'), function(request, response) {
 /** STATIC **/
 app.use('/img', express.static('img'));
 app.use('/asset', express.static('asset'));
-app.use('/', express.static('dist'))
+//app.use('/', express.static('dist'))
+
+app.use(express.static('dist'))
+
+// Catch all other routes and return the index file
+app.get('*', (request, response) => {
+    response.sendFile(Path.join(__dirname, 'dist/index.html'));
+});

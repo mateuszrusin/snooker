@@ -14,17 +14,20 @@ import {User} from "../../../shared/type/user";
 export class MainComponent {
 
     id: string;
-    data: Game;
-    busy: Subscription;
+    busy: boolean = false;
 
-    constructor(private game: GameService) {
-        this.data = game.get();
+    constructor(private game: GameService) {}
+
+    public get data(): Game {
+        return this.game.get();
     }
 
     public save() {
-        this.busy = this.game.save().subscribe(
+        this.busy = true;
+        this.game.save().subscribe(
             id  => this.id = id,
             error => console.log("SAVE ERROR:", error),
+            () => this.busy = false
         );
     }
 

@@ -42,7 +42,11 @@ h1 {
 }
 
 .menu {
-    top: 1vmin;
-    left: 1vmin;
     position: absolute;
+}
+
+.busy {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
