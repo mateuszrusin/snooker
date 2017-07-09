@@ -1,4 +1,4 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
 import {Player} from "../../type/player";
 
 @Component({
@@ -10,5 +10,11 @@ import {Player} from "../../type/player";
 export class PlayerComponent {
 
     @Input() player: Player;
+
+    constructor(private cdRef:ChangeDetectorRef) {}
+
+    ngAfterViewChecked() {
+        this.cdRef.detectChanges();
+    }
 
 }

@@ -8,7 +8,7 @@ import {Config} from "../../service/config/config.service";
 })
 export class FrameComponent {
 
-  private frames: string
+  frames: string
 
   constructor(config: Config) {
     this.frames = config.get('game.frames');

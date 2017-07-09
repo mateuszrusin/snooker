@@ -8,7 +8,7 @@ import {Break} from "../../service/break/break.service";
 })
 export class BreakComponent {
 
-    private break: Break;
+    break: Break;
 
     constructor(breakService: Break) {
         this.break = breakService;

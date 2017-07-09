@@ -8,7 +8,7 @@ import {Config} from "../../service/config/config.service";
 })
 export class RefereeComponent  {
 
-    private referee: any;
+    referee: any;
 
     constructor(config: Config) {
         this.referee = config.get('game.referee');

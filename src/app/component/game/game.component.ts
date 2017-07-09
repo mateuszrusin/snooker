@@ -10,9 +10,9 @@ import {Result} from "../../service/result/result.service";
 })
 export class GameComponent implements OnInit {
 
-    private config: any;
+    config: any;
 
-    constructor(private result: Result, config: Config) {
+    constructor(public result: Result, config: Config) {
         this.config = config.get('game');
     }
 
