@@ -5,8 +5,8 @@
                 ({{frames}})
             </span>
             <span pInplaceContent class="edit center middle">
-                <input #input pInputText type="text" [(ngModel)]="frames" class="ui-state-default ui-corner-all">
-                <button type="button" icon="fa-check" pButton (click)="inplace.deactivate($event)"></button>
+                <input #input pInputText autofocus type="text" (keydown.enter)="button.click()" [(ngModel)]="frames" class="ui-state-default ui-corner-all">
+                <button #button type="button" icon="fa-check" pButton (click)="inplace.deactivate($event)"></button>
             </span>
         </p-inplace>
     </div>

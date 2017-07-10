@@ -5,7 +5,7 @@
                 {{player.name}}
             </span>
             <span pInplaceContent class="edit center middle">
-                <input #input pInputText type="text" (keydown.enter)="button.click()" [(ngModel)]="player.name" class="ui-state-default ui-corner-all">
+                <input #input pInputText autofocus type="text" (keydown.enter)="button.click()" [(ngModel)]="player.name" class="ui-state-default ui-corner-all">
                 <button #button type="button" icon="fa-check" pButton (click)="inplace.deactivate($event)"></button>
             </span>
         </p-inplace>
