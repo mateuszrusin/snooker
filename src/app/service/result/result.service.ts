@@ -19,7 +19,7 @@ export class Result {
     };
 
     points(points: number): void {
-        this.active().points += points * this.active().factor;
+        this.active().points += points * this.factor();
     }
 
     frame(): void {
@@ -50,6 +50,10 @@ export class Result {
             factor: 1,
             active: false
         }
+    }
+
+    factor(): number {
+        return this.active().factor;
     }
 
     private active(): State {

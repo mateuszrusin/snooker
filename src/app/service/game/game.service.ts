@@ -17,7 +17,7 @@ export class Game  {
 
     select(ball: Ball): void {
         this.save();
-        this.break.update(ball);
+        this.break.update(ball, this.result.factor());
         this.result.points(ball.points);
     }
 

@@ -12,8 +12,8 @@ export class Break {
         this.order = [];
     }
 
-    update(ball: Ball): void {
-        this.total += ball.points;
+    update(ball: Ball, factor: number): void {
+        this.total += ball.points * factor;
         this.order.push(ball);
     }
 }
