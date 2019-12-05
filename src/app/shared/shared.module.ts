@@ -8,14 +8,14 @@ import {ButtonModule} from "primeng/components/button/button";
 import {GameService} from "./service/game.service";
 import {BreakService} from "./service/break.service";
 import {CommonModule} from "@angular/common";
-import {HttpModule} from "@angular/http";
 import {DataService} from "./service/data.service";
 import {ResultService} from "./service/result.service";
 import {FoulService} from "./service/foul.service";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
-        HttpModule,
+        HttpClientModule,
         FormsModule,
         AppTranslateModule,
         TieredMenuModule,

@@ -1,7 +1,8 @@
 import {NgModule} from "@angular/core";
 import {LANG} from "./shared/data/lang";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {Observable} from "rxjs/Observable";
+import { Observable } from 'rxjs';
+import 'rxjs-compat/add/observable/of';
 
 export class LocalLoader implements TranslateLoader {
     getTranslation(lang: string): Observable<any> {

@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Headers} from "@angular/http";
-import {Observable} from "rxjs/Observable";
 import {Game} from "../type/game";
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class GameService {
@@ -26,7 +27,7 @@ export class GameService {
     };
 
 
-    constructor(private http: Http) {}
+    constructor(private http: HttpClient) {}
 
     public load(id: string): Observable<any> {
         return this.http
@@ -39,7 +40,7 @@ export class GameService {
             .post(
                 this.URL,
                 JSON.stringify(this.data),
-                new RequestOptions({headers: new Headers({'Content-Type': 'application/json'})})
+                {headers: new HttpHeaders({'Content-Type': 'application/json'})}
             )
             .map(response => response.text());
     }
