@@ -32,7 +32,7 @@ export class GameService {
     public load(id: string): Observable<any> {
         return this.http
             .get(this.URL + id)
-            .map(response => response.json());
+            .map((response: Response) => response.json());
     }
 
     public save(): Observable<any> {
@@ -42,7 +42,7 @@ export class GameService {
                 JSON.stringify(this.data),
                 {headers: new HttpHeaders({'Content-Type': 'application/json'})}
             )
-            .map(response => response.text());
+            .map((response: Response) => response.text());
     }
 
     public get(): Game {

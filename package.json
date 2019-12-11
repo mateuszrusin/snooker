@@ -1,6 +1,6 @@
 {
   "name": "snooker",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -24,7 +24,7 @@
     "@types/lodash": "^4.14.149",
     "angular2-qrcode": "^2.0.3",
     "body-parser": "^1.19.0",
-    "core-js": "^3.4.7",
+    "core-js": "^2.5.7",
     "css-loader": "^3.2.1",
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",
